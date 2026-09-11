@@ -758,7 +758,7 @@ Supports stream specification expansion for AclGraph on Ascend 950DT to resolve 
 | ${install_path}/ascend-toolkit/latest/runtime/include/graph  | ${install_path}/cann/include/graph                         |
 | ${install_path}/ascend-toolkit/latest/compiler/python/func2graph | `func2graph` in the `${install_path}/cann/x86_64-linux/python` directory |
 
-Starting from Ascend 950, the aclblas and aclop APIs are no longer recommended. They will be gradually deprecated in later versions. Migrate to the corresponding aclnn operator APIs.
+Starting from Ascend 950 products, the aclblas and aclop APIs are no longer recommended. They will be gradually deprecated in later versions. Migrate to the corresponding aclnn operator APIs.
 
 ### Operator Libraries
 
