@@ -590,13 +590,13 @@ The following operators are supported for the Atlas A2 products and Atlas A3 pro
 
 - **Attention/KV Cache inference enhancement**
 
-  - Paged Attention: Upgrades FusedInferAttention V5 on <term>Ascend 950</term> ([!2069](https://gitcode.com/cann/ascend-transformer-boost/pull/2069)).
+  - Paged Attention: Upgrades FusedInferAttention V5 on <term>Ascend 950 products</term> ([!2069](https://gitcode.com/cann/ascend-transformer-boost/pull/2069)).
 
   - Paged Attention and Flash Attention now support the NORM_COMPRESS mask ([!2114](https://gitcode.com/cann/ascend-transformer-boost/pull/2114), [!2116](https://gitcode.com/cann/ascend-transformer-boost/pull/2116), [!2078](https://gitcode.com/cann/ascend-transformer-boost/pull/2078)).
 
   - MLA decode supports Sliding Window Attention (SWA).
 
-  - ReshapeAndCache supports single-input single-output on <term>Ascend 950</term> ([!2065](https://gitcode.com/cann/ascend-transformer-boost/pull/2065)).
+  - ReshapeAndCache supports single-input single-output on <term>Ascend 950 products</term> ([!2065](https://gitcode.com/cann/ascend-transformer-boost/pull/2065)).
 
 - **Independent compilation and ABI system of torch_atb**
 
@@ -686,7 +686,7 @@ Supports stream specification expansion for AclGraph on Ascend 950DT to resolve 
 
 - Communication instructions:
 
-  - Adds CCU asynchronous communication instructions TGATHER, TBROADCAST, TSCATTER, and TREDUCE for <term>Ascend 950</term> ([!915](https://gitcode.com/cann/pto-isa/pull/915)).
+  - Adds CCU asynchronous communication instructions TGATHER, TBROADCAST, TSCATTER, and TREDUCE for <term>Ascend 950 products</term> ([!915](https://gitcode.com/cann/pto-isa/pull/915)).
 
   - Supports the all-core synchronization instruction SYNCALL ([!907](https://gitcode.com/cann/pto-isa/pull/907)).
 
