@@ -394,6 +394,13 @@ CANN 9.2.0-beta.2包含Toolkit包、算子包（ops）、加速库（NNAL）3个
 | ${install_path}/ascend-toolkit/latest/include/base/alog_pub.h中的AlogCheckDebugLevel接口 | ${install_path}/cann/pkg_inc/base/dlog_pub.h中的CheckLogLevel接口 |
 | ${install_path}/ascend-toolkit/latest/include/base/alog_pub.h中的AlogRecord接口 | ${install_path}/cann/pkg_inc/base/dlog_pub.h中的DlogRecord接口或封装的dlog_error、dlog_warn等宏 |
 
+**以下目录、文件和接口等在CANN 9.2.0中被标记为废弃，将在2027.9.30之后的版本删除**
+
+| 废弃的目录、文件和接口                                       | 替换的目录、文件和接口                                       |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| E5、E6、E7、E8 开头的错误码将在 ${install_path}/ascend-toolkit/latest/conf/error_manager/error_code.json 中废弃，如若代码中仍使用这些错误码，会上报失败 |
+| 相应功能错误码使用opbase仓内错误码接口宏替换 ${install_path}/ascend-toolkit/latest/include/op_common/log/log.h |
+
 ## 漏洞修补列表
 
 版本开源及第三方软件漏洞修复情况详见[漏洞修补列表](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/910/maintenref/refdoc/refer002.html)。
