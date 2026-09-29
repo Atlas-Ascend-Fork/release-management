@@ -380,7 +380,7 @@ Operators are split into component packages. Each independent component package 
 | aclnnWeightQuantBatchMatmul API | aclnnWeightQuantBatchMatmulV3 API |
 | aclnnQuantMatmul, aclnnQuantMatmulV2, aclnnQuantMatmulV3, and aclnnQuantMatmulV4 APIs | aclnnQuantMatmulV5 API |
 | aclnnGroupedMatmul, aclnnGroupedMatmulV2, aclnnGroupedMatmulV3, and aclnnGroupedMatmulV4 APIs | aclnnGroupedMatmulV5 API |
-| aclnnIncreFlashAttentionV2 and aclnnIncreFlashAttentionV3 APIs | aclnnIncreFlashAttentionV5 API |
+| aclnnIncreFlashAttentionV2 and aclnnIncreFlashAttentionV3 APIs | aclnnIncreFlashAttentionV4 API |
 | aclnnPromptFlashAttentionV2 API | aclnnPromptFlashAttentionV3 API |
 | aclnnFusedInferAttentionScoreV2 and aclnnFusedInferAttentionScoreV3 APIs | aclnnFusedInferAttentionScoreV4 API |
 
