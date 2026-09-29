@@ -326,7 +326,7 @@ CANN 9.2.0-beta.1包含Toolkit包、算子包（ops）、加速库（NNAL）3个
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ${install_path}/ascend-toolkit/latest/opp/built-in/op_proto/inc/*.h | ${install_path}/cann/opp/built-in/op_graph/inc/\${ops_project}_ops_proto.h |
 | ${install_path}/ascend-toolkit/latest/lib64/libopapi.so      | ${install_path}/cann/lib64/libopapi_\${ops_project}.so |
-| aclnnGroupedMatMulAllReduce接口                              | 无可替换功能                                                 |
+| aclnnGroupedMatMulAllReduce接口                              | aclnnMatmulAllReduce接口                                                 |
 | aclnnWeightQuantBatchMatmul接口                              | aclnnWeightQuantBatchMatmulV3接口                            |
 | aclnnQuantMatmul、aclnnQuantMatmulV2、aclnnQuantMatmulV3和aclnnQuantMatmulV4接口 | aclnnQuantMatmulV5接口                                       |
 | aclnnGroupedMatmul、aclnnGroupedMatmulV2、aclnnGroupedMatmulV3、aclnnGroupedMatmulV4接口 | aclnnGroupedMatmulV5接口                                     |
