@@ -308,7 +308,63 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 
 ## 新增特性
 
-### ops-nn库
+### 算子库
+
+#### ops-math库
+
+- <term>Ascend 950PR/Ascend 950DT</term>适配与场景支持：
+  - 新增适配以下算子
+    - MatrixSetDiagV2，支持替换输入张量的单条或多条对角线元素（[!3961](https://gitcode.com/cann/ops-math/pull/3961)）。
+    - DropoutV3Grad，提供aclnnDropoutV3Grad接口，支持根据mask和scale计算反向梯度（[!4034](https://gitcode.com/cann/ops-math/pull/4034)）。
+  - 算子新增特性支持
+    - BitwiseAnd系列算子新增int8、uint8、uint32和uint64数据类型支持（[!5573](https://gitcode.com/cann/ops-math/pull/5573)）。
+    - WeightQuantPreprocess新增A16W4数据流支持，支持INT4、FP4和MXFP4权重的紧凑排布转换（[!4495](https://gitcode.com/cann/ops-math/pull/4495)）。
+
+- 算子新增特性支持：
+  - ReduceSum、ReduceMean支持Batch一致性计算（[!3442](https://gitcode.com/cann/ops-math/pull/3442)、[!3646](https://gitcode.com/cann/ops-math/pull/3646)）。
+  - aclnnAngleV2支持非连续输入和输出（[!4897](https://gitcode.com/cann/ops-math/pull/4897)）。
+  - NpuFormatCast新增FLOAT4_E1M2数据类型的ND到FRACTAL_NZ格式转换支持（[!3340](https://gitcode.com/cann/ops-math/pull/3340)）。
+
+- 性能优化：
+  - Sort算子排序性能优化，采用ping-pong merge策略（[!5809](https://gitcode.com/cann/ops-math/pull/5809)）。
+  - TopkV2算子小轴场景排序性能优化（[!5939](https://gitcode.com/cann/ops-math/pull/5939)）。
+  - DropOutV3算子优化Philox随机数生成循环，提升计算性能（[!5682](https://gitcode.com/cann/ops-math/pull/5682)）。
+  - Cdist算子性能优化（[!5021](https://gitcode.com/cann/ops-math/pull/5021)）。
+  - ConstantPadNd算子优化bool输入处理、大尾轴双缓冲和循环展开，提升填充性能（[!4629](https://gitcode.com/cann/ops-math/pull/4629)）。
+
+#### ops-cv库
+
+- <term>Ascend 950PR/Ascend 950DT</term>适配与场景支持：
+  - 新增适配以下算子
+    - BatchMultiClassNonMaxSuppression，支持按batch和类别执行非极大值抑制（[!1176](https://gitcode.com/cann/ops-cv/pull/1176)）。
+    - CombinedNonMaxSuppression，支持合并各类别的非极大值抑制结果（[!1219](https://gitcode.com/cann/ops-cv/pull/1219)）。
+    - NonMaxSuppressionV7（[!1293](https://gitcode.com/cann/ops-cv/pull/1293)）。
+    - SortedNMS，支持对已按分数排序的候选框执行非极大值抑制（[!1236](https://gitcode.com/cann/ops-cv/pull/1236)）。
+    - RotatedOverlaps，支持计算二维旋转框之间的交叠面积（[!1339](https://gitcode.com/cann/ops-cv/pull/1339)）。
+  - 算子新增特性支持
+    - CombinedNonMaxSuppression新增FP16数据类型支持，放宽iouThreshold值域及候选框数量限制（[!1627](https://gitcode.com/cann/ops-cv/pull/1627)）。
+
+- 性能优化：
+  - CombinedNonMaxSuppression优化归约、数据搬运和workspace使用，提升目标检测后处理性能（[!1712](https://gitcode.com/cann/ops-cv/pull/1712)）。
+
+#### opbase库
+
+- 新增特性：
+  - ACLNN框架支持强一致性与Batch一致性配置，并支持确定性计算与一致性开关在算子级动态生效（[!631](https://gitcode.com/cann/opbase/pull/631)、[!643](https://gitcode.com/cann/opbase/pull/643)）。
+  - Reduce模板支持Batch一致性计算，提供相应的tiling切分策略和kernel调度能力（[!519](https://gitcode.com/cann/opbase/pull/519)）。
+  - ACLNN自动框架支持PCIe直通算子，broadcast模板增加PCIe直通场景识别与调度支持（[!741](https://gitcode.com/cann/opbase/pull/741)、[!742](https://gitcode.com/cann/opbase/pull/742)、[!788](https://gitcode.com/cann/opbase/pull/788)）。
+  - 图模式ACLNN Fallback支持Prepare与Launch两阶段执行（[!740](https://gitcode.com/cann/opbase/pull/740)）。
+  - 新增外部算子任务接入框架，支持实现方自行完成实现选择、tiling与kernel下发（[!962](https://gitcode.com/cann/opbase/pull/962)）。
+  - 新增aclnnReselectStaticKernelWithPath接口，支持从自定义目录加载静态算子包（[!598](https://gitcode.com/cann/opbase/pull/598)）。
+  - 支持内置AICPU JSON算子包加载；自定义AICPU算子加载支持从ASCEND_OPP_PATH/vendors推导路径（[!666](https://gitcode.com/cann/opbase/pull/666)、[!698](https://gitcode.com/cann/opbase/pull/698)）。
+  - 支持DEB/RPM格式的软件包构建与发布（[!678](https://gitcode.com/cann/opbase/pull/678)）。
+  - 开源算子精度标准增加用例设计与混合容差设计说明（[!508](https://gitcode.com/cann/opbase/pull/508)）。
+  - 增强ACLNN框架缓存场景的日志维测能力（[!849](https://gitcode.com/cann/opbase/pull/849)）。
+
+- 性能优化：
+  - ReduceProd模板在AR模式归约为单个元素的场景采用树形归约，优化累乘性能（[!690](https://gitcode.com/cann/opbase/pull/690)）。
+
+#### ops-nn库
 
 - Atlas A2 训练系列产品/Atlas A2 推理系列产品 和 Atlas A3 训练系列产品/Atlas A3 推理系列产品适配与场景支持：
   - 新增适配以下算子
@@ -324,7 +380,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
     - SituGluGrad（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
     - SituMxQuant （[!8798](https://gitcode.com/cann/ops-nn/pull/8798)）。
 
-### ops-transformer库
+#### ops-transformer库
 
 - Atlas A2 训练系列产品/Atlas A2 推理系列产品 和 Atlas A3 训练系列产品/Atlas A3 推理系列产品适配与场景支持：
   - 新增 MsaIndexScore 算子（[!9503](https://gitcode.com/cann/ops-transformer/pull/9503)）。
@@ -392,7 +448,10 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 
 ### 算子库
 
-- **不兼容变更**：控制类算子Identity、IdentityN、Rank、Shape和ShapeN从ops-nn迁移至ops-math。这些算子从`ops_proto_nn.h`和`es_nn`目录迁移到`ops_proto_math.h`和`es_math`目录，用户需更新相关头文件引用（[!2333](https://gitcode.com/cann/ops-math/pull/2333)、[!3995](https://gitcode.com/cann/ops-nn/pull/3995)）。
+- **不兼容变更**：
+  - 控制类算子Identity、IdentityN、Rank、Shape和ShapeN从ops-nn迁移至ops-math。这些算子从`ops_proto_nn.h`和`es_nn`目录迁移到`ops_proto_math.h`和`es_math`目录，用户需更新相关头文件引用（[!2333](https://gitcode.com/cann/ops-math/pull/2333)、[!3995](https://gitcode.com/cann/ops-nn/pull/3995)）。
+  - kth_value、median和nan_median算子的实现与注册配置由ops-math迁移至ops-nn，使用相关算子需配套升级ops-nn组件（[!5809](https://gitcode.com/cann/ops-math/pull/5809)、[!10728](https://gitcode.com/cann/ops-nn/pull/10728)），这些算子从`ops_proto_math.h`和`es_math`目录迁移到`ops_proto_nn.h`和`es_nn`目录。
+  - RoiPooling算子由ops-cv迁移至ops-nn，使用相关算子需配套升级ops-nn组件，避免升级后原型定义冲突（[!1442](https://gitcode.com/cann/ops-cv/pull/1442)、[!9609](https://gitcode.com/cann/ops-nn/pull/9609)），这些算子从`ops_proto_cv.h`和`es_cv`目录迁移到`ops_proto_nn.h`和`es_nn`目录。
 
 **以目录、文件和接口等在CANN 9.0.0中被标记为废弃，将在2027.3.30之后的版本删除**
 
