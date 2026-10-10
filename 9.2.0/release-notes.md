@@ -408,6 +408,15 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 废弃特性为当前版本标记为废弃特性，未来版本即将下线的特性。
 - 本节中的${install_path}请替换为CANN软件安装路径。
 
+### 通信库
+
+#### 集合通信
+- Ascend 950PR支持HCCL Tuner Plugin功能，支持用户灵活控制算法选择策略([!2602](https://gitcode.com/cann/hccl/pull/2602))。
+- Ascend 950PR支持在experimental目录扩展自定义算法，提升生态扩展易用性([!2734](https://gitcode.com/cann/hccl/pull/2734)) 。
+- Ascend 950PR支持URMA场景下的对称内存能力，支持用户通过 HcclCommSymWinRegister 注册对称窗口，提升算子算法实现易用性([!2369](https://gitcode.com/cann/hcomm/pull/2369) [!1195](https://gitcode.com/cann/hccl/pull/1195))。
+- Ascend 950PR支持CCU资源灵活申请，提升自定义CCU算子灵活性([!3367](https://gitcode.com/cann/hcomm/pull/3367))。
+- Ascend 950PR提供 Host 网卡实现扩展能力，支持灵活扩展hcomm接口实现([!4257](https://gitcode.com/cann/hcomm/pull/4257)) 。
+
 ### 运行时
 
 - 开源Pyacl, acl接口Python版本，便于直接使用Python语言开发应用程序（[!4635](https://gitcode.com/cann/runtime/pull/4635)）。
