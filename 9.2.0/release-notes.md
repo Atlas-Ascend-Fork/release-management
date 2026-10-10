@@ -410,6 +410,19 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 
 ### 运行时
 
+- 开源Pyacl, acl接口Python版本，便于直接使用Python语言开发应用程序（[!4635](https://gitcode.com/cann/runtime/pull/4635)）。
+- 支持 Kernel Launch 和模型执行的阻塞调试模式（[!4247](https://gitcode.com/cann/runtime/pull/4247)）。
+- 支持 ACL Graph同一捕获模型跨流执行有序（[!4479](https://gitcode.com/cann/runtime/pull/4479)）。
+- 新增 PCI Bus ID 双向查询接口：aclrtDeviceGetPCIBusId、aclrtDeviceGetByPCIBusId（[!4066](https://gitcode.com/cann/runtime/pull/4066)）。
+
+**以下目录、文件和接口等在CANN 9.2.0中被标记为废弃，计划在2027.9.30之后的版本删除。**
+
+| 废弃的目录、文件和接口   | 替换的目录、文件和接口 |
+| ------------------------------- | ------------------------------------------------------------------------- |
+| aclrtGetVersion                 | aclsysGetVersionNu  aclsysGetVersionStr                                   |
+| aclrtMemcpyAsyncWithCondition   | aclrtMemcpyAsync                                                          |
+| aclrtSetExceptionInfoCallback   | aclrtExceptionInfoCallbackRegister  aclrtExceptionInfoCallbackUnregister  |
+
 **以下目录、文件和接口等在CANN 9.1.0中被标记为废弃，计划在2027.6.30之后的版本删除。**
 
 | 废弃的目录、文件和接口   | 替换的目录、文件和接口 |
