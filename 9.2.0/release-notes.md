@@ -400,6 +400,16 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   - 新增BlockAttentionResiduals反向算子（[!11006](https://gitcode.com/cann/ops-transformer/pull/11006)）。
   - KvQuantSparseFlashAttentionMla算子性能优化（[!10428](https://gitcode.com/cann/ops-transformer/pull/10428)）。
   - 新增InplacePartialRotaryMul算子，支持原地部分旋转乘法操作（[!6085](https://gitcode.com/cann/ops-transformer/pull/6085)）。
+
+### 图引擎
+
+- 新增自定义Pass开发和自定义算子开发的Python API，支持在Python环境下编写自定义Pass及接入自定义算子。
+- 新增Host CPU算子注册接口，支持自定义Host CPU算子接入常量折叠优化及动态Shape执行时调度。([!4481](https://gitcode.com/cann/ge/pull/4481)、[!4538](https://gitcode.com/cann/ge/pull/4538)、[!4918](https://gitcode.com/cann/ge/pull/4918))
+- 新增动态Shape自动多流并行优化，可通过ge.autoMultistreamParallelMode开启；ATC新增multi_stream_parallel_mode参数，支持离线推理场景开启自动多流优化。([!3781](https://gitcode.com/cann/ge/pull/3781)、[!4184](https://gitcode.com/cann/ge/pull/4184)、[!4301](https://gitcode.com/cann/ge/pull/4301))
+- 优化RunGraphWithStreamAsync接口易用性，静态Shape场景下用户未注册外置Allocator时，也支持自动分配输出内存。( [!3306](https://gitcode.com/cann/ge/pull/3306))
+- 支持PCIe算子入图，并提供算子声明PCIe Through能力。([!430](https://gitcode.com/cann/metadef/pull/430)、[!4394](https://gitcode.com/cann/ge/pull/4394))
+- 新增Host输入场景下的动态Shape调度性能优化，对连续在Host CPU上执行的算子进行Codegen融合，进一步提升性能。( [!3626](https://gitcode.com/cann/ge/pull/3626)、[!4669](https://gitcode.com/cann/ge/pull/4669))
+
 ## 删除和废弃特性
 
 ### 说明
