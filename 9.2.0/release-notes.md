@@ -367,6 +367,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - Atlas A2 训练系列产品/Atlas A2 推理系列产品 和 Atlas A3 训练系列产品/Atlas A3 推理系列产品适配与场景支持：
   - 新增适配以下算子
     - FusedSgd（[!6220](https://gitcode.com/cann/ops-nn/pull/6220)）。
+    - FusedAdamw（[!7851](https://gitcode.com/cann/ops-nn/pull/7851)）。
 - Atlas A2 训练系列产品/Atlas A2 推理系列产品 和 Atlas A3 训练系列产品/Atlas A3 推理系列产品适配与场景支持：
   - 新增适配以下算子
     - SituGlu （[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
@@ -377,6 +378,8 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
     - SituGlu （[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
     - SituGluGrad（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
     - SituMxQuant （[!8798](https://gitcode.com/cann/ops-nn/pull/8798)）。
+    - FusedSgd（[!7877](https://gitcode.com/cann/ops-nn/pull/7877)）。
+    - FusedAdam（[!8934](https://gitcode.com/cann/ops-nn/pull/8934)）。
 
 #### ops-transformer库
 
