@@ -527,6 +527,8 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 | ${install_path}/ascend-toolkit/latest/include/base/alog_pub.h中的AlogCheckDebugLevel接口 | ${install_path}/cann/pkg_inc/base/dlog_pub.h中的CheckLogLevel接口 |
 | ${install_path}/ascend-toolkit/latest/include/base/alog_pub.h中的AlogRecord接口 | ${install_path}/cann/pkg_inc/base/dlog_pub.h中的DlogRecord接口或封装的dlog_error、dlog_warn等宏 |
 
+**ASCEND_SLOG_PRINT_TO_STDOUT环境变量在本版本标记为废弃，将在2027年9月30日之后的版本删除，替换为：ASCEND_LOG_PRINT_TO_STDOUT **
+
 ## 已修复问题
 
 以下问题在9.2.0版本修复：
