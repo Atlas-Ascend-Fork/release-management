@@ -386,8 +386,20 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   - MlaProlog算子增设RoPE计算操作开关并支持cache输入非连续（[!10296](https://gitcode.com/cann/ops-transformer/pull/10296)）（[!9472](https://gitcode.com/cann/ops-transformer/pull/9472)）。
   - FusedInferAttentionScore算子的MLA模板非量化decode场景支持headNum<=128任意值泛化（[!9773](https://gitcode.com/cann/ops-transformer/pull/9773)）。
   - MegaMoe算子新增支持situ，swigluoai，swiglustep等激活类型（[!8868](https://gitcode.com/cann/ops-transformer/pull/8868)）。
+  - 新增GenericBlockSparseAttentionMetadata算子（[!10657](https://gitcode.com/cann/ops-transformer/pull/10657)）。
+  - SparseFlashMla算子topk泛化（[!11899](https://gitcode.com/cann/ops-transformer/pull/11899)）。
+  - SparseFlashMla算子SWA稀疏ori_kv支持（[!9384](https://gitcode.com/cann/ops-transformer/pull/9384)）。
+  - RopeWithSinCosCache算子支持[11,11,10]（[!7120](https://gitcode.com/cann/ops-transformer/pull/7120)）。
+  - 新增BlockAttentionResiduals正向算子（[!11161](https://gitcode.com/cann/ops-transformer/pull/11161)）。
+  - 新增BlockAttentionResiduals反向算子（[!11006](https://gitcode.com/cann/ops-transformer/pull/11006)）。
+  - 新增InplacePartialRotaryMul算子，支持原地部分旋转乘法操作（[!6085](https://gitcode.com/cann/ops-transformer/pull/6085)）。
 - Ascend 950PR/Ascend 950DT系列产品适配与场景支持：
   - FusedInferAttentionScore算子的MLA模板非量化decode场景支持headNum<=128任意值泛化（[!9773](https://gitcode.com/cann/ops-transformer/pull/9773)）。
+  - 新增GenericBlockSparseAttentionMetadata算子（[!10657](https://gitcode.com/cann/ops-transformer/pull/10657)）。
+  - 新增BlockAttentionResiduals正向算子（[!11161](https://gitcode.com/cann/ops-transformer/pull/11161)）。
+  - 新增BlockAttentionResiduals反向算子（[!11006](https://gitcode.com/cann/ops-transformer/pull/11006)）。
+  - KvQuantSparseFlashAttentionMla算子性能优化（[!10428](https://gitcode.com/cann/ops-transformer/pull/10428)）。
+  - 新增InplacePartialRotaryMul算子，支持原地部分旋转乘法操作（[!6085](https://gitcode.com/cann/ops-transformer/pull/6085)）。
 ## 删除和废弃特性
 
 ### 说明
