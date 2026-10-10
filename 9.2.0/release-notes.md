@@ -27,7 +27,6 @@ CANN与Ascend HDK版本兼容
     <col style="width: 150px">
     <col style="width: 150px">
     <col style="width: 150px">
-    <col style="width: 150px">
   </colgroup>
   <thead>
     <tr>
@@ -35,19 +34,15 @@ CANN与Ascend HDK版本兼容
       <th colspan="6">驱动版本（Ascend HDK）</th>
     </tr>
     <tr>
-      <th>25.0.X</th>
-      <th>25.2.X</th>
-      <th>25.3.X</th>
       <th>25.5.X</th>
       <th>26.0.RC1/25.7.RC1</th>
       <th>26.1.1</th>
+      <th>26.2.RC1</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>8.5.2</td>
-      <td>Y</td>
-      <td>Y</td>
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
@@ -59,13 +54,16 @@ CANN与Ascend HDK版本兼容
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
-      <td>Y</td>
-      <td>Y</td>
     </tr>
     <tr>
       <td>9.1.X</td>
-      <td>N</td>
       <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+    </tr>
+     <tr>
+      <td>9.2.0</td>
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
