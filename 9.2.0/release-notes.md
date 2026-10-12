@@ -386,11 +386,14 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   - 新增适配以下算子
     - FusedSgd（[!6220](https://gitcode.com/cann/ops-nn/pull/6220)）。
     - FusedAdamw（[!7851](https://gitcode.com/cann/ops-nn/pull/7851)）。
-- Atlas A2 训练系列产品/Atlas A2 推理系列产品 和 Atlas A3 训练系列产品/Atlas A3 推理系列产品适配与场景支持：
-  - 新增适配以下算子
     - SituGlu （[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
     - SituGluGrad（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
     - DequantSituQuant （[!8798](https://gitcode.com/cann/ops-nn/pull/8798)）。
+    - MatmulEmuSplitWeight （[!9237](https://gitcode.com/cann/ops-nn/pull/9237)）。
+  - 新增特性：
+    - aclnnAddmm/Baddbmm/AddmmWeightNz 支持需要broadcast的bias输入（[!8446](https://gitcode.com/cann/ops-nn/pull/8446)、[!8784](https://gitcode.com/cann/ops-nn/pull/8784)）。
+    - aclnnMatmul新增支持8维度输入（[!8785](https://gitcode.com/cann/ops-nn/pull/8785)）。
+    - MatMulV3算子新增AL1全载单核切K模板（[!7504](https://gitcode.com/cann/ops-nn/pull/7504)）。
 - Ascend 950PR/Ascend 950DT系列产品适配与场景支持：
   - 新增适配以下算子
     - SituGlu （[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
@@ -398,13 +401,26 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
     - SituMxQuant （[!8798](https://gitcode.com/cann/ops-nn/pull/8798)）。
     - FusedSgd（[!7877](https://gitcode.com/cann/ops-nn/pull/7877)）。
     - FusedAdam（[!8934](https://gitcode.com/cann/ops-nn/pull/8934)）。
+    - QuantMatmulActivationQuant（[!7272](https://gitcode.com/cann/ops-nn/pull/7272)）。
+    - ExpandIntoJaggedPermute（[!8583](https://gitcode.com/cann/ops-nn/pull/8583)）。
+  - 新增特性：
+    - QuantBatchMatmulV4伪量化MX A8W4、TCG A8W4适配Blaze（[!7921](https://gitcode.com/cann/ops-nn/pull/7921)、[!9840](https://gitcode.com/cann/ops-nn/pull/9840)）。
+    - WeightQuantBatchMatmulV2新增A16W8 ND per-channel、per-tensor的Blaze执行路径（[!9877](https://gitcode.com/cann/ops-nn/pull/9877)）。
+    - Matmul非量化模板适配TensorAPI/Blaze：ASWT模板、BatchMatmul基础模板及broadcast场景切换TensorAPI（[!2133](https://gitcode.com/cann/ops-nn/pull/2133)、[!5087](https://gitcode.com/cann/ops-nn/pull/5087)），BatchMatmul StreamK模板切换Blaze（[!7731](https://gitcode.com/cann/ops-nn/pull/7731)），IterBatch场景新增Blaze模板（[!10543](https://gitcode.com/cann/ops-nn/pull/10543)）。
+    - QuantBatchMatmulV3与Matmul支持Batch一致性：Batch一致性等级下关闭StreamK，并在不同M下固定A全载与单核切K的模板选择（[!7705](https://gitcode.com/cann/ops-nn/pull/7705)、[!11060](https://gitcode.com/cann/ops-nn/pull/11060)）。
+  - 性能优化：
+    - QuantBatchMatmulV3 MX场景优化tiling，覆盖base block负载均衡、scale在L1全载和4-buffer选择（[!6498](https://gitcode.com/cann/ops-nn/pull/6498)）。
+    - QuantBatchMatmulV3 MX Basic API支持3-buffer L1（[!7237](https://gitcode.com/cann/ops-nn/pull/7237)）。
+    - QuantBatchMatmul StreamK收益判断计入Fixpipe写回开销（[!9506](https://gitcode.com/cann/ops-nn/pull/9506)）。
+    - DepthwiseConv2d从卷积通用实现中拆出专用模板，优化scalar bound（[!5726](https://gitcode.com/cann/ops-nn/pull/5726)）。
 
 #### ops-transformer库
 
 - Atlas A2 训练系列产品/Atlas A2 推理系列产品 和 Atlas A3 训练系列产品/Atlas A3 推理系列产品适配与场景支持：
   - 新增 MsaIndexScore 算子（[!9503](https://gitcode.com/cann/ops-transformer/pull/9503)）。
   - 新增 ChunkKdaFwd 算子（[!9979](https://gitcode.com/cann/ops-transformer/pull/9979)）。
-  - MlaProlog算子增设RoPE计算操作开关并支持cache输入非连续（[!10296](https://gitcode.com/cann/ops-transformer/pull/10296)）（[!9472](https://gitcode.com/cann/ops-transformer/pull/9472)）。
+  - MlaProlog算子支持cache首轴输入非连续（[!9472](https://gitcode.com/cann/ops-transformer/pull/9472)）。
+  - MlaPreprocess算子支持cache首轴输入非连续（[!6442](https://gitcode.com/cann/ops-transformer/pull/6442)）。
   - FusedInferAttentionScore算子的MLA模板非量化decode场景支持headNum<=128任意值泛化（[!9773](https://gitcode.com/cann/ops-transformer/pull/9773)）。
   - MegaMoe算子新增支持situ，swigluoai，swiglustep等激活类型（[!8868](https://gitcode.com/cann/ops-transformer/pull/8868)）。
   - 新增GenericBlockSparseAttentionMetadata算子（[!10657](https://gitcode.com/cann/ops-transformer/pull/10657)）。
@@ -426,6 +442,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   - 新增InplacePartialRotaryMul算子，支持原地部分旋转乘法操作（[!6085](https://gitcode.com/cann/ops-transformer/pull/6085)）。
   - BSAG算子支持稀疏block粒度16的整数倍（[!10188](https://gitcode.com/cann/ops-transformer/pull/10188)）。
   - 新增GenericBlockSparseAttentionGrad算子（[!11003](https://gitcode.com/cann/ops-transformer/pull/11003)）。
+  - MlaProlog算子增设RoPE计算操作开关并支持cache输入非连续（[!10296](https://gitcode.com/cann/ops-transformer/pull/10296)）（[!9472](https://gitcode.com/cann/ops-transformer/pull/9472)）。
 
 ### 图引擎
 
