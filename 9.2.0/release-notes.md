@@ -21,8 +21,11 @@ CANN软件版本配套表
 ## 版本兼容性说明
 
 CANN与Ascend HDK版本兼容
-<table style="table-layout: fixed; width: 750px; text-align:center;">
+<table style="table-layout: fixed; width: 900px; text-align:center;">
   <colgroup>
+    <col style="width: 150px">
+    <col style="width: 150px">
+    <col style="width: 150px">
     <col style="width: 150px">
     <col style="width: 150px">
     <col style="width: 150px">
@@ -31,9 +34,12 @@ CANN与Ascend HDK版本兼容
   <thead>
     <tr>
       <th rowspan="3">CANN</th>
-      <th colspan="6">驱动版本（Ascend HDK）</th>
+      <th colspan="7">驱动版本（Ascend HDK）</th>
     </tr>
     <tr>
+      <th>25.0.X</th>
+      <th>25.2.X</th>
+      <th>25.3.X</th>
       <th>25.5.X</th>
       <th>26.0.RC1/25.7.RC1</th>
       <th>26.1.1</th>
@@ -47,6 +53,9 @@ CANN与Ascend HDK版本兼容
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
+       <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
     </tr>
     <tr>
       <td>9.0.X</td>
@@ -54,9 +63,15 @@ CANN与Ascend HDK版本兼容
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
+       <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
     </tr>
     <tr>
       <td>9.1.X</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>Y</td>
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
@@ -64,6 +79,9 @@ CANN与Ascend HDK版本兼容
     </tr>
      <tr>
       <td>9.2.0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>Y</td>
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
