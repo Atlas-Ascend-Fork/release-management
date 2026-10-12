@@ -396,6 +396,9 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   - 新增BlockAttentionResiduals正向算子（[!11161](https://gitcode.com/cann/ops-transformer/pull/11161)）。
   - 新增BlockAttentionResiduals反向算子（[!11006](https://gitcode.com/cann/ops-transformer/pull/11006)）。
   - 新增InplacePartialRotaryMul算子，支持原地部分旋转乘法操作（[!6085](https://gitcode.com/cann/ops-transformer/pull/6085)）。
+  - SMLAG/SLIKLOSSG算子支持sequseq/sequsek输入，topk泛化支持1~8192（[!11087](https://gitcode.com/cann/ops-transformer/pull/11087)）（[!9367](https://gitcode.com/cann/ops-transformer/pull/9367)）。
+  - 新增lightning_indexer_kl_loss融合算子及其torch适配（[!9615](https://gitcode.com/cann/ops-transformer/pull/9615)）。
+
 - Ascend 950PR/Ascend 950DT系列产品适配与场景支持：
   - FusedInferAttentionScore算子的MLA模板非量化decode场景支持headNum<=128任意值泛化（[!9773](https://gitcode.com/cann/ops-transformer/pull/9773)）。
   - 新增GenericBlockSparseAttentionMetadata算子（[!10657](https://gitcode.com/cann/ops-transformer/pull/10657)）。
@@ -403,6 +406,8 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   - 新增BlockAttentionResiduals反向算子（[!11006](https://gitcode.com/cann/ops-transformer/pull/11006)）。
   - KvQuantSparseFlashAttentionMla算子性能优化（[!10428](https://gitcode.com/cann/ops-transformer/pull/10428)）。
   - 新增InplacePartialRotaryMul算子，支持原地部分旋转乘法操作（[!6085](https://gitcode.com/cann/ops-transformer/pull/6085)）。
+  - BSAG算子支持稀疏block粒度16的整数倍（[!10188](https://gitcode.com/cann/ops-transformer/pull/10188)）。
+  - 新增GenericBlockSparseAttentionGrad算子（[!11003](https://gitcode.com/cann/ops-transformer/pull/11003)）。
 
 ### 图引擎
 
