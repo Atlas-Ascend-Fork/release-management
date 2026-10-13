@@ -569,6 +569,12 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 通信API样例：
   - 新增AIN的basic_ring样例，演示多卡环形场景下AIV Kernel通过AIN接口调用Put/Get进行点对点单边通信（[!80](https://gitcode.com/cann/asc-comm/pull/80)）。
 
+### 运行时
+
+- 支持 Kernel Launch 和模型执行的阻塞调试模式（[!4247](https://gitcode.com/cann/runtime/pull/4247)）。
+- 支持 ACL Graph同一捕获模型跨流执行有序（[!4479](https://gitcode.com/cann/runtime/pull/4479)）。
+- 新增 PCI Bus ID 双向查询接口：aclrtDeviceGetPCIBusId、aclrtDeviceGetByPCIBusId（[!4066](https://gitcode.com/cann/runtime/pull/4066)）。
+
 ### 通信库
 
 #### 集合通信
@@ -603,11 +609,6 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 废弃`asc_get_block_num`和`asc_get_block_idx`接口，指引用户使用编译器关键字（[!5216](https://gitcode.com/cann/asc-devkit/pull/5216)）。
 
 ### 运行时
-
-- 开源Pyacl, acl接口Python版本，便于直接使用Python语言开发应用程序（[!4635](https://gitcode.com/cann/runtime/pull/4635)）。
-- 支持 Kernel Launch 和模型执行的阻塞调试模式（[!4247](https://gitcode.com/cann/runtime/pull/4247)）。
-- 支持 ACL Graph同一捕获模型跨流执行有序（[!4479](https://gitcode.com/cann/runtime/pull/4479)）。
-- 新增 PCI Bus ID 双向查询接口：aclrtDeviceGetPCIBusId、aclrtDeviceGetByPCIBusId（[!4066](https://gitcode.com/cann/runtime/pull/4066)）。
 
 **以下目录、文件和接口等在CANN 9.2.0中被标记为废弃，计划在2027.9.30之后的版本删除。**
 
