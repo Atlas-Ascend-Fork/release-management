@@ -499,6 +499,35 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 补齐AscendLoopIR完备度。([!1699](https://gitcode.com/cann/graph-autofusion/pull/1699)、[!1749](https://gitcode.com/cann/graph-autofusion/pull/1749))
 - 新增支持NDDMA性能建模，ATT建模优化。([!1690](https://gitcode.com/cann/graph-autofusion/pull/1690)、[!1792](https://gitcode.com/cann/graph-autofusion/pull/1792)、[!1266](https://gitcode.com/cann/graph-autofusion/pull/1266)、[!1460](https://gitcode.com/cann/graph-autofusion/pull/1460)、[!1580](https://gitcode.com/cann/graph-autofusion/pull/1580)、[!534](https://gitcode.com/cann/graph-autofusion/pull/534)、[!1208](https://gitcode.com/cann/graph-autofusion/pull/1208))
 
+### 算子编程
+
+#### 关键特性
+
+- C API：
+  - Ascend 950PR/Ascend 950DT系列产品新增`asc_lock`和`asc_unlock`接口（[!5216](https://gitcode.com/cann/asc-devkit/pull/5216)）。并补全部分接口及接口支持的数据类型（[!5168](https://gitcode.com/cann/asc-devkit/pull/5168)）。
+- Tensor API：
+  - 新增conv2D功能（[!4239](https://gitcode.com/cann/asc-devkit/pull/4239)）。
+  - 新增超大Tensor的Dump功能（[!6371](https://gitcode.com/cann/asc-devkit/pull/6371)）。
+- SuperKernel：
+  - 支持Ascend 950PR/Ascend 950DT系列产品npugraph_ex路径的SuperKernel功能（[!430](https://gitcode.com/cann/graph-autofusion/pull/430)）。
+- 基础API：
+  - Ascend C支持SIMD VF内FIFO方式的dump、printf和assert（[!4829](https://gitcode.com/cann/asc-devkit/pull/4829)）。
+- SIMT API：
+  - 优化API精度，支持subnormal（[!6028](https://gitcode.com/cann/asc-devkit/pull/6028)）。
+- 通信API：
+  - 新增AIN接口，提供基于对称window的Put/Get/Signal/Flush等单边通信及barrier同步能力（[!59](https://gitcode.com/cann/asc-comm/pull/59)）。
+
+#### 样例更新
+
+- C API样例：
+  - 新增8个搬运场景样例、19个单指令reg样例、7个矩阵计算样例、2个doublebuffer优化样例和1个融合算子最佳实践样例（[!5346](https://gitcode.com/cann/asc-devkit/pull/5346)）。
+- Tensor API样例：
+  - 新增卷积样例，配套conv2D功能（[!4316](https://gitcode.com/cann/asc-devkit/pull/4316)）。
+  - 新增bank_conflict、matmul_bias_fusion、matmul_split_k、conv2d_forward、batch_matmul等样例（[!6163](https://gitcode.com/cann/asc-devkit/pull/6163)）。
+  - 新增自定义Op样例（[!6174](https://gitcode.com/cann/asc-devkit/pull/6174)）。
+- 通信API样例：
+  - 新增AIN的basic_ring样例，演示多卡环形场景下AIV Kernel通过AIN接口调用Put/Get进行点对点单边通信（[!80](https://gitcode.com/cann/asc-comm/pull/80)）。
+
 ### 通信库
 
 #### 集合通信
@@ -523,6 +552,14 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 删除特性为当前版本已删除的特性。
 - 废弃特性为当前版本标记为废弃特性，未来版本即将下线的特性。
 - 本节中的${install_path}请替换为CANN软件安装路径。
+
+### 算子编程
+
+#### C API
+
+- 废弃所有以`_sync`结尾的同步接口（[!5789](https://gitcode.com/cann/asc-devkit/pull/5789)）。
+- 废弃v1～v4接口，并提供对应的替代接口（[!3710](https://gitcode.com/cann/asc-devkit/pull/3710)）。
+- 废弃`asc_get_block_num`和`asc_get_block_idx`接口，指引用户使用编译器关键字（[!5216](https://gitcode.com/cann/asc-devkit/pull/5216)）。
 
 ### 运行时
 
@@ -689,6 +726,16 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - （**不兼容变更**）修复 Atlas A2和Atlas A3系列产品SparseFlashMLA算子torch接口参数默认值错误的问题（ori_mask_mode、cmp_mask_mode、ori_win_left、ori_win_right）。
 - 修复 Ascend 950PR&950DT系列产品 同一个卡同一个进程下，前一次创建成功的通信域ranksize比接下来要创建子通信域的ranksize小的时候导致子通信域创建失败问题。 
 
+
+## 文档变更说明
+
+### 算子编程
+
+- C API：
+  - 重构Ascend 950PR/Ascend 950DT系列产品资料，细化目录划分、优化资料内部结构，完善接口功能说明、调用示例和约束说明（[!5266](https://gitcode.com/cann/asc-devkit/pull/5266)）。
+- Tensor API：
+  - 新增SIMD-CPP Tensor编程指南（[!3187](https://gitcode.com/cann/asc-devkit/pull/3187)）。
+  - 完善cube_compute_load/store、layout_structure、data_move、tensor_structure等资料（[!5134](https://gitcode.com/cann/asc-devkit/pull/5134)）。
 
 ## 开源软件声明
 
