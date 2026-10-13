@@ -470,6 +470,15 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 支持PCIe算子入图，并提供算子声明PCIe Through能力。([!430](https://gitcode.com/cann/metadef/pull/430)、[!4394](https://gitcode.com/cann/ge/pull/4394))
 - 新增Host输入场景下的动态Shape调度性能优化，对连续在Host CPU上执行的算子进行Codegen融合，进一步提升性能。( [!3626](https://gitcode.com/cann/ge/pull/3626)、[!4669](https://gitcode.com/cann/ge/pull/4669))
 
+### 调试与分析工具
+
+- Profiling支持采集task的page fault次数（[!3279](https://gitcode.com/cann/runtime/pull/3279)）。
+- aclrt接口补充上报内存大小、拷贝方向等profiling数据（[!3644](https://gitcode.com/cann/runtime/pull/3644)）。
+
+### 维测能力
+
+- aicore err支持自动解析错误行号（[!4080](https://gitcode.com/cann/runtime/pull/4080)）。
+
 ## 删除和废弃特性
 
 ### 说明
@@ -631,7 +640,11 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 | ${install_path}/ascend-toolkit/latest/include/base/alog_pub.h中的AlogCheckDebugLevel接口 | ${install_path}/cann/pkg_inc/base/dlog_pub.h中的CheckLogLevel接口 |
 | ${install_path}/ascend-toolkit/latest/include/base/alog_pub.h中的AlogRecord接口 | ${install_path}/cann/pkg_inc/base/dlog_pub.h中的DlogRecord接口或封装的dlog_error、dlog_warn等宏 |
 
-**ASCEND_SLOG_PRINT_TO_STDOUT环境变量在本版本标记为废弃，将在2027年9月30日之后的版本删除，替换为：ASCEND_LOG_PRINT_TO_STDOUT **
+**以下目录、文件和接口等在CANN 9.2.0中被标记为废弃，将在2027.9.30之后的版本删除**
+
+| 废弃的目录、文件和接口                                       | 替换的目录、文件和接口                                       |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ASCEND_SLOG_PRINT_TO_STDOUT环境变量 | ASCEND_LOG_PRINT_TO_STDOUT环境变量 |
 
 ## 已修复问题
 
