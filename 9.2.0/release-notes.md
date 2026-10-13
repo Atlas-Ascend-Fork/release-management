@@ -328,6 +328,8 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 
 - **基于<term>Ascend 950PR&950DT系列产品</term>，CATLASS新增支持 python 风格核函数，提供丰富的样例库。[点击查看详情](https://gitcode.com/cann/catlass/blob/master/README.md)**
 
+- **算子新增支持Batch一致性计算能力。点击[查看详情](https://gitcode.com/cann/ops-nn/blob/9.2.0/docs/zh/context/batch_consistency.md)。**
+  
 ## 新增特性
 
 ### 公共模块
