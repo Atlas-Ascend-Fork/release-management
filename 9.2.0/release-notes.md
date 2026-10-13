@@ -326,6 +326,12 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 
 - **KDA、SMLA、MegaMoe等融合算子进一步提升流水并行度，支持Kimi-K3、GLM5.2等模型性能提升20%。**
 
+- **扩展稀疏Attention系列算子的正反向计算能力，覆盖注意力计算、稀疏索引选择与梯度计算等关键环节，支撑大模型稀疏训练。**
+
+- **基于<term>Ascend 950DT系列产品</term>，支持MoE训练场景的Dispatch、Combine，通过AIV直驱URMA发起后台通信，配合DualPipe调度，实现训练中计算与通信的并行。**
+
+- **基于<term>Ascend 950DT系列产品</term>，支持Engram分布式推理，将Engram表卸载（offload）至Host内存，通过URMA与Ubmem的接力能力，实现跨卡访问远端Host内存。**
+
 - **基于<term>Ascend 950PR&950DT系列产品</term>，CATLASS新增支持 python 风格核函数，提供丰富的样例库。[点击查看详情](https://gitcode.com/cann/catlass/blob/master/README.md)**
 
 - **算子新增支持Batch一致性计算能力。点击[查看详情](https://gitcode.com/cann/ops-nn/blob/9.2.0/docs/zh/context/batch_consistency.md)。**
@@ -500,6 +506,9 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - <term>Ascend 950PR/Ascend 950DT</term>新增AllGatherMatmulV3算子及all_gather_quant_matmul PyTorch接口，支持URMA AllGather与MXFP8/MXFP4量化矩阵乘融合（[!10643](https://gitcode.com/cann/ops-transformer/pull/10643)）。
 - <term>Ascend 950PR/Ascend 950DT</term>上AllGatherMatmulV2和MatmulReduceScatterV2新增MXFP4量化及对应图模式支持（[!7193](https://gitcode.com/cann/ops-transformer/pull/7193)、[!8596](https://gitcode.com/cann/ops-transformer/pull/8596)、[!8844](https://gitcode.com/cann/ops-transformer/pull/8844)、[!9240](https://gitcode.com/cann/ops-transformer/pull/9240)）。
 - <term>Ascend 950PR/Ascend 950DT</term>上AllGatherMatmulV2和MatmulReduceScatterV2在MX量化场景支持右矩阵非转置输入（[!10488](https://gitcode.com/cann/ops-transformer/pull/10488)、[!10617](https://gitcode.com/cann/ops-transformer/pull/10617)）。
+- <term>Ascend 950DT</term>上MoeEpDispatch和MoeEpCombine采用AIV直驱URMA的通信方式，支持MoE训练场景，提供ElasticBuffer接口、Dispatch路由信息复用及配套后处理算子（[!7807](https://gitcode.com/cann/ops-transformer/pull/7807)、[!7814](https://gitcode.com/cann/ops-transformer/pull/7814)、[!9388](https://gitcode.com/cann/ops-transformer/pull/9388)、[!10249](https://gitcode.com/cann/ops-transformer/pull/10249)）。
+- <term>Ascend 950DT</term>上Engram通过ElasticBuffer提供主机内存中的分布式表存储，配套EngramFetch和EngramFetchWait实现按索引RDMA远端读取、异步发起与等待（[!7749](https://gitcode.com/cann/ops-transformer/pull/7749)、[!7317](https://gitcode.com/cann/ops-transformer/pull/7317)）。
+- <term>Ascend 950DT</term>上Engram新增训练正反向支持，通过ElasticBuffer接口完成分布式表查询、跨卡梯度回传和按表项稀疏累加，支持输出稀疏梯度用于优化器更新（[!8914](https://gitcode.com/cann/ops-transformer/pull/8914)、[!9179](https://gitcode.com/cann/ops-transformer/pull/9179)、[!9308](https://gitcode.com/cann/ops-transformer/pull/9308)）。
 
 **位置编码与KV缓存类**
 
