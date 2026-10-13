@@ -329,7 +329,11 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - **基于<term>Ascend 950PR&950DT系列产品</term>，CATLASS新增支持 python 风格核函数，提供丰富的样例库。[点击查看详情](https://gitcode.com/cann/catlass/blob/master/README.md)**
 
 - **算子新增支持Batch一致性计算能力。点击[查看详情](https://gitcode.com/cann/ops-nn/blob/9.2.0/docs/zh/context/batch_consistency.md)。**
-  
+
+- **ATC支持自动多流优化，通过multi_stream_parallel_mode参数开启，提升离线推理场景性能。点击[查看详情](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/latest/devaids/atctool/docs/zh/user_guides/atc_tools/CLI_options/--multi_stream_parallel_mode.md)。**
+
+- **新增支持inductor路线的自动融合能力，自动识别并融合view、Norm、elementwise、Concat等算子，提升模型执行性能。点击[查看详情](https://gitcode.com/cann/graph-autofusion/blob/master/docs/zh/autofuse/introduction/enable_autofuse_inductor.md)。**
+
 ## 新增特性
 
 ### 公共模块
@@ -479,12 +483,21 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 
 ### 图引擎
 
-- 新增自定义Pass开发和自定义算子开发的Python API，支持在Python环境下编写自定义Pass及接入自定义算子。
+#### 图模式
+
+- 新增自定义Pass开发和自定义算子开发的Python API，支持在Python环境下编写自定义Pass及接入自定义算子。([!4147](https://gitcode.com/cann/ge/pull/4147)、[!4254](https://gitcode.com/cann/ge/pull/4254)、[!4388](https://gitcode.com/cann/ge/pull/4388))
 - 新增Host CPU算子注册接口，支持自定义Host CPU算子接入常量折叠优化及动态Shape执行时调度。([!4481](https://gitcode.com/cann/ge/pull/4481)、[!4538](https://gitcode.com/cann/ge/pull/4538)、[!4918](https://gitcode.com/cann/ge/pull/4918))
 - 新增动态Shape自动多流并行优化，可通过ge.autoMultistreamParallelMode开启；ATC新增multi_stream_parallel_mode参数，支持离线推理场景开启自动多流优化。([!3781](https://gitcode.com/cann/ge/pull/3781)、[!4184](https://gitcode.com/cann/ge/pull/4184)、[!4301](https://gitcode.com/cann/ge/pull/4301))
 - 优化RunGraphWithStreamAsync接口易用性，静态Shape场景下用户未注册外置Allocator时，也支持自动分配输出内存。( [!3306](https://gitcode.com/cann/ge/pull/3306))
 - 支持PCIe算子入图，并提供算子声明PCIe Through能力。([!430](https://gitcode.com/cann/metadef/pull/430)、[!4394](https://gitcode.com/cann/ge/pull/4394))
 - 新增Host输入场景下的动态Shape调度性能优化，对连续在Host CPU上执行的算子进行Codegen融合，进一步提升性能。( [!3626](https://gitcode.com/cann/ge/pull/3626)、[!4669](https://gitcode.com/cann/ge/pull/4669))
+
+#### 自动融合
+
+- 新增支持inductor开启自动融合能力，支持view类算子（transpose/slice/broadcast）、泛Norm类算子、elementwise类算子、Concat算子、CV融合。([!1654](https://gitcode.com/cann/graph-autofusion/pull/1654)、[!1250](https://gitcode.com/cann/graph-autofusion/pull/1250)、[!2689](https://gitcode.com/cann/ge/pull/2689)、[!1626](https://gitcode.com/cann/graph-autofusion/pull/1626)、[!1700](https://gitcode.com/cann/graph-autofusion/pull/1700))
+- 新增编译性能优化。([!1799](https://gitcode.com/cann/graph-autofusion/pull/1799)、[!1591](https://gitcode.com/cann/graph-autofusion/pull/1591))
+- 补齐AscendLoopIR完备度。([!1699](https://gitcode.com/cann/graph-autofusion/pull/1699)、[!1749](https://gitcode.com/cann/graph-autofusion/pull/1749))
+- 新增支持NDDMA性能建模，ATT建模优化。([!1690](https://gitcode.com/cann/graph-autofusion/pull/1690)、[!1792](https://gitcode.com/cann/graph-autofusion/pull/1792)、[!1266](https://gitcode.com/cann/graph-autofusion/pull/1266)、[!1460](https://gitcode.com/cann/graph-autofusion/pull/1460)、[!1580](https://gitcode.com/cann/graph-autofusion/pull/1580)、[!534](https://gitcode.com/cann/graph-autofusion/pull/534)、[!1208](https://gitcode.com/cann/graph-autofusion/pull/1208))
 
 ### 通信库
 
