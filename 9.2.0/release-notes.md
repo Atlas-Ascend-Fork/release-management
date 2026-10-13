@@ -486,6 +486,14 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 支持PCIe算子入图，并提供算子声明PCIe Through能力。([!430](https://gitcode.com/cann/metadef/pull/430)、[!4394](https://gitcode.com/cann/ge/pull/4394))
 - 新增Host输入场景下的动态Shape调度性能优化，对连续在Host CPU上执行的算子进行Codegen融合，进一步提升性能。( [!3626](https://gitcode.com/cann/ge/pull/3626)、[!4669](https://gitcode.com/cann/ge/pull/4669))
 
+### 通信库
+
+#### 集合通信
+- Ascend 950PR&950DT系列产品 支持在experimental目录扩展自定义算法，提升生态扩展易用性([!2734](https://gitcode.com/cann/hccl/pull/2734)) 。
+- Ascend 950PR&950DT系列产品 支持URMA场景下的对称内存能力，支持用户通过 HcclCommSymWinRegister 注册对称窗口，提升算子算法实现易用性([!2369](https://gitcode.com/cann/hcomm/pull/2369) [!1195](https://gitcode.com/cann/hccl/pull/1195))。
+- Ascend 950PR&950DT系列产品 支持CCU资源灵活申请，提升自定义CCU算子灵活性([!3367](https://gitcode.com/cann/hcomm/pull/3367))。
+- Ascend 950PR&950DT系列产品 提供 Host 网卡实现扩展能力，支持灵活扩展hcomm接口实现([!4257](https://gitcode.com/cann/hcomm/pull/4257)) 。
+
 ### 调试与分析工具
 
 - Profiling支持采集task的page fault次数（[!3279](https://gitcode.com/cann/runtime/pull/3279)）。
@@ -502,15 +510,6 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 删除特性为当前版本已删除的特性。
 - 废弃特性为当前版本标记为废弃特性，未来版本即将下线的特性。
 - 本节中的${install_path}请替换为CANN软件安装路径。
-
-### 通信库
-
-#### 集合通信
-- Ascend 950PR支持HCCL Tuner Plugin功能，支持用户灵活控制算法选择策略([!2602](https://gitcode.com/cann/hccl/pull/2602))。
-- Ascend 950PR支持在experimental目录扩展自定义算法，提升生态扩展易用性([!2734](https://gitcode.com/cann/hccl/pull/2734)) 。
-- Ascend 950PR支持URMA场景下的对称内存能力，支持用户通过 HcclCommSymWinRegister 注册对称窗口，提升算子算法实现易用性([!2369](https://gitcode.com/cann/hcomm/pull/2369) [!1195](https://gitcode.com/cann/hccl/pull/1195))。
-- Ascend 950PR支持CCU资源灵活申请，提升自定义CCU算子灵活性([!3367](https://gitcode.com/cann/hcomm/pull/3367))。
-- Ascend 950PR提供 Host 网卡实现扩展能力，支持灵活扩展hcomm接口实现([!4257](https://gitcode.com/cann/hcomm/pull/4257)) 。
 
 ### 运行时
 
@@ -675,6 +674,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 修复Atlas A2和Atlas A3系列产品导入非主线版本环境变量时RingMLAOperation接口demo运行失败问题。
 - 修复Atlas A2和Atlas A3系列产品torch_npu.npu_format_cast接口format和shape不匹配的场景下，从拦截fallback到aclop的问题。
 - （**不兼容变更**）修复 Atlas A2和Atlas A3系列产品SparseFlashMLA算子torch接口参数默认值错误的问题（ori_mask_mode、cmp_mask_mode、ori_win_left、ori_win_right）。
+- 修复 Ascend 950PR&950DT系列产品 同一个卡同一个进程下，前一次创建成功的通信域ranksize比接下来要创建子通信域的ranksize小的时候导致子通信域创建失败问题。 
 
 
 ## 开源软件声明
