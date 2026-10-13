@@ -336,9 +336,9 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   - msboost自适应绑核工具支持按照NPU->CPU 拓扑亲和性绑核([!65](https://gitcode.com/Ascend/msboost/pull/65))。
   - msboost新增KAOT OS配置调优插件，通过对OS配置进行自动化调优，实现性能优化([!88](https://gitcode.com/Ascend/msboost/pull/88))。
 - CANN适配不同昇腾硬件产品，新增OS兼容性支持：
-  - Atlas 900 A3 super POD适配ctyunos-2-25.05、Debian12.0。
-  - Atlas 950 SuperPoD 适配CCOS、Velinux、BCLinux、VesselOS、MTOS。
-  - Atlas 850/850E 适配 Kylin V11。
+  - Atlas 900 A3 SuperPoD超节点适配ctyunos-2-25.05、Debian12.0。
+  - Atlas 950 SuperPoD超节点适配CCOS、Velinux、BCLinux、VesselOS、MTOS。
+  - Atlas 850超节点、Atlas 850E超节点适配 Kylin V11。
 - PyACL开源至runtime，代码仓链接：https://gitcode.com/cann/runtime/tree/master/python。
 
 ### 算子库
