@@ -399,28 +399,28 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 
 #### ops-nn库
 
-- Atlas A2 训练系列产品/Atlas A2 推理系列产品 和 Atlas A3 训练系列产品/Atlas A3 推理系列产品适配与场景支持：
-  - 新增适配以下算子
-    - FusedSgd（[!6220](https://gitcode.com/cann/ops-nn/pull/6220)）。
-    - FusedAdamw（[!7851](https://gitcode.com/cann/ops-nn/pull/7851)）。
-    - SituGlu （[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
-    - SituGluGrad（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
-    - DequantSituQuant （[!8798](https://gitcode.com/cann/ops-nn/pull/8798)）。
-    - MatmulEmuSplitWeight （[!9237](https://gitcode.com/cann/ops-nn/pull/9237)）。
-  - 新增特性：
+- Atlas A2系列产品和Atlas A3系列产品适配与场景支持：
+  - 新增算子：
+    - FusedSgd，将SGD更新过程中分散的梯度缩放、权重衰减、动量更新、参数赋值等多个细粒度操作融合为单个NPU Kernel执行（[!6220](https://gitcode.com/cann/ops-nn/pull/6220)）。
+    - FusedAdamw，融合AdamW优化器，支持将多组参数列表（params、grads、expAvgs、expAvgSqs、maxExpAvgSqs、stateSteps）的参数更新、一阶/二阶动量更新、梯度缩放等操作融合为单个Kernel执行（[!7851](https://gitcode.com/cann/ops-nn/pull/7851)）。
+    - SituGlu，SiTU门控线性单元（SiTU Gated Linear Unit）激活函数，将输入沿指定维度切分为门控（gate）与上路径（up）两半并按SiTU公式计算输出（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
+    - SituGluGrad，SiTU门控线性单元激活函数的反向梯度计算，根据上游梯度grad_y和前向输入x计算输入x的梯度grad_x（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
+    - DequantSituQuant，在Situ激活函数前后添加dequant和quant操作，实现x的DequantSituQuant计算（[!8798](https://gitcode.com/cann/ops-nn/pull/8798)）。
+    - MatmulEmuSplitWeight，使用双路BF16 GEMM融合模拟FP32精度矩阵乘法，离线将FP32权重拆分为高位BF16与低位残差BF16，推理阶段执行两次BF16 GEMM并做线性组合（[!9237](https://gitcode.com/cann/ops-nn/pull/9237)）。
+  - 算子功能增强：
     - aclnnAddmm/Baddbmm/AddmmWeightNz 支持需要broadcast的bias输入（[!8446](https://gitcode.com/cann/ops-nn/pull/8446)、[!8784](https://gitcode.com/cann/ops-nn/pull/8784)）。
     - aclnnMatmul新增支持8维度输入（[!8785](https://gitcode.com/cann/ops-nn/pull/8785)）。
     - MatMulV3算子新增AL1全载单核切K模板（[!7504](https://gitcode.com/cann/ops-nn/pull/7504)）。
-- Ascend 950PR/Ascend 950DT系列产品适配与场景支持：
-  - 新增适配以下算子
-    - SituGlu （[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
-    - SituGluGrad（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
-    - SituMxQuant （[!8798](https://gitcode.com/cann/ops-nn/pull/8798)）。
-    - FusedSgd（[!7877](https://gitcode.com/cann/ops-nn/pull/7877)）。
-    - FusedAdam（[!8934](https://gitcode.com/cann/ops-nn/pull/8934)）。
-    - QuantMatmulActivationQuant（[!7272](https://gitcode.com/cann/ops-nn/pull/7272)）。
-    - ExpandIntoJaggedPermute（[!8583](https://gitcode.com/cann/ops-nn/pull/8583)）。
-  - 新增特性：
+- Ascend 950PR&Ascend 950DT系列产品适配与场景支持：
+  - 新增算子：
+    - SituGlu，SiTU门控线性单元（SiTU Gated Linear Unit）激活函数，将输入沿指定维度切分为门控（gate）与上路径（up）两半并按SiTU公式计算输出（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
+    - SituGluGrad，SiTU门控线性单元激活函数的反向梯度计算，根据上游梯度grad_y和前向输入x计算输入x的梯度grad_x（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
+    - SituMxQuant，将Situ激活函数与动态MX（Microscaling）量化融合为一个算子（[!8798](https://gitcode.com/cann/ops-nn/pull/8798)）。
+    - FusedSgd，将SGD更新过程中分散的梯度缩放、权重衰减、动量更新、参数赋值等多个细粒度操作融合为单个NPU Kernel执行（[!7877](https://gitcode.com/cann/ops-nn/pull/7877)）。
+    - FusedAdam，实现Adam优化器功能，支持多组参数列表（TensorList）一次调用完成Adam优化器功能（[!8934](https://gitcode.com/cann/ops-nn/pull/8934)）。
+    - QuantMatmulActivationQuant，融合量化的矩阵乘、激活以及动态量化，当前支持gelu、swiglu激活和MX量化模式（[!7272](https://gitcode.com/cann/ops-nn/pull/7272)）。
+    - ExpandIntoJaggedPermute，将稀疏数据置换索引从表维度扩展到批次维度，适用于稀疏特征在不同rank中具有不同批次大小的情况（[!8583](https://gitcode.com/cann/ops-nn/pull/8583)）。
+  - 算子功能增强：
     - QuantBatchMatmulV4伪量化MX A8W4、TCG A8W4适配Blaze（[!7921](https://gitcode.com/cann/ops-nn/pull/7921)、[!9840](https://gitcode.com/cann/ops-nn/pull/9840)）。
     - WeightQuantBatchMatmulV2新增A16W8 ND per-channel、per-tensor的Blaze执行路径（[!9877](https://gitcode.com/cann/ops-nn/pull/9877)）。
     - Matmul非量化模板适配TensorAPI/Blaze：ASWT模板、BatchMatmul基础模板及broadcast场景切换TensorAPI（[!2133](https://gitcode.com/cann/ops-nn/pull/2133)、[!5087](https://gitcode.com/cann/ops-nn/pull/5087)），BatchMatmul StreamK模板切换Blaze（[!7731](https://gitcode.com/cann/ops-nn/pull/7731)），IterBatch场景新增Blaze模板（[!10543](https://gitcode.com/cann/ops-nn/pull/10543)）。
