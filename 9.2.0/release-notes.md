@@ -583,6 +583,26 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - Ascend 950PR&950DT系列产品 支持CCU资源灵活申请，提升自定义CCU算子灵活性([!3367](https://gitcode.com/cann/hcomm/pull/3367))。
 - Ascend 950PR&950DT系列产品 提供 Host 网卡实现扩展能力，支持灵活扩展hcomm接口实现([!4257](https://gitcode.com/cann/hcomm/pull/4257)) 。
 
+### PTO虚拟指令集
+
+- 基础Vector&Cube指令：
+  - 新增支持64位数据类型（[!1711](https://gitcode.com/cann/pto-isa/pull/1711)、[!1585](https://gitcode.com/cann/pto-isa/pull/1585)、[!1428](https://gitcode.com/cann/pto-isa/pull/1428)）。
+  - TMOV/TEXTRACT/TINSERT新增支持布局格式转换（[!1450](https://gitcode.com/cann/pto-isa/pull/1450)、[!1459](https://gitcode.com/cann/pto-isa/pull/1459)、[!1718](https://gitcode.com/cann/pto-isa/pull/1718)）。
+  - TPUSH/TPOP新增奇数切分（[!1380](https://gitcode.com/cann/pto-isa/pull/1380)）。
+- 通信类指令：
+  - TPUT_ASYNC、TGET_ASYNC增加A5基于1825网卡的跨机RDMA通信能力（[!1374](https://gitcode.com/cann/pto-isa/pull/1374)）。
+  - 新增TPUT_ASYNC_NOTIFY指令（[!1516](https://gitcode.com/cann/pto-isa/pull/1516)）。
+- CostModel仿真：接入A2A3全量耗时PTO ISA指令性能预测，实现cycles 90%+预测准确度（[!1674](https://gitcode.com/cann/pto-isa/pull/1674)）。
+- CPU-SIM：随NPU同步新增CPU仿真指令。
+
+### PTOAS(PTO汇编器)
+
+新增工具链，支持命令行编译，PTO ISA规范编译，Python绑定和脚本构造入口能力，主要职责：
+  - 解析PTO字节码文件。
+  - 验证PTO ISA结构、类型和目标相关约束。
+  - 支持根据用户指定编译选项处理布局、地址和同步等关键能力。
+  - Emit可调用代码。
+
 ### 调试与分析工具
 
 - Profiling支持采集task的page fault次数（[!3279](https://gitcode.com/cann/runtime/pull/3279)）。
@@ -768,6 +788,13 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - （**不兼容变更**）修复 Atlas A2和Atlas A3系列产品SparseFlashMLA算子torch接口参数默认值错误的问题（ori_mask_mode、cmp_mask_mode、ori_win_left、ori_win_right）。
 - 修复 Ascend 950PR&950DT系列产品 同一个卡同一个进程下，前一次创建成功的通信域ranksize比接下来要创建子通信域的ranksize小的时候导致子通信域创建失败问题。 
 
+## 文档变更说明
+
+#### PTOAS(PTO汇编器)
+- 新增 “概述 > 什么是PTOAS” 章节
+- 新增 “安装指南 > 安装PTOAS” 章节
+- 新增 “使用指南 > 编译选项总览/目标架构选项/自动内存规划/自动同步选项” 章节
+- 新增 “示例 > 从PTO到输出代码” 章节
 
 ## 文档变更说明
 
