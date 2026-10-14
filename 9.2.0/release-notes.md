@@ -314,7 +314,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 | [cann-hccl 9.2.0](https://ascend.devcloud.huaweicloud.com/cann/run/software/9.2.0/) | [v9.2.0](https://gitcode.com/cann/hccl/tags/v9.2.0)          | CANN 9.2.0<br>CANN 9.1.x<br>CANN 9.0.x<br>CANN 8.5.2 |
 | [cann-hixl 9.2.0](https://ascend.devcloud.huaweicloud.com/cann/run/software/9.2.0/) | [v9.2.0](https://gitcode.com/cann/hixl/tags/v9.2.0)          | CANN 9.2.0<br>CANN 9.1.x<br>CANN 9.0.x<br>CANN 8.5.2 |
 
-子包独立升级的具体操作请参考[子包独立升级](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/910/softwareinst/instg/instg_0030.html)。
+子包独立升级的具体操作请参考[子包独立升级](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/910/softwareinst/instg/instg_0030.html)。要求ops子包版本>=ops组合包版本。
 
 ## 关键特性
 
@@ -734,7 +734,6 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 ### 算子库
 
 - **不兼容变更**：
-  - 控制类算子Identity、IdentityN、Rank、Shape和ShapeN从ops-nn迁移至ops-math。这些算子从`ops_proto_nn.h`和`es_nn`目录迁移到`ops_proto_math.h`和`es_math`目录，用户需更新相关头文件引用（[!2333](https://gitcode.com/cann/ops-math/pull/2333)、[!3995](https://gitcode.com/cann/ops-nn/pull/3995)）。
   - kth_value、median和nan_median算子的实现与注册配置由ops-math迁移至ops-nn，使用相关算子需配套升级ops-nn组件（[!5809](https://gitcode.com/cann/ops-math/pull/5809)、[!10728](https://gitcode.com/cann/ops-nn/pull/10728)），这些算子从`ops_proto_math.h`和`es_math`目录迁移到`ops_proto_nn.h`和`es_nn`目录。
   - RoiPooling算子由ops-cv迁移至ops-nn，使用相关算子需配套升级ops-nn组件，避免升级后原型定义冲突（[!1442](https://gitcode.com/cann/ops-cv/pull/1442)、[!9609](https://gitcode.com/cann/ops-nn/pull/9609)），这些算子从`ops_proto_cv.h`和`es_cv`目录迁移到`ops_proto_nn.h`和`es_nn`目录。
 
@@ -874,8 +873,12 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 
 ## 开源软件声明
 
-开源软件声明请查看[漏洞修补列表](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/910/maintenref/refdoc/refer002.html)。
+开源软件声明请查看[开源软件声明](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/maintenref/refdoc/refer003.html)。
 
 ## 漏洞修补列表
 
 版本开源及第三方软件漏洞修复情况详见[漏洞修补列表](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/maintenref/refdoc/refer002.html)。
+
+## 病毒扫描报告
+
+病毒扫描报告请查看[病毒扫描报告](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/maintenref/refdoc/refer004.html)。
