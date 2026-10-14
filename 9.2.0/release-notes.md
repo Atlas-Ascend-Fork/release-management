@@ -196,7 +196,7 @@ CANN 9.2.0包含Toolkit包、算子包（ops）、加速库（NNAL）3个组合�
       <td>cann-pto-isa</td>
       <td><a href="https://gitcode.com/cann/pto-isa/tags/v9.2.0">9.2.0</a></td>
       <td>arm/x86</td>
-    </tr>   
+    </tr>
     <tr>
       <td>cann-pypto</td>
       <td><a href="https://gitcode.com/cann/pypto/tags/v9.2.0">9.2.0</a></td>
@@ -206,7 +206,7 @@ CANN 9.2.0包含Toolkit包、算子包（ops）、加速库（NNAL）3个组合�
       <td>cann-simulator</td>
       <td>9.2.0</td>
       <td>arm/x86</td>
-    </tr>    
+    </tr>
     <tr>
       <td>cann-tbe-tik</td>
       <td>9.2.0</td>
@@ -331,6 +331,8 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - **基于<term>Ascend 950DT系列产品</term>，支持MoE训练场景的Dispatch、Combine，通过AIV直驱URMA发起后台通信，配合DualPipe调度，实现训练中计算与通信的并行。**
 
 - **基于<term>Ascend 950DT系列产品</term>，支持Engram分布式推理，将Engram表卸载（offload）至Host内存，通过URMA与Ubmem的接力能力，实现跨卡访问远端Host内存。**
+
+- **PyPTO新增PyPTO PRO编程模式，为算子开发者进一步提供硬件的控制力。[点击查看详情](https://gitcode.com/cann/pypto/blob/master/docs/zh/guide/introduction.md)**
 
 - **基于<term>Ascend 950PR&950DT系列产品</term>，CATLASS新增支持 python 风格核函数，提供丰富的样例库。[点击查看详情](https://gitcode.com/cann/catlass/blob/master/README.md)**
 
@@ -578,6 +580,42 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 通信API样例：
   - 新增AIN的basic_ring样例，演示多卡环形场景下AIV Kernel通过AIN接口调用Put/Get进行点对点单边通信（[!80](https://gitcode.com/cann/asc-comm/pull/80)）。
 
+### PyPTO
+
+#### 支持Ascend950上使用PyPTO-Pro开发算子：
+
+-  新增PyPTO-Pro融合算子开发接口
+  - 泛化支持量化、非量化场景的Cube侧Tile粒度的矩阵的搬运、计算（[!5399](https://gitcode.com/cann/pypto/pull/5399)、[!5439](https://gitcode.com/cann/pypto/pull/5399)）
+  - 泛化支持Vector侧Tile粒度的数据搬运，同时支持SIMD RegBase & SIMT & SIMD Tile三种Vector计算方式 （[!4925](https://gitcode.com/cann/pypto/pull/4925)、[!5341](https://gitcode.com/cann/pypto/pull/5341)、[!4946](https://gitcode.com/cann/pypto/pull/4946)）
+  - 泛化支持Mix融合算子开发和流水编排（[!4725](https://gitcode.com/cann/pypto/pull/4725)、[!4925](https://gitcode.com/cann/pypto/pull/4925)）
+
+- 新增PyPTO-Pro易用性提升
+  - 支持自动核内同步（[!4725](https://gitcode.com/cann/pypto/pull/4725)、[!6209](https://gitcode.com/cann/pypto/pull/6209)）
+  - 支持自动核间流水编排（[!4690](https://gitcode.com/cann/pypto/pull/4690)、[!5332](https://gitcode.com/cann/pypto/pull/5332)、[!6038](https://gitcode.com/cann/pypto/pull/6038)）
+
+- 新增PyPTO-Pro算子网络接入能力
+  - 支持eager模式直调（[!4695](https://gitcode.com/cann/pypto/pull/4695)）
+  - 支持aclGraph入图（[!4695](https://gitcode.com/cann/pypto/pull/4695)）
+    - 在ops-transformer仓支持aclnn方式生成算子二进制 （[!4695](https://gitcode.com/cann/pypto/pull/!4695)、[!6614](https://gitcode.com/cann/pypto/pull/6614)）
+    - 支持profiling数据采集 （[!6221](https://gitcode.com/cann/pypto/pull/6221)、[!6306](https://gitcode.com/cann/pypto/pull/!6306)、[!6634](https://gitcode.com/cann/pypto/pull/!6634)）
+    - 支持内存越界检测工具（[!5668](https://gitcode.com/cann/pypto/pull/5668)）
+
+#### PyPTO-Tensor 编程方式持续完善：
+
+- 新增功能支持
+  - IR重构，`@pypto.frontend.jit` 已默认切换为新IR（[!5152](https://gitcode.com/cann/pypto/pull/5152)）。
+  - If/For控制流语句支持返回符号化标量（yield），控制流内计算结果可参与后续计算与动态Shape推导（[!5465](https://gitcode.com/cann/pypto/pull/5465)）。
+  - 支持与torch_npu同步计算确定性等级（0关闭、1确定性、2强一致性），JIT编译入口自动读取torch_npu进程级设置并写入编译配置，保证编码侧与torch_npu一致（[!5622](https://gitcode.com/cann/pypto/pull/5622)）。
+
+- 性能优化：
+  - TopK API在<term>Ascend 950PR/Ascend 950DT</term>上的RadixSelect算法路径优化，通过缩减指令数提升排序性能（[!5239](https://gitcode.com/cann/pypto/pull/5239)）。
+  - 乱序调度预调度阶段新增向量排序算法，减少L1 spill次数（[!5469](https://gitcode.com/cann/pypto/pull/5469)）。
+
+- 支持Kirin（kirin9030/kirinx90）端侧LiteNPU上使用PyPTO开发算子，打通kernel端到端编译+推理链路：
+  - 重构codegen模块提取基类，新增LiteNPU派生类，完成kirin9030/kirinx90的platform/pass/codegen/tileop模块隔离及适配（[!2520](https://gitcode.com/cann/pypto/pull/2520)、[!3010](https://gitcode.com/cann/pypto/pull/3010)、[!3691](https://gitcode.com/cann/pypto/pull/3691)、[!4275](https://gitcode.com/cann/pypto/pull/4275)）
+  - 支持python前端指定platform socversion，支持端侧跳过runtime获取当前设备socversion（端侧不开放runtime接口）（[!2805](https://gitcode.com/cann/pypto/pull/2805)）
+  - 新增pypto自定义算子导出与部署能力（pypto.extensions.torch_custom_op_litenpu及tools部署支撑库）
+
 ### 运行时
 
 - 支持 Kernel Launch 和模型执行的阻塞调试模式（[!4247](https://gitcode.com/cann/runtime/pull/4247)）。
@@ -814,6 +852,25 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - Tensor API：
   - 新增SIMD-CPP Tensor编程指南（[!3187](https://gitcode.com/cann/asc-devkit/pull/3187)）。
   - 完善cube_compute_load/store、layout_structure、data_move、tensor_structure等资料（[!5134](https://gitcode.com/cann/asc-devkit/pull/5134)）。
+
+### pypto
+
+- **PyPTO Pro文档**
+  - 文档体系建成：新增初始 API 文档（[!4991](https://gitcode.com/cann/pypto/pull/4991)）、初始教程（[!4999](https://gitcode.com/cann/pypto/pull/4999)）、SIMT 文档（[!5535](https://gitcode.com/cann/pypto/pull/5535)）、目录重构（[!5093](https://gitcode.com/cann/pypto/pull/5093)）与编程指南标准化（[!6334](https://gitcode.com/cann/pypto/pull/6334)）。
+  - SIMT/SIMD API 参考：新增 SIMT Warp API 文档（[!6732](https://gitcode.com/cann/pypto/pull/6732)）、完善 SIMD API 参考（[!5858](https://gitcode.com/cann/pypto/pull/5858)），并更新 SIMT API 文档（[!6223](https://gitcode.com/cann/pypto/pull/6223)、[!6241](https://gitcode.com/cann/pypto/pull/6241)、[!6561](https://gitcode.com/cann/pypto/pull/6561)）。
+  - 核心 API 文档：新增 tile_group（[!6745](https://gitcode.com/cann/pypto/pull/6745)）、pl.reinterpret（[!5796](https://gitcode.com/cann/pypto/pull/5796)）、重构 load 约束表（[!5998](https://gitcode.com/cann/pypto/pull/5998)）、补充 store uint8 量化约束（[!6007](https://gitcode.com/cann/pypto/pull/6007)）、修正 dcci 与 system variables（[!6234](https://gitcode.com/cann/pypto/pull/6234)）。
+  - 精度与数学库说明：补充 HF8 支持（[!5534](https://gitcode.com/cann/pypto/pull/5534)）、修正 MX matmul 文档（[!5884](https://gitcode.com/cann/pypto/pull/5884)）、修改 math_functions 内容（[!5905](https://gitcode.com/cann/pypto/pull/5905)）、修正 L1 Buffer 说明（[!5836](https://gitcode.com/cann/pypto/pull/5836)）、修正 move/insert/matmul layout 与 dtype（[!6066](https://gitcode.com/cann/pypto/pull/6066)）。
+  - 调试与运行说明：新增 sanitizer 内存检查指南（[!6337](https://gitcode.com/cann/pypto/pull/6337)）、澄清 runtime 核心与 profiling 行为（[!6392](https://gitcode.com/cann/pypto/pull/6392)）、对齐 debugging API 文档（[!6192](https://gitcode.com/cann/pypto/pull/6192)）、修正 kernel_function 与 cube 计算（[!6309](https://gitcode.com/cann/pypto/pull/6309)）、修复 astype 文档（[!6319](https://gitcode.com/cann/pypto/pull/6319)）。
+- **PyPTO Tensor文档**
+  - 拆分 get-item / set-item 文档并补充空 slice（[!6156](https://gitcode.com/cann/pypto/pull/6156)）。
+  - 说明 unsqueeze 拒绝动态轴（[!6652](https://gitcode.com/cann/pypto/pull/6652)）与 reshape 输出 validshape 需显式传入（[!5966](https://gitcode.com/cann/pypto/pull/5966)）。
+  - 新增 experimental ops 内部使用稳定性约束说明（[!6537](https://gitcode.com/cann/pypto/pull/6537)）。
+  - 更新 API 索引（[!4806](https://gitcode.com/cann/pypto/pull/4806)、[!5191](https://gitcode.com/cann/pypto/pull/5191)）。
+  - 修正 tensor 文档 typos、单位与图号（[!6182](https://gitcode.com/cann/pypto/pull/6182)）并更新 tensor_operation.md（[!6620](https://gitcode.com/cann/pypto/pull/6620)）。
+- **编程指南与教程**
+  - 优化编程指南（[!6424](https://gitcode.com/cann/pypto/pull/6424)）、改善 quick start API 参考（[!6207](https://gitcode.com/cann/pypto/pull/6207)）、修正文档自定义点说明（[!6335](https://gitcode.com/cann/pypto/pull/6335)）。
+  - 新增 kirin（lite）平台 PyPTO 文档支持（[!6553](https://gitcode.com/cann/pypto/pull/6553)）。
+  - 更新教程与 API 文档（[!5146](https://gitcode.com/cann/pypto/pull/5146)）。
 
 ## 开源软件声明
 
