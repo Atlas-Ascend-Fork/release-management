@@ -832,40 +832,79 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 
 ## 文档变更说明
 
-#### PTOAS(PTO汇编器)
-- 新增 “概述 > 什么是PTOAS” 章节
-- 新增 “安装指南 > 安装PTOAS” 章节
-- 新增 “使用指南 > 编译选项总览/目标架构选项/自动内存规划/自动同步选项” 章节
-- 新增 “示例 > 从PTO到输出代码” 章节
+### 编程语言
 
-## 文档变更说明
+#### Ascend C算子开发
 
-### 算子编程
+- 补充L2 Cache切分优化说明（[!5418](https://gitcode.com/cann/asc-devkit/pull/5418)）。
+- 新增NPU架构版本3510新特性使用说明（[!5265](https://gitcode.com/cann/asc-devkit/pull/5265)）。
+- “Aclnn算子工程化开发”章节进行优化调整，增加推荐阅读路径、快速入门等内容（[!3929](https://gitcode.com/cann/asc-devkit/pull/3929)）。
+- 新增“高级编程 > 内存模型”章节，介绍缓存一致性和内存一致性的概念、原理、常见问题和解决方案等内容（[!5150](https://gitcode.com/cann/asc-devkit/pull/5150)、[!3343](https://gitcode.com/cann/asc-devkit/pull/3343)）。
+- 新增“基于Tensor的C++编程”章节（[!3187](https://gitcode.com/cann/asc-devkit/pull/3187)）。
+- 新增“原子操作指令优化”章节（[!4710](https://gitcode.com/cann/asc-devkit/pull/4710)）。
 
-- C API：
-  - 重构Ascend 950PR&950DT系列产品资料，细化目录划分、优化资料内部结构，完善接口功能说明、调用示例和约束说明（[!5266](https://gitcode.com/cann/asc-devkit/pull/5266)）。
-- Tensor API：
-  - 新增SIMD-CPP Tensor编程指南（[!3187](https://gitcode.com/cann/asc-devkit/pull/3187)）。
-  - 完善cube_compute_load/store、layout_structure、data_move、tensor_structure等资料（[!5134](https://gitcode.com/cann/asc-devkit/pull/5134)）。
+#### PyPTO算子开发
 
-### pypto
+新增支持PyPTO Pro开发模式，支持面向Tile操作的Tile编程模型（[!4999](https://gitcode.com/cann/pypto/pull/4999)、[!5093](https://gitcode.com/cann/pypto/pull/5093)）。
 
-- **PyPTO Pro文档**
-  - 文档体系建成：新增初始 API 文档（[!4991](https://gitcode.com/cann/pypto/pull/4991)）、初始教程（[!4999](https://gitcode.com/cann/pypto/pull/4999)）、SIMT 文档（[!5535](https://gitcode.com/cann/pypto/pull/5535)）、目录重构（[!5093](https://gitcode.com/cann/pypto/pull/5093)）与编程指南标准化（[!6334](https://gitcode.com/cann/pypto/pull/6334)）。
-  - SIMT/SIMD API 参考：新增 SIMT Warp API 文档（[!6732](https://gitcode.com/cann/pypto/pull/6732)）、完善 SIMD API 参考（[!5858](https://gitcode.com/cann/pypto/pull/5858)），并更新 SIMT API 文档（[!6223](https://gitcode.com/cann/pypto/pull/6223)、[!6241](https://gitcode.com/cann/pypto/pull/6241)、[!6561](https://gitcode.com/cann/pypto/pull/6561)）。
-  - 核心 API 文档：新增 tile_group（[!6745](https://gitcode.com/cann/pypto/pull/6745)）、pl.reinterpret（[!5796](https://gitcode.com/cann/pypto/pull/5796)）、重构 load 约束表（[!5998](https://gitcode.com/cann/pypto/pull/5998)）、补充 store uint8 量化约束（[!6007](https://gitcode.com/cann/pypto/pull/6007)）、修正 dcci 与 system variables（[!6234](https://gitcode.com/cann/pypto/pull/6234)）。
-  - 精度与数学库说明：补充 HF8 支持（[!5534](https://gitcode.com/cann/pypto/pull/5534)）、修正 MX matmul 文档（[!5884](https://gitcode.com/cann/pypto/pull/5884)）、修改 math_functions 内容（[!5905](https://gitcode.com/cann/pypto/pull/5905)）、修正 L1 Buffer 说明（[!5836](https://gitcode.com/cann/pypto/pull/5836)）、修正 move/insert/matmul layout 与 dtype（[!6066](https://gitcode.com/cann/pypto/pull/6066)）。
-  - 调试与运行说明：新增 sanitizer 内存检查指南（[!6337](https://gitcode.com/cann/pypto/pull/6337)）、澄清 runtime 核心与 profiling 行为（[!6392](https://gitcode.com/cann/pypto/pull/6392)）、对齐 debugging API 文档（[!6192](https://gitcode.com/cann/pypto/pull/6192)）、修正 kernel_function 与 cube 计算（[!6309](https://gitcode.com/cann/pypto/pull/6309)）、修复 astype 文档（[!6319](https://gitcode.com/cann/pypto/pull/6319)）。
-- **PyPTO Tensor文档**
-  - 拆分 get-item / set-item 文档并补充空 slice（[!6156](https://gitcode.com/cann/pypto/pull/6156)）。
-  - 说明 unsqueeze 拒绝动态轴（[!6652](https://gitcode.com/cann/pypto/pull/6652)）与 reshape 输出 validshape 需显式传入（[!5966](https://gitcode.com/cann/pypto/pull/5966)）。
-  - 新增 experimental ops 内部使用稳定性约束说明（[!6537](https://gitcode.com/cann/pypto/pull/6537)）。
-  - 更新 API 索引（[!4806](https://gitcode.com/cann/pypto/pull/4806)、[!5191](https://gitcode.com/cann/pypto/pull/5191)）。
-  - 修正 tensor 文档 typos、单位与图号（[!6182](https://gitcode.com/cann/pypto/pull/6182)）并更新 tensor_operation.md（[!6620](https://gitcode.com/cann/pypto/pull/6620)）。
-- **编程指南与教程**
-  - 优化编程指南（[!6424](https://gitcode.com/cann/pypto/pull/6424)）、改善 quick start API 参考（[!6207](https://gitcode.com/cann/pypto/pull/6207)）、修正文档自定义点说明（[!6335](https://gitcode.com/cann/pypto/pull/6335)）。
-  - 新增 kirin（lite）平台 PyPTO 文档支持（[!6553](https://gitcode.com/cann/pypto/pull/6553)）。
-  - 更新教程与 API 文档（[!5146](https://gitcode.com/cann/pypto/pull/5146)）。
+#### 图开发
+
+- “自定义算子入图”章节进行特性调整和目录结构调整。
+- 优化“AutoFuse自动融合”章节：
+  - 调整目录结构，新增“快速入门”、“启用AutoFuse”章节，环境变量的详细说明移至“附录”章节。
+  - “启用AutoFuse”章节分两条路径分别介绍自动融合的开启模式，新增Inductor路径下的融合开启方式。
+
+### 编译器
+
+#### PTOAS
+
+新增《PTOAS》手册，详细信息请见[PTOAS](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/compiler/ptoas/overview/what_is_ptoas.md)。
+
+### 通信库
+
+#### HCCL集合通信库
+
+优化三个故障案例：“建链超时”、“notify_wait超时”和“通信域建联超时问题背景”章节（[!2782](https://gitcode.com/cann/hccl/pull/2782)）。
+
+### API参考
+
+#### Ascend C API
+
+- “C API”章节重构Ascend 950PR&950DT系列产品资料，细化目录结构和优化资料内部结构，完善接口功能说明、调用示例和约束说明（[!5266](https://gitcode.com/cann/asc-devkit/pull/5266)）。
+- “Tensor API”章节完善cube_compute_load/store、layout_structure、data_move、tensor_structure等资料（[!5134](https://gitcode.com/cann/asc-devkit/pull/5134)）。
+- 优化“SIMT API”章节:
+  - 补充UB复用排布规则说明（[!6077](https://gitcode.com/cann/asc-devkit/pull/6077)）。
+  - 数学库接口更新精度说明（[!6047](https://gitcode.com/cann/asc-devkit/pull/6047)）。
+  - 协作组增加grid_group、thread_group说明（[!4795](https://gitcode.com/cann/asc-devkit/pull/4795)、[!5651](https://gitcode.com/cann/asc-devkit/pull/5651)）。
+  - 新增“SIMT指令理论性能汇总”章节（[!5543](https://gitcode.com/cann/asc-devkit/pull/5543)）。
+  - 新增整型转换函数（[!5170](https://gitcode.com/cann/asc-devkit/pull/5170)）。
+  - 新增SIMT编程场景使用的编译选项（[!5035](https://gitcode.com/cann/asc-devkit/pull/5035)）。
+- 新增“CheckOpResSufficient”章节（[!5766](https://gitcode.com/cann/asc-devkit/pull/5766)）。
+
+#### PyPTO API
+
+新增PyPTO Pro API章节（[!4991](https://gitcode.com/cann/pypto/pull/4991)）。
+
+#### 算子库API
+
+《算子库》手册“算子库 > 算子接口（torch_extension）”新增“NN类接口”章节。
+
+### 调试与分析工具
+
+#### 性能调优工具
+
+- 目录结构调整，以采集工具为粒度平铺章节。
+- Ascend PyTorch调优工具、MindSpore调优工具、使用TensorFlow框架接口采集性能数据、使用acl Python接口采集性能数据章节调整至各自源文档发布，《性能调优工具》手册在简介中保留跳转链接。
+
+#### 内存分析工具
+
+- 新增显存OOM分析项，发生OOM时dump最新和最大内存块信息。
+- 支持采集进程显存曲线和整卡显存曲线。
+- 新增host内存泄漏检测功能资料。
+
+#### AMCT模型压缩工具
+
+新增[AMCT（acl）](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/devaids/amct/atlasamct_16_0301.html)场景下的量化特性以及接口说明。
 
 ## 开源软件声明
 
