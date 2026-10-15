@@ -48,18 +48,8 @@ CANN与Ascend HDK版本兼容
   </thead>
   <tbody>
     <tr>
-      <td>9.2.0</td>
-      <td>N</td>
-      <td>N</td>
+      <td>8.5.2</td>
       <td>Y</td>
-      <td>Y</td>
-       <td>Y</td>
-      <td>Y</td>
-      <td>Y</td>
-    </tr>
-    <tr>
-      <td>9.1.X</td>
-      <td>N</td>
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
@@ -73,14 +63,24 @@ CANN与Ascend HDK版本兼容
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
+       <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>9.1.X</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
     </tr>
      <tr>
-      <td>8.5.2</td>
-      <td>Y</td>
-      <td>Y</td>
+      <td>9.2.0</td>
+      <td>N</td>
+      <td>N</td>
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
