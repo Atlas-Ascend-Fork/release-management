@@ -435,6 +435,10 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
     - aclnnAddmm/Baddbmm/AddmmWeightNz 支持需要broadcast的bias输入（[!8446](https://gitcode.com/cann/ops-nn/pull/8446)、[!8784](https://gitcode.com/cann/ops-nn/pull/8784)）。
     - aclnnMatmul新增支持8维度输入（[!8785](https://gitcode.com/cann/ops-nn/pull/8785)）。
     - MatMulV3算子新增AL1全载单核切K模板（[!7504](https://gitcode.com/cann/ops-nn/pull/7504)）。
+    - torch_extension框架新增，通过JIT编译将PyTorch接口与ACLNN算子库桥接（[!5910](https://gitcode.com/cann/ops-nn/pull/5910)）。
+    - torch_extension支持单算子独立编译与打包，单算子实现迁移至算子目录，整包与单算子包可隔离共存（[!7315](https://gitcode.com/cann/ops-nn/pull/7315)、[!7686](https://gitcode.com/cann/ops-nn/pull/7686)）。
+    - torch_extension支持自定义算子包路径，可通过ASCEND_CUSTOM_OPP_PATH指定并自动扫描vendors目录，同时支持多vendor算子库查找与确定性计算（[!8023](https://gitcode.com/cann/ops-nn/pull/8023)、[!8115](https://gitcode.com/cann/ops-nn/pull/8115)）。
+    - torch_extension导出cann_ops_nn命名空间供eager模式与图模式调用（[!7941](https://gitcode.com/cann/ops-nn/pull/7941)）。
 - Ascend 950PR&Ascend 950DT系列产品适配与场景支持：
   - 新增算子：
     - SituGlu，SiTU门控线性单元（SiTU Gated Linear Unit）激活函数，将输入沿指定维度切分为门控（gate）与上路径（up）两半并按SiTU公式计算输出（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
@@ -449,6 +453,10 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
     - WeightQuantBatchMatmulV2新增A16W8 ND per-channel、per-tensor的Blaze执行路径（[!9877](https://gitcode.com/cann/ops-nn/pull/9877)）。
     - Matmul非量化模板适配TensorAPI/Blaze：ASWT模板、BatchMatmul基础模板及broadcast场景切换TensorAPI（[!2133](https://gitcode.com/cann/ops-nn/pull/2133)、[!5087](https://gitcode.com/cann/ops-nn/pull/5087)），BatchMatmul StreamK模板切换Blaze（[!7731](https://gitcode.com/cann/ops-nn/pull/7731)），IterBatch场景新增Blaze模板（[!10543](https://gitcode.com/cann/ops-nn/pull/10543)）。
     - QuantBatchMatmulV3与Matmul支持Batch一致性：Batch一致性等级下关闭StreamK，并在不同M下固定A全载与单核切K的模板选择（[!7705](https://gitcode.com/cann/ops-nn/pull/7705)、[!11060](https://gitcode.com/cann/ops-nn/pull/11060)）。
+    - torch_extension框架新增，通过JIT编译将PyTorch接口与ACLNN算子库桥接（[!5910](https://gitcode.com/cann/ops-nn/pull/5910)）。
+    - torch_extension支持单算子独立编译与打包，单算子实现迁移至算子目录，整包与单算子包可隔离共存（[!7315](https://gitcode.com/cann/ops-nn/pull/7315)、[!7686](https://gitcode.com/cann/ops-nn/pull/7686)）。
+    - torch_extension支持自定义算子包路径，可通过ASCEND_CUSTOM_OPP_PATH指定并自动扫描vendors目录，同时支持多vendor算子库查找与确定性计算（[!8023](https://gitcode.com/cann/ops-nn/pull/8023)、[!8115](https://gitcode.com/cann/ops-nn/pull/8115)）。
+    - torch_extension导出cann_ops_nn命名空间供eager模式与图模式调用（[!7941](https://gitcode.com/cann/ops-nn/pull/7941)）。
   - 性能优化：
     - QuantBatchMatmulV3 MX场景优化tiling，覆盖base block负载均衡、scale在L1全载和4-buffer选择（[!6498](https://gitcode.com/cann/ops-nn/pull/6498)）。
     - QuantBatchMatmulV3 MX Basic API支持3-buffer L1（[!7237](https://gitcode.com/cann/ops-nn/pull/7237)）。
