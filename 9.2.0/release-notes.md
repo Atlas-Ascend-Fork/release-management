@@ -320,27 +320,23 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 
 - **昇腾社区上线CANN版本配套查询助手，用户可快速获取CANN与上下游软件配套关系，点击[查看详情](https://www.hiascend.com/developer/download/compatibility)。**
 
-- **昇腾社区上线固件与驱动（HDK）快速安装页面，自动匹配产品型号与软件包，提高开发者选包效率，点击[查看详情](https://www.hiascend.com/hardware/firmware-drivers?ids=d803%2C89dda9ba9de741349efa03687a487678%2C19%2CAArch64%2Conline_Yum)。**
+- **基于<term>Ascend 950PR&950DT系列产品</term>，Matmul、FA、SFA、BSA等算子支持8bit低精度计算，Matmul、GroupedMatmul、BSA等进一步支持4bit低精计算，低精能力全面覆盖Deepseek、GLM、Kimi等模型权重、激活、KV Cache和Attention等关键路径，点击[查看详情](https://gitcode.com/cann/docs/blob/9.2.0/docs/zh/ops-lib/0_README.md)。**
 
-- **基于<term>Ascend 950PR&950DT系列产品</term>，Matmul、FA、SFA、BSA等算子支持8bit低精度计算，Matmul、GroupedMatmul、BSA等进一步支持4bit低精计算，低精能力全面覆盖Deepseek、GLM、Kimi等模型权重、激活、KV Cache和Attention等关键路径。**
+- **KDA、SMLA、MegaMoe等融合算子进一步提升流水并行度，支持Kimi-K3、GLM5.2等模型性能提升20%，点击[查看详情](https://gitcode.com/cann/ops-transformer/tree/9.2.0)。**
 
-- **KDA、SMLA、MegaMoe等融合算子进一步提升流水并行度，支持Kimi-K3、GLM5.2等模型性能提升20%。**
+- **扩展稀疏Attention系列算子的正反向计算能力，覆盖注意力计算、稀疏索引选择与梯度计算等关键环节，支撑大模型稀疏训练，点击[查看详情](https://gitcode.com/cann/ops-transformer/tree/9.2.0/attention)。**
 
-- **扩展稀疏Attention系列算子的正反向计算能力，覆盖注意力计算、稀疏索引选择与梯度计算等关键环节，支撑大模型稀疏训练。**
+- **基于<term>Ascend 950PR&950DT系列产品</term>，支持MoE训练场景的Dispatch、Combine，通过AIV直驱URMA发起后台通信，配合DualPipe调度，实现训练中计算与通信的并行，点击[查看详情](http://gitcode.com/cann/ops-transformer/tree/9.2.0/mc2)。**
 
-- **基于<term>Ascend 950DT系列产品</term>，支持MoE训练场景的Dispatch、Combine，通过AIV直驱URMA发起后台通信，配合DualPipe调度，实现训练中计算与通信的并行。**
+- **基于<term>Ascend 950PR&950DT系列产品</term>，支持Engram分布式推理，将Engram表卸载（offload）至Host内存，通过URMA与Ubmem的接力能力，实现跨卡访问远端Host内存，点击[查看详情](https://gitcode.com/cann/ops-transformer/tree/9.2.0/mc2)。**
 
-- **基于<term>Ascend 950DT系列产品</term>，支持Engram分布式推理，将Engram表卸载（offload）至Host内存，通过URMA与Ubmem的接力能力，实现跨卡访问远端Host内存。**
+- **PyPTO新增PyPTO PRO编程模式，为算子开发者进一步提供硬件的控制力，点击[查看详情](https://gitcode.com/cann/pypto/blob/master/docs/zh/guide/introduction.md)。**
 
-- **PyPTO新增PyPTO PRO编程模式，为算子开发者进一步提供硬件的控制力。[点击查看详情](https://gitcode.com/cann/pypto/blob/master/docs/zh/guide/introduction.md)**
+- **基于<term>Ascend 950PR&950DT系列产品</term>，CATLASS新增支持python风格核函数，提供丰富的样例库，点击[查看详情](https://gitcode.com/cann/catlass/blob/master/README.md)。**
 
-- **基于<term>Ascend 950PR&950DT系列产品</term>，CATLASS新增支持 python 风格核函数，提供丰富的样例库。[点击查看详情](https://gitcode.com/cann/catlass/blob/master/README.md)**
+- **算子新增支持Batch一致性计算能力，点击[查看详情](https://gitcode.com/cann/ops-nn/blob/9.2.0/docs/zh/context/batch_consistency.md)。**
 
-- **算子新增支持Batch一致性计算能力。点击[查看详情](https://gitcode.com/cann/ops-nn/blob/9.2.0/docs/zh/context/batch_consistency.md)。**
-
-- **ATC支持自动多流优化，通过multi_stream_parallel_mode参数开启，提升离线推理场景性能。点击[查看详情](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/latest/devaids/atctool/docs/zh/user_guides/atc_tools/CLI_options/--multi_stream_parallel_mode.md)。**
-
-- **新增支持inductor路线的自动融合能力，自动识别并融合view、Norm、elementwise、Concat等算子，提升模型执行性能。点击[查看详情](https://gitcode.com/cann/graph-autofusion/blob/master/docs/zh/autofuse/introduction/enable_autofuse_inductor.md)。**
+- **新增支持inductor路线的自动融合能力，自动识别并融合view、Norm、elementwise、Concat等算子，提升模型执行性能，点击[查看详情](https://gitcode.com/cann/graph-autofusion/blob/master/docs/zh/autofuse/introduction/enable_autofuse_inductor.md)。**
 
 ## 新增特性
 
@@ -463,70 +459,70 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 
 **注意力（Attention/MLA）类**
 
-- Atlas A2系列产品和Atlas A3系列产品新增MsaIndexScore算子，支持MSA稀疏块重要性评分，并新增<term>Ascend 950PR/Ascend 950DT</term>上的FP8场景及KV Cache首轴非连续输入支持（[!9503](https://gitcode.com/cann/ops-transformer/pull/9503)、[!11876](https://gitcode.com/cann/ops-transformer/pull/11876)）。
+- Atlas A2系列产品和Atlas A3系列产品新增MsaIndexScore算子，支持MSA稀疏块重要性评分，并新增<term>Ascend 950PR&950DT系列产品</term>上的FP8场景及KV Cache首轴非连续输入支持（[!9503](https://gitcode.com/cann/ops-transformer/pull/9503)、[!11876](https://gitcode.com/cann/ops-transformer/pull/11876)）。
 - 新增GenericBlockSparseAttention、GenericBlockSparseAttentionGrad及配套Metadata算子，支持自定义稀疏块粒度的注意力正反向计算（[!10628](https://gitcode.com/cann/ops-transformer/pull/10628)、[!10657](https://gitcode.com/cann/ops-transformer/pull/10657)、[!11003](https://gitcode.com/cann/ops-transformer/pull/11003)、[!11499](https://gitcode.com/cann/ops-transformer/pull/11499)）。
-- 新增ChunkKdaFwd算子，支持KDA分块正向计算及BSND、BNSD、TND、NTD输入布局，适配Atlas A2系列产品、Atlas A3系列产品和<term>Ascend 950PR/Ascend 950DT</term>（[!9979](https://gitcode.com/cann/ops-transformer/pull/9979)）。
+- 新增ChunkKdaFwd算子，支持KDA分块正向计算及BSND、BNSD、TND、NTD输入布局，适配Atlas A2系列产品、Atlas A3系列产品和<term>Ascend 950PR&950DT系列产品</term>（[!9979](https://gitcode.com/cann/ops-transformer/pull/9979)）。
 - 新增KeyPool和PoolKeyIndexer算子，分别支持Key压缩与池化稀疏索引选择，融合相关性评分、TopK选择和索引展开（[!11500](https://gitcode.com/cann/ops-transformer/pull/11500)、[!11513](https://gitcode.com/cann/ops-transformer/pull/11513)）。
 - Atlas A2系列产品和Atlas A3系列产品新增LightningIndexerKLLoss融合算子及PyTorch接口，支持训练场景的KL散度损失计算（[!9615](https://gitcode.com/cann/ops-transformer/pull/9615)）。
 - Atlas A2系列产品和Atlas A3系列产品上SparseFlashMla支持SWA场景下对原始KV进行稀疏选择，并将CSA场景的TopK范围扩展至1～8192（[!9384](https://gitcode.com/cann/ops-transformer/pull/9384)、[!11899](https://gitcode.com/cann/ops-transformer/pull/11899)、[!11919](https://gitcode.com/cann/ops-transformer/pull/11919)）。
 - FusedInferAttentionScore的非量化MLA Decode场景支持headNum为1～128的任意整数；INT8/INT4伪量化PageAttention场景支持KV Cache前两轴非连续，并支持PerToken PA、PerTokenHead PA场景的scale/offset非连续输入（[!9773](https://gitcode.com/cann/ops-transformer/pull/9773)、[!11069](https://gitcode.com/cann/ops-transformer/pull/11069)、[!10263](https://gitcode.com/cann/ops-transformer/pull/10263)）。
-- Atlas A2系列产品、Atlas A3系列产品和<term>Ascend 950PR/Ascend 950DT</term>上MlaProlog系列支持KV Cache首轴非连续输入；新增aclnnMlaPrologV4WeightNz接口，通过doRope参数控制RoPE计算（[!10296](https://gitcode.com/cann/ops-transformer/pull/10296)、[!9472](https://gitcode.com/cann/ops-transformer/pull/9472)）。
+- Atlas A2系列产品、Atlas A3系列产品和<term>Ascend 950PR&950DT系列产品</term>上MlaProlog系列支持KV Cache首轴非连续输入；新增aclnnMlaPrologV4WeightNz接口，通过doRope参数控制RoPE计算（[!10296](https://gitcode.com/cann/ops-transformer/pull/10296)、[!9472](https://gitcode.com/cann/ops-transformer/pull/9472)）。
 - Atlas A2系列产品和Atlas A3系列产品上MlaPreprocess支持kvCache、kvCacheRope首轴非连续输入（[!6442](https://gitcode.com/cann/ops-transformer/pull/6442)）。
 - SparseFlashMlaGrad支持TopK泛化及通过seqused输入指定实际有效序列长度；SparseLightningIndexerKLLossGrad支持seqused输入，并在Atlas A2系列产品和Atlas A3系列产品上将TopK范围扩展至1～8192（[!11087](https://gitcode.com/cann/ops-transformer/pull/11087)、[!9367](https://gitcode.com/cann/ops-transformer/pull/9367)、[!11504](https://gitcode.com/cann/ops-transformer/pull/11504)）。
 - Atlas A2系列产品和Atlas A3系列产品上MixedQuantSparseFlashMla在CSA路径新增TurboQuant TQ4压缩KV支持（[!12425](https://gitcode.com/cann/ops-transformer/pull/12425)）。
-- <term>Ascend 950PR/Ascend 950DT</term>上BlockSparseAttentionGrad支持稀疏块粒度为16的整数倍（[!10188](https://gitcode.com/cann/ops-transformer/pull/10188)）。
-- ChunkGatedDeltaRule新增<term>Ascend 950PR/Ascend 950DT</term>适配，支持FLOAT32状态输入及initial_state前两轴非连续；RecurrentGatedDeltaRule支持FLOAT32状态输入输出（[!8318](https://gitcode.com/cann/ops-transformer/pull/8318)、[!8738](https://gitcode.com/cann/ops-transformer/pull/8738)、[!8711](https://gitcode.com/cann/ops-transformer/pull/8711)、[!5750](https://gitcode.com/cann/ops-transformer/pull/5750)）。
-- <term>Ascend 950PR/Ascend 950DT</term>新增DenseLightningIndexerKLLossGrad、DenseLightningIndexerKLLossGradMetadata和SparseFlashMlaSoftmaxL1Norm算子，完善稠密LightningIndexer反向及损失计算能力（[!9237](https://gitcode.com/cann/ops-transformer/pull/9237)、[!8956](https://gitcode.com/cann/ops-transformer/pull/8956)）。
-- <term>Ascend 950PR/Ascend 950DT</term>新增QuantFlashAttn全量化注意力算子及配套Metadata接口，支持MXFP8量化和HIFLOAT8 PerTensor量化，并支持MXFP8 FlashDecode（[!8968](https://gitcode.com/cann/ops-transformer/pull/8968)、[!9573](https://gitcode.com/cann/ops-transformer/pull/9573)、[!12516](https://gitcode.com/cann/ops-transformer/pull/12516)）。
-- <term>Ascend 950PR/Ascend 950DT</term>上QuantLightningIndexerV2新增MXFP8、MXFP4量化支持（[!9139](https://gitcode.com/cann/ops-transformer/pull/9139)）。
-- <term>Ascend 950PR/Ascend 950DT</term>新增QuantSparseFlashMla及配套Metadata算子，支持SWA、CSA、HCA全量化稀疏MLA计算及LSE输出（[!8499](https://gitcode.com/cann/ops-transformer/pull/8499)、[!8760](https://gitcode.com/cann/ops-transformer/pull/8760)、[!8762](https://gitcode.com/cann/ops-transformer/pull/8762)、[!9167](https://gitcode.com/cann/ops-transformer/pull/9167)）。
-- 优化<term>Ascend 950PR/Ascend 950DT</term>上KvQuantSparseFlashAttention的MLA场景性能，减少Vector侧计算开销（[!10428](https://gitcode.com/cann/ops-transformer/pull/10428)）。
+- <term>Ascend 950PR&950DT系列产品</term>上BlockSparseAttentionGrad支持稀疏块粒度为16的整数倍（[!10188](https://gitcode.com/cann/ops-transformer/pull/10188)）。
+- ChunkGatedDeltaRule新增<term>Ascend 950PR&950DT系列产品</term>适配，支持FLOAT32状态输入及initial_state前两轴非连续；RecurrentGatedDeltaRule支持FLOAT32状态输入输出（[!8318](https://gitcode.com/cann/ops-transformer/pull/8318)、[!8738](https://gitcode.com/cann/ops-transformer/pull/8738)、[!8711](https://gitcode.com/cann/ops-transformer/pull/8711)、[!5750](https://gitcode.com/cann/ops-transformer/pull/5750)）。
+- <term>Ascend 950PR&950DT系列产品</term>新增DenseLightningIndexerKLLossGrad、DenseLightningIndexerKLLossGradMetadata和SparseFlashMlaSoftmaxL1Norm算子，完善稠密LightningIndexer反向及损失计算能力（[!9237](https://gitcode.com/cann/ops-transformer/pull/9237)、[!8956](https://gitcode.com/cann/ops-transformer/pull/8956)）。
+- <term>Ascend 950PR&950DT系列产品</term>新增QuantFlashAttn全量化注意力算子及配套Metadata接口，支持MXFP8量化和HIFLOAT8 PerTensor量化，并支持MXFP8 FlashDecode（[!8968](https://gitcode.com/cann/ops-transformer/pull/8968)、[!9573](https://gitcode.com/cann/ops-transformer/pull/9573)、[!12516](https://gitcode.com/cann/ops-transformer/pull/12516)）。
+- <term>Ascend 950PR&950DT系列产品</term>上QuantLightningIndexerV2新增MXFP8、MXFP4量化支持（[!9139](https://gitcode.com/cann/ops-transformer/pull/9139)）。
+- <term>Ascend 950PR&950DT系列产品</term>新增QuantSparseFlashMla及配套Metadata算子，支持SWA、CSA、HCA全量化稀疏MLA计算及LSE输出（[!8499](https://gitcode.com/cann/ops-transformer/pull/8499)、[!8760](https://gitcode.com/cann/ops-transformer/pull/8760)、[!8762](https://gitcode.com/cann/ops-transformer/pull/8762)、[!9167](https://gitcode.com/cann/ops-transformer/pull/9167)）。
+- 优化<term>Ascend 950PR&950DT系列产品</term>上KvQuantSparseFlashAttention的MLA场景性能，减少Vector侧计算开销（[!10428](https://gitcode.com/cann/ops-transformer/pull/10428)）。
 
 **MoE类**
 
 - MoeGatingTopK新增Hash专家选择模式，通过映射表获取专家索引；Atlas A2系列产品和Atlas A3系列产品新增SqrtSoftplus归一化支持（[!6894](https://gitcode.com/cann/ops-transformer/pull/6894)、[!7415](https://gitcode.com/cann/ops-transformer/pull/7415)、[!11117](https://gitcode.com/cann/ops-transformer/pull/11117)）。
-- <term>Ascend 950PR/Ascend 950DT</term>新增MoeInitRoutingV4和MoeReRoutingV2算子，支持TopK权重随Token同步重排；MoeInitRoutingV4支持图模式下动态传入active_num（[!6793](https://gitcode.com/cann/ops-transformer/pull/6793)）。
-- <term>Ascend 950PR/Ascend 950DT</term>上MoeInitRoutingV3支持以expertIdx=-1标记并过滤无效专家，同时优化MXFP8量化、透传和FP8分组量化场景性能（[!9708](https://gitcode.com/cann/ops-transformer/pull/9708)、[!9199](https://gitcode.com/cann/ops-transformer/pull/9199)）。
+- <term>Ascend 950PR&950DT系列产品</term>新增MoeInitRoutingV4和MoeReRoutingV2算子，支持TopK权重随Token同步重排；MoeInitRoutingV4支持图模式下动态传入active_num（[!6793](https://gitcode.com/cann/ops-transformer/pull/6793)）。
+- <term>Ascend 950PR&950DT系列产品</term>上MoeInitRoutingV3支持以expertIdx=-1标记并过滤无效专家，同时优化MXFP8量化、透传和FP8分组量化场景性能（[!9708](https://gitcode.com/cann/ops-transformer/pull/9708)、[!9199](https://gitcode.com/cann/ops-transformer/pull/9199)）。
 
 **GMM（GroupedMatmul）量化类**
 
 - GroupedMatmul新增图模式转置融合，消除输入侧可融合的Transpose/TransposeD节点，减少数据搬运（[!8546](https://gitcode.com/cann/ops-transformer/pull/8546)）。
-- <term>Ascend 950PR/Ascend 950DT</term>上GroupedMatmul的WeightNz MX量化支持“单输入、多权重、单输出”场景，权重及对应scale的TensorList数量扩展至1024；MXFP8 WeightNz的非转置权重场景新增FRACTAL_NZ格式的权重量化scale支持（[!6739](https://gitcode.com/cann/ops-transformer/pull/6739)、[!11848](https://gitcode.com/cann/ops-transformer/pull/11848)、[!9728](https://gitcode.com/cann/ops-transformer/pull/9728)）。
-- <term>Ascend 950PR/Ascend 950DT</term>上GroupedMatmulSwigluQuantV2在MX WeightNz场景支持多权重Tensor输入；WeightND场景放宽N轴对齐约束，FP8支持2对齐、FP4支持4对齐（[!7302](https://gitcode.com/cann/ops-transformer/pull/7302)、[!7662](https://gitcode.com/cann/ops-transformer/pull/7662)）。
-- <term>Ascend 950PR/Ascend 950DT</term>上GroupedMatmulSwigluQuantV2新增A8W8 PerToken WeightNz支持，覆盖INT8、HIF8、FP8及权重转置/非转置输入（[!9936](https://gitcode.com/cann/ops-transformer/pull/9936)）。
-- <term>Ascend 950PR/Ascend 950DT</term>上GroupedMatmul新增INT8×INT4（A8W4）和INT4×INT4（A4W4）量化支持，WeightNz MX A8W4场景新增FLOAT4_E1M2权重类型支持（[!9611](https://gitcode.com/cann/ops-transformer/pull/9611)、[!8748](https://gitcode.com/cann/ops-transformer/pull/8748)）。
-- <term>Ascend 950PR/Ascend 950DT</term>上GroupedMatmulActivationQuant在WeightNz场景新增MXFP4输入与FP4量化输出支持，扩展矩阵乘、激活与量化融合的低比特计算能力（[!9279](https://gitcode.com/cann/ops-transformer/pull/9279)）。
+- <term>Ascend 950PR&950DT系列产品</term>上GroupedMatmul的WeightNz MX量化支持“单输入、多权重、单输出”场景，权重及对应scale的TensorList数量扩展至1024；MXFP8 WeightNz的非转置权重场景新增FRACTAL_NZ格式的权重量化scale支持（[!6739](https://gitcode.com/cann/ops-transformer/pull/6739)、[!11848](https://gitcode.com/cann/ops-transformer/pull/11848)、[!9728](https://gitcode.com/cann/ops-transformer/pull/9728)）。
+- <term>Ascend 950PR&950DT系列产品</term>上GroupedMatmulSwigluQuantV2在MX WeightNz场景支持多权重Tensor输入；WeightND场景放宽N轴对齐约束，FP8支持2对齐、FP4支持4对齐（[!7302](https://gitcode.com/cann/ops-transformer/pull/7302)、[!7662](https://gitcode.com/cann/ops-transformer/pull/7662)）。
+- <term>Ascend 950PR&950DT系列产品</term>上GroupedMatmulSwigluQuantV2新增A8W8 PerToken WeightNz支持，覆盖INT8、HIF8、FP8及权重转置/非转置输入（[!9936](https://gitcode.com/cann/ops-transformer/pull/9936)）。
+- <term>Ascend 950PR&950DT系列产品</term>上GroupedMatmul新增INT8×INT4（A8W4）和INT4×INT4（A4W4）量化支持，WeightNz MX A8W4场景新增FLOAT4_E1M2权重类型支持（[!9611](https://gitcode.com/cann/ops-transformer/pull/9611)、[!8748](https://gitcode.com/cann/ops-transformer/pull/8748)）。
+- <term>Ascend 950PR&950DT系列产品</term>上GroupedMatmulActivationQuant在WeightNz场景新增MXFP4输入与FP4量化输出支持，扩展矩阵乘、激活与量化融合的低比特计算能力（[!9279](https://gitcode.com/cann/ops-transformer/pull/9279)）。
 
 **MC2（通信-计算融合）类**
 
-- MegaMoe在Atlas A2系列产品、Atlas A3系列产品和<term>Ascend 950PR/Ascend 950DT</term>上扩展SiTU、SwiGLU-OAI和SwiGLU-Step激活支持，其中950系列的SwiGLU-OAI和SwiGLU-Step限MTE通信路径（[!8868](https://gitcode.com/cann/ops-transformer/pull/8868)、[!9667](https://gitcode.com/cann/ops-transformer/pull/9667)、[!9971](https://gitcode.com/cann/ops-transformer/pull/9971)）。
+- MegaMoe在Atlas A2系列产品、Atlas A3系列产品和<term>Ascend 950PR&950DT系列产品</term>上扩展SiTU、SwiGLU-OAI和SwiGLU-Step激活支持，其中950系列的SwiGLU-OAI和SwiGLU-Step限MTE通信路径（[!8868](https://gitcode.com/cann/ops-transformer/pull/8868)、[!9667](https://gitcode.com/cann/ops-transformer/pull/9667)、[!9971](https://gitcode.com/cann/ops-transformer/pull/9971)）。
 - Atlas A3系列产品上MegaMoe支持弹性扩缩容，可通过失能rank掩码跳过相应计算与通信（[!9368](https://gitcode.com/cann/ops-transformer/pull/9368)）。
 - Atlas A3系列产品上AlltoAllvGroupedMatMul和GroupedMatMulAlltoAllv新增AIV通信路径（[!11516](https://gitcode.com/cann/ops-transformer/pull/11516)、[!11506](https://gitcode.com/cann/ops-transformer/pull/11506)）。
 - Atlas A3系列产品上MoeDistributeDispatchV2优化热点专家负载分配和通信窗口布局，改善Token发送负载均衡及HCCS端口分布（[!9594](https://gitcode.com/cann/ops-transformer/pull/9594)、[!10004](https://gitcode.com/cann/ops-transformer/pull/10004)）。
-- <term>Ascend 950PR/Ascend 950DT</term>上MegaMoe支持共享专家，并在MTE通信路径下支持按专家分别传入权重及量化参数TensorList（[!8822](https://gitcode.com/cann/ops-transformer/pull/8822)、[!9493](https://gitcode.com/cann/ops-transformer/pull/9493)）。
-- 优化<term>Ascend 950PR/Ascend 950DT</term>上MegaMoe在MTE通信路径下的A8W4/A4W4 Wave流水调度，提高Dispatch、专家计算与Combine的流水重叠效率（[!10092](https://gitcode.com/cann/ops-transformer/pull/10092)、[!10319](https://gitcode.com/cann/ops-transformer/pull/10319)、[!10302](https://gitcode.com/cann/ops-transformer/pull/10302)）。
-- <term>Ascend 950PR/Ascend 950DT</term>新增AllGatherMatmulV3算子及all_gather_quant_matmul PyTorch接口，支持URMA AllGather与MXFP8/MXFP4量化矩阵乘融合（[!10643](https://gitcode.com/cann/ops-transformer/pull/10643)）。
-- <term>Ascend 950PR/Ascend 950DT</term>上AllGatherMatmulV2和MatmulReduceScatterV2新增MXFP4量化及对应图模式支持（[!7193](https://gitcode.com/cann/ops-transformer/pull/7193)、[!8596](https://gitcode.com/cann/ops-transformer/pull/8596)、[!8844](https://gitcode.com/cann/ops-transformer/pull/8844)、[!9240](https://gitcode.com/cann/ops-transformer/pull/9240)）。
-- <term>Ascend 950PR/Ascend 950DT</term>上AllGatherMatmulV2和MatmulReduceScatterV2在MX量化场景支持右矩阵非转置输入（[!10488](https://gitcode.com/cann/ops-transformer/pull/10488)、[!10617](https://gitcode.com/cann/ops-transformer/pull/10617)）。
-- <term>Ascend 950DT</term>上MoeEpDispatch和MoeEpCombine采用AIV直驱URMA的通信方式，支持MoE训练场景，提供ElasticBuffer接口、Dispatch路由信息复用及配套后处理算子（[!7807](https://gitcode.com/cann/ops-transformer/pull/7807)、[!7814](https://gitcode.com/cann/ops-transformer/pull/7814)、[!9388](https://gitcode.com/cann/ops-transformer/pull/9388)、[!10249](https://gitcode.com/cann/ops-transformer/pull/10249)）。
-- <term>Ascend 950DT</term>上Engram通过ElasticBuffer提供主机内存中的分布式表存储，配套EngramFetch和EngramFetchWait实现按索引RDMA远端读取、异步发起与等待（[!7749](https://gitcode.com/cann/ops-transformer/pull/7749)、[!7317](https://gitcode.com/cann/ops-transformer/pull/7317)）。
-- <term>Ascend 950DT</term>上Engram新增训练正反向支持，通过ElasticBuffer接口完成分布式表查询、跨卡梯度回传和按表项稀疏累加，支持输出稀疏梯度用于优化器更新（[!8914](https://gitcode.com/cann/ops-transformer/pull/8914)、[!9179](https://gitcode.com/cann/ops-transformer/pull/9179)、[!9308](https://gitcode.com/cann/ops-transformer/pull/9308)）。
+- <term>Ascend 950PR&950DT系列产品</term>上MegaMoe支持共享专家，并在MTE通信路径下支持按专家分别传入权重及量化参数TensorList（[!8822](https://gitcode.com/cann/ops-transformer/pull/8822)、[!9493](https://gitcode.com/cann/ops-transformer/pull/9493)）。
+- 优化<term>Ascend 950PR&950DT系列产品</term>上MegaMoe在MTE通信路径下的A8W4/A4W4 Wave流水调度，提高Dispatch、专家计算与Combine的流水重叠效率（[!10092](https://gitcode.com/cann/ops-transformer/pull/10092)、[!10319](https://gitcode.com/cann/ops-transformer/pull/10319)、[!10302](https://gitcode.com/cann/ops-transformer/pull/10302)）。
+- <term>Ascend 950PR&950DT系列产品</term>新增AllGatherMatmulV3算子及all_gather_quant_matmul PyTorch接口，支持URMA AllGather与MXFP8/MXFP4量化矩阵乘融合（[!10643](https://gitcode.com/cann/ops-transformer/pull/10643)）。
+- <term>Ascend 950PR&950DT系列产品</term>上AllGatherMatmulV2和MatmulReduceScatterV2新增MXFP4量化及对应图模式支持（[!7193](https://gitcode.com/cann/ops-transformer/pull/7193)、[!8596](https://gitcode.com/cann/ops-transformer/pull/8596)、[!8844](https://gitcode.com/cann/ops-transformer/pull/8844)、[!9240](https://gitcode.com/cann/ops-transformer/pull/9240)）。
+- <term>Ascend 950PR&950DT系列产品</term>上AllGatherMatmulV2和MatmulReduceScatterV2在MX量化场景支持右矩阵非转置输入（[!10488](https://gitcode.com/cann/ops-transformer/pull/10488)、[!10617](https://gitcode.com/cann/ops-transformer/pull/10617)）。
+- <term>Ascend 950PR&950DT系列产品</term>上MoeEpDispatch和MoeEpCombine采用AIV直驱URMA的通信方式，支持MoE训练场景，提供ElasticBuffer接口、Dispatch路由信息复用及配套后处理算子（[!7807](https://gitcode.com/cann/ops-transformer/pull/7807)、[!7814](https://gitcode.com/cann/ops-transformer/pull/7814)、[!9388](https://gitcode.com/cann/ops-transformer/pull/9388)、[!10249](https://gitcode.com/cann/ops-transformer/pull/10249)）。
+- <term>Ascend 950PR&950DT系列产品</term>上Engram通过ElasticBuffer提供主机内存中的分布式表存储，配套EngramFetch和EngramFetchWait实现按索引RDMA远端读取、异步发起与等待（[!7749](https://gitcode.com/cann/ops-transformer/pull/7749)、[!7317](https://gitcode.com/cann/ops-transformer/pull/7317)）。
+- <term>Ascend 950PR&950DT系列产品</term>上Engram新增训练正反向支持，通过ElasticBuffer接口完成分布式表查询、跨卡梯度回传和按表项稀疏累加，支持输出稀疏梯度用于优化器更新（[!8914](https://gitcode.com/cann/ops-transformer/pull/8914)、[!9179](https://gitcode.com/cann/ops-transformer/pull/9179)、[!9308](https://gitcode.com/cann/ops-transformer/pull/9308)）。
 
 **位置编码与KV缓存类**
 
 - Atlas A2系列产品和Atlas A3系列产品上RopeWithSinCosCacheV2支持mropeSection为[11,11,10]的M-RoPE场景（[!7120](https://gitcode.com/cann/ops-transformer/pull/7120)）。
-- 新增InplacePartialRotaryMul算子，支持原地部分旋转位置编码计算，适配Atlas A2系列产品、Atlas A3系列产品和<term>Ascend 950PR/Ascend 950DT</term>（[!6085](https://gitcode.com/cann/ops-transformer/pull/6085)）。
-- <term>Ascend 950PR/Ascend 950DT</term>新增QkvRmsNormRopeCacheWithKScale算子，融合Q/K RMSNorm、RoPE/M-RoPE、量化及KV Cache/K scale Cache更新，并支持M-RoPE MX量化（[!7023](https://gitcode.com/cann/ops-transformer/pull/7023)、[!8974](https://gitcode.com/cann/ops-transformer/pull/8974)、[!10557](https://gitcode.com/cann/ops-transformer/pull/10557)）。
-- <term>Ascend 950PR/Ascend 950DT</term>新增UndGenQkvRmsNormRopeCache算子，融合理解/生成阶段QKV的间接拼接、RMSNorm、MRoPE与分页KV Cache更新（[!9455](https://gitcode.com/cann/ops-transformer/pull/9455)）。
-- <term>Ascend 950PR/Ascend 950DT</term>新增InplacePartialRotaryMulGrad和ApplyRotaryPosEmbGrad算子，分别支持部分旋转位置编码原地梯度计算及Q/K双路RoPE梯度融合；InplacePartialRotaryMul新增自动微分支持（[!6895](https://gitcode.com/cann/ops-transformer/pull/6895)、[!10684](https://gitcode.com/cann/ops-transformer/pull/10684)、[!8493](https://gitcode.com/cann/ops-transformer/pull/8493)）。
+- 新增InplacePartialRotaryMul算子，支持原地部分旋转位置编码计算，适配Atlas A2系列产品、Atlas A3系列产品和<term>Ascend 950PR&950DT系列产品</term>（[!6085](https://gitcode.com/cann/ops-transformer/pull/6085)）。
+- <term>Ascend 950PR&950DT系列产品</term>新增QkvRmsNormRopeCacheWithKScale算子，融合Q/K RMSNorm、RoPE/M-RoPE、量化及KV Cache/K scale Cache更新，并支持M-RoPE MX量化（[!7023](https://gitcode.com/cann/ops-transformer/pull/7023)、[!8974](https://gitcode.com/cann/ops-transformer/pull/8974)、[!10557](https://gitcode.com/cann/ops-transformer/pull/10557)）。
+- <term>Ascend 950PR&950DT系列产品</term>新增UndGenQkvRmsNormRopeCache算子，融合理解/生成阶段QKV的间接拼接、RMSNorm、MRoPE与分页KV Cache更新（[!9455](https://gitcode.com/cann/ops-transformer/pull/9455)）。
+- <term>Ascend 950PR&950DT系列产品</term>新增InplacePartialRotaryMulGrad和ApplyRotaryPosEmbGrad算子，分别支持部分旋转位置编码原地梯度计算及Q/K双路RoPE梯度融合；InplacePartialRotaryMul新增自动微分支持（[!6895](https://gitcode.com/cann/ops-transformer/pull/6895)、[!10684](https://gitcode.com/cann/ops-transformer/pull/10684)、[!8493](https://gitcode.com/cann/ops-transformer/pull/8493)）。
 
 **Mhc类**
 
 - 新增BlockAttentionResiduals和BlockAttentionResidualsGrad算子，支持注意力残差的正反向计算（[!11161](https://gitcode.com/cann/ops-transformer/pull/11161)、[!11006](https://gitcode.com/cann/ops-transformer/pull/11006)）。
 - MhcPost和MhcPostBackward完善PyTorch图模式适配，支持可选hRes输入（[!10570](https://gitcode.com/cann/ops-transformer/pull/10570)、[!10277](https://gitcode.com/cann/ops-transformer/pull/10277)）。
 - MhcPre和MhcPreBackward新增Atlas A2系列产品和Atlas A3系列产品适配（[!10035](https://gitcode.com/cann/ops-transformer/pull/10035)、[!10049](https://gitcode.com/cann/ops-transformer/pull/10049)）。
-- 优化<term>Ascend 950PR/Ascend 950DT</term>上MhcPre和MhcPreBackward的计算流水，新增aclnnMhcPreV2和aclnnMhcPreBackwardV2接口，支持选择FP32/HF32 Cube计算模式（[!9243](https://gitcode.com/cann/ops-transformer/pull/9243)、[!12232](https://gitcode.com/cann/ops-transformer/pull/12232)）。
-- <term>Ascend 950PR/Ascend 950DT</term>上MhcPreSinkhorn和MhcPreSinkhornBackward新增TND格式支持，并补充正反向算子的GE图模式适配（[!10272](https://gitcode.com/cann/ops-transformer/pull/10272)、[!9519](https://gitcode.com/cann/ops-transformer/pull/9519)、[!8382](https://gitcode.com/cann/ops-transformer/pull/8382)）。
+- 优化<term>Ascend 950PR&950DT系列产品</term>上MhcPre和MhcPreBackward的计算流水，新增aclnnMhcPreV2和aclnnMhcPreBackwardV2接口，支持选择FP32/HF32 Cube计算模式（[!9243](https://gitcode.com/cann/ops-transformer/pull/9243)、[!12232](https://gitcode.com/cann/ops-transformer/pull/12232)）。
+- <term>Ascend 950PR&950DT系列产品</term>上MhcPreSinkhorn和MhcPreSinkhornBackward新增TND格式支持，并补充正反向算子的GE图模式适配（[!10272](https://gitcode.com/cann/ops-transformer/pull/10272)、[!9519](https://gitcode.com/cann/ops-transformer/pull/9519)、[!8382](https://gitcode.com/cann/ops-transformer/pull/8382)）。
 
 **工程与PyTorch适配**
 
@@ -556,12 +552,12 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 #### 关键特性
 
 - C API：
-  - Ascend 950PR/Ascend 950DT系列产品新增`asc_lock`和`asc_unlock`接口（[!5216](https://gitcode.com/cann/asc-devkit/pull/5216)）。并补全部分接口及接口支持的数据类型（[!5168](https://gitcode.com/cann/asc-devkit/pull/5168)）。
+  - <term>Ascend 950PR&950DT系列产品<term>新增`asc_lock`和`asc_unlock`接口（[!5216](https://gitcode.com/cann/asc-devkit/pull/5216)）。并补全部分接口及接口支持的数据类型（[!5168](https://gitcode.com/cann/asc-devkit/pull/5168)）。
 - Tensor API：
   - 新增conv2D功能（[!4239](https://gitcode.com/cann/asc-devkit/pull/4239)）。
   - 新增超大Tensor的Dump功能（[!6371](https://gitcode.com/cann/asc-devkit/pull/6371)）。
 - SuperKernel：
-  - 支持Ascend 950PR/Ascend 950DT系列产品npugraph_ex路径的SuperKernel功能（[!430](https://gitcode.com/cann/graph-autofusion/pull/430)）。
+  - 支持<term>Ascend 950PR&950DT系列产品<term>npugraph_ex路径的SuperKernel功能（[!430](https://gitcode.com/cann/graph-autofusion/pull/430)）。
 - 基础API：
   - Ascend C支持SIMD VF内FIFO方式的dump、printf和assert（[!4829](https://gitcode.com/cann/asc-devkit/pull/4829)）。
 - SIMT API：
@@ -608,7 +604,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   - 支持与torch_npu同步计算确定性等级（0关闭、1确定性、2强一致性），JIT编译入口自动读取torch_npu进程级设置并写入编译配置，保证编码侧与torch_npu一致（[!5622](https://gitcode.com/cann/pypto/pull/5622)）。
 
 - 性能优化：
-  - TopK API在<term>Ascend 950PR/Ascend 950DT</term>上的RadixSelect算法路径优化，通过缩减指令数提升排序性能（[!5239](https://gitcode.com/cann/pypto/pull/5239)）。
+  - TopK API在<term>Ascend 950PR&950DT系列产品</term>上的RadixSelect算法路径优化，通过缩减指令数提升排序性能（[!5239](https://gitcode.com/cann/pypto/pull/5239)）。
   - 乱序调度预调度阶段新增向量排序算法，减少L1 spill次数（[!5469](https://gitcode.com/cann/pypto/pull/5469)）。
 
 - 支持Kirin（kirin9030/kirinx90）端侧LiteNPU上使用PyPTO开发算子，打通kernel端到端编译+推理链路：
@@ -625,10 +621,10 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 ### 通信库
 
 #### 集合通信
-- Ascend 950PR&950DT系列产品 支持在experimental目录扩展自定义算法，提升生态扩展易用性([!2734](https://gitcode.com/cann/hccl/pull/2734)) 。
-- Ascend 950PR&950DT系列产品 支持URMA场景下的对称内存能力，支持用户通过 HcclCommSymWinRegister 注册对称窗口，提升算子算法实现易用性([!2369](https://gitcode.com/cann/hcomm/pull/2369) [!1195](https://gitcode.com/cann/hccl/pull/1195))。
-- Ascend 950PR&950DT系列产品 支持CCU资源灵活申请，提升自定义CCU算子灵活性([!3367](https://gitcode.com/cann/hcomm/pull/3367))。
-- Ascend 950PR&950DT系列产品 提供 Host 网卡实现扩展能力，支持灵活扩展hcomm接口实现([!4257](https://gitcode.com/cann/hcomm/pull/4257)) 。
+- <term>Ascend 950PR&950DT系列产品<term>支持在experimental目录扩展自定义算法，提升生态扩展易用性([!2734](https://gitcode.com/cann/hccl/pull/2734)) 。
+- <term>Ascend 950PR&950DT系列产品<term>支持URMA场景下的对称内存能力，支持用户通过 HcclCommSymWinRegister 注册对称窗口，提升算子算法实现易用性([!2369](https://gitcode.com/cann/hcomm/pull/2369) [!1195](https://gitcode.com/cann/hccl/pull/1195))。
+- <term>Ascend 950PR&950DT系列产品<term>支持CCU资源灵活申请，提升自定义CCU算子灵活性([!3367](https://gitcode.com/cann/hcomm/pull/3367))。
+- <term>Ascend 950PR&950DT系列产品<term>提供 Host 网卡实现扩展能力，支持灵活扩展hcomm接口实现([!4257](https://gitcode.com/cann/hcomm/pull/4257)) 。
 
 ### PTO虚拟指令集
 
@@ -847,7 +843,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 ### 算子编程
 
 - C API：
-  - 重构Ascend 950PR/Ascend 950DT系列产品资料，细化目录划分、优化资料内部结构，完善接口功能说明、调用示例和约束说明（[!5266](https://gitcode.com/cann/asc-devkit/pull/5266)）。
+  - 重构Ascend 950PR&950DT系列产品资料，细化目录划分、优化资料内部结构，完善接口功能说明、调用示例和约束说明（[!5266](https://gitcode.com/cann/asc-devkit/pull/5266)）。
 - Tensor API：
   - 新增SIMD-CPP Tensor编程指南（[!3187](https://gitcode.com/cann/asc-devkit/pull/3187)）。
   - 完善cube_compute_load/store、layout_structure、data_move、tensor_structure等资料（[!5134](https://gitcode.com/cann/asc-devkit/pull/5134)）。
