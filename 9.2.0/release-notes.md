@@ -378,7 +378,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
     - Cdist算子性能优化（[!5021](https://gitcode.com/cann/ops-math/pull/5021)）。
     - ConstantPadNd算子优化bool输入处理、大尾轴双缓冲和循环展开，提升填充性能（[!4629](https://gitcode.com/cann/ops-math/pull/4629)）。
 
-- Atlas A2系列产品/Atlas A3系列产品适配与场景支持：
+- Atlas A2系列产品和Atlas A3系列产品适配与场景支持：
 
   - 算子功能增强：
 
@@ -439,7 +439,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
     - torch_extension支持单算子独立编译与打包，单算子实现迁移至算子目录，整包与单算子包可隔离共存（[!7315](https://gitcode.com/cann/ops-nn/pull/7315)、[!7686](https://gitcode.com/cann/ops-nn/pull/7686)）。
     - torch_extension支持自定义算子包路径，可通过ASCEND_CUSTOM_OPP_PATH指定并自动扫描vendors目录，同时支持多vendor算子库查找与确定性计算（[!8023](https://gitcode.com/cann/ops-nn/pull/8023)、[!8115](https://gitcode.com/cann/ops-nn/pull/8115)）。
     - torch_extension导出cann_ops_nn命名空间供eager模式与图模式调用（[!7941](https://gitcode.com/cann/ops-nn/pull/7941)）。
-- Ascend 950PR&Ascend 950DT系列产品适配与场景支持：
+- Ascend 950PR&950DT系列产品适配与场景支持：
   - 新增算子：
     - SituGlu，SiTU门控线性单元（SiTU Gated Linear Unit）激活函数，将输入沿指定维度切分为门控（gate）与上路径（up）两半并按SiTU公式计算输出（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
     - SituGluGrad，SiTU门控线性单元激活函数的反向梯度计算，根据上游梯度grad_y和前向输入x计算输入x的梯度grad_x（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
@@ -496,7 +496,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
     - torch_extension新增调用C++接口前的入参类型校验，提供包含参数名称的错误提示，便于定位调用问题（[!11968](https://gitcode.com/cann/ops-transformer/pull/11968)）。
   - 性能优化：
     - Atlas A3系列产品上MoeDistributeDispatchV2优化热点专家负载分配和通信窗口布局，改善Token发送负载均衡及HCCS端口分布（[!9594](https://gitcode.com/cann/ops-transformer/pull/9594)、[!10004](https://gitcode.com/cann/ops-transformer/pull/10004)）。
-- Ascend 950PR&Ascend 950DT系列产品适配与场景支持：
+- Ascend 950PR&950DT系列产品适配与场景支持：
   - 新增算子：
     - GenericBlockSparseAttention、GenericBlockSparseAttentionGrad及配套Metadata算子，支持自定义稀疏块粒度的注意力正反向计算（[!10628](https://gitcode.com/cann/ops-transformer/pull/10628)、[!10657](https://gitcode.com/cann/ops-transformer/pull/10657)、[!11003](https://gitcode.com/cann/ops-transformer/pull/11003)、[!11499](https://gitcode.com/cann/ops-transformer/pull/11499)）。
     - ChunkKdaFwd，支持KDA分块正向计算及BSND、BNSD、TND、NTD输入布局（[!9979](https://gitcode.com/cann/ops-transformer/pull/9979)）。
@@ -571,12 +571,12 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 #### 关键特性
 
 - C API：
-  - <term>Ascend 950PR&950DT系列产品<term>新增`asc_lock`和`asc_unlock`接口（[!5216](https://gitcode.com/cann/asc-devkit/pull/5216)）。并补全部分接口及接口支持的数据类型（[!5168](https://gitcode.com/cann/asc-devkit/pull/5168)）。
+  - <term>Ascend 950PR&950DT系列产品</term>新增`asc_lock`和`asc_unlock`接口（[!5216](https://gitcode.com/cann/asc-devkit/pull/5216)）。并补全部分接口及接口支持的数据类型（[!5168](https://gitcode.com/cann/asc-devkit/pull/5168)）。
 - Tensor API：
   - 新增conv2D功能（[!4239](https://gitcode.com/cann/asc-devkit/pull/4239)）。
   - 新增超大Tensor的Dump功能（[!6371](https://gitcode.com/cann/asc-devkit/pull/6371)）。
 - SuperKernel：
-  - 支持<term>Ascend 950PR&950DT系列产品<term>npugraph_ex路径的SuperKernel功能（[!430](https://gitcode.com/cann/graph-autofusion/pull/430)）。
+  - 支持<term>Ascend 950PR&950DT系列产品</term>npugraph_ex路径的SuperKernel功能（[!430](https://gitcode.com/cann/graph-autofusion/pull/430)）。
 - 基础API：
   - Ascend C支持SIMD VF内FIFO方式的dump、printf和assert（[!4829](https://gitcode.com/cann/asc-devkit/pull/4829)）。
 - SIMT API：
@@ -640,10 +640,11 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 ### 通信库
 
 #### 集合通信
-- <term>Ascend 950PR&950DT系列产品<term>支持在experimental目录扩展自定义算法，提升生态扩展易用性([!2734](https://gitcode.com/cann/hccl/pull/2734)) 。
-- <term>Ascend 950PR&950DT系列产品<term>支持URMA场景下的对称内存能力，支持用户通过 HcclCommSymWinRegister 注册对称窗口，提升算子算法实现易用性([!2369](https://gitcode.com/cann/hcomm/pull/2369) [!1195](https://gitcode.com/cann/hccl/pull/1195))。
-- <term>Ascend 950PR&950DT系列产品<term>支持CCU资源灵活申请，提升自定义CCU算子灵活性([!3367](https://gitcode.com/cann/hcomm/pull/3367))。
-- <term>Ascend 950PR&950DT系列产品<term>提供 Host 网卡实现扩展能力，支持灵活扩展hcomm接口实现([!4257](https://gitcode.com/cann/hcomm/pull/4257)) 。
+
+- <term>Ascend 950PR&950DT系列产品</term>支持在experimental目录扩展自定义算法，提升生态扩展易用性([!2734](https://gitcode.com/cann/hccl/pull/2734)) 。
+- <term>Ascend 950PR&950DT系列产品</term>支持URMA场景下的对称内存能力，支持用户通过 HcclCommSymWinRegister 注册对称窗口，提升算子算法实现易用性([!2369](https://gitcode.com/cann/hcomm/pull/2369) [!1195](https://gitcode.com/cann/hccl/pull/1195))。
+- <term>Ascend 950PR&950DT系列产品</term>支持CCU资源灵活申请，提升自定义CCU算子灵活性([!3367](https://gitcode.com/cann/hcomm/pull/3367))。
+- <term>Ascend 950PR&950DT系列产品</term>提供 Host 网卡实现扩展能力，支持灵活扩展hcomm接口实现([!4257](https://gitcode.com/cann/hcomm/pull/4257)) 。
 
 ### PTO虚拟指令集
 
@@ -744,7 +745,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 | ${install_path}/ascend-toolkit/latest/runtime/include/graph  | ${install_path}/cann/include/graph                         |
 | ${install_path}/ascend-toolkit/latest/compiler/python/func2graph | ${install_path}/cann/x86_64-linux/python目录下的func2graph |
 
-自Ascend 950 系列产品开始，aclblas和aclop接口不推荐使用，后续版本将逐步废弃，建议迁移至对应的aclnn算子接口。
+自Ascend 950PR&950DT系列产品开始，aclblas和aclop接口不推荐使用，后续版本将逐步废弃，建议迁移至对应的aclnn算子接口。
 
 ### 算子库
 
@@ -784,7 +785,6 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 | aclnnIncreFlashAttentionV2和aclnnIncreFlashAttentionV3接口   | aclnnIncreFlashAttentionV4接口                               |
 | aclnnPromptFlashAttentionV2接口                              | aclnnPromptFlashAttentionV3接口                              |
 | aclnnFusedInferAttentionScoreV2和aclnnFusedInferAttentionScoreV3接口 | aclnnFusedInferAttentionScoreV4接口                          |
-
 
 ### 加速库
 
@@ -837,17 +837,17 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 ## 已修复问题
 
 以下问题在9.2.0版本修复：
-- 修复Atlas A2系列产品和Atlas A3系列产品及Ascend 950系列NPU MM 算子通过 GE aclnn fallback 回调执行场景下的 HF32 属性未正确传递至底层导致性能不达预期的问题。 
+- 修复Atlas A2系列产品、Atlas A3系列产品和Ascend 950PR&950DT系列产品NPU MM算子通过GE aclnn fallback回调执行场景下的HF32属性未正确传递至底层导致性能不达预期的问题。
 - 修复Atlas A2系列产品和Atlas A3系列产品RmsNorm算子在输入shape超过int32最大值有精度误差的问题。
-- 修复Atlas A2系列产品和Atlas A3系列产品 matmul 算子融合通路转为 matmulv2 场景下的 _deterministic_level 属性未继承导致后续节点属性丢失的问题。
-- 修复Atlas A2系列产品和Atlas A3系列产品 matmul 算子 host 端性能劣化场景下的 FSDP 通信与计算细粒度流水受阻导致模型整体性能下降的问题。
+- 修复Atlas A2系列产品和Atlas A3系列产品matmul算子融合通路转为matmulv2场景下的_deterministic_level属性未继承导致后续节点属性丢失的问题。
+- 修复Atlas A2系列产品和Atlas A3系列产品matmul算子host端性能劣化场景下的FSDP通信与计算细粒度流水受阻导致模型整体性能下降的问题。
 - 修复FAG算子在EOD场景下存在偶现清空pad不完整的问题。
-- 修复Atlas A3系列产品 aclgraph aicpu展开HCCL主流和capture主流为同一条stream时，orderStream图规则校验失败的问题。
-- 修复Atlas A3系列产品 AllGatherRingConcurrentDirect算法在大集群规模场景下，主从流任务下发死锁的问题。
+- 修复Atlas A3系列产品aclgraph aicpu展开HCCL主流和capture主流为同一条stream时，orderStream图规则校验失败的问题。
+- 修复Atlas A3系列产品AllGatherRingConcurrentDirect算法在大集群规模场景下，主从流任务下发死锁的问题。
 - 修复Atlas A2系列产品和Atlas A3系列产品导入非主线版本环境变量时RingMLAOperation接口demo运行失败问题。
 - 修复Atlas A2系列产品和Atlas A3系列产品torch_npu.npu_format_cast接口format和shape不匹配的场景下，从拦截fallback到aclop的问题。
-- （**不兼容变更**）修复 Atlas A2系列产品和Atlas A3系列产品SparseFlashMLA算子torch接口参数默认值错误的问题（ori_mask_mode、cmp_mask_mode、ori_win_left、ori_win_right）。
-- 修复 Ascend 950PR&950DT系列产品 同一个卡同一个进程下，前一次创建成功的通信域ranksize比接下来要创建子通信域的ranksize小的时候导致子通信域创建失败问题。 
+- （**不兼容变更**）修复Atlas A2系列产品和Atlas A3系列产品SparseFlashMLA算子torch接口参数默认值错误的问题（ori_mask_mode、cmp_mask_mode、ori_win_left、ori_win_right）。
+- 修复Ascend 950PR&950DT系列产品同一个卡同一个进程下，前一次创建成功的通信域ranksize比接下来要创建子通信域的ranksize小的时候导致子通信域创建失败问题。
 
 ## 文档变更说明
 
