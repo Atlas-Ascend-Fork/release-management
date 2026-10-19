@@ -250,14 +250,28 @@ CANN 9.2.0-beta.2包含Toolkit包、算子包（ops）、加速库（NNAL）3个
 
 ### ops-transformer库
 
-- Atlas A2 训练系列产品/Atlas A2 推理系列产品 和 Atlas A3 训练系列产品/Atlas A3 推理系列产品适配与场景支持：
+<!-- npu="A3,910b" id2 -->
+- <term>Atlas A2系列产品</term>和<term>Atlas A3系列产品</term>适配与场景支持：
   - 新增 MsaIndexScore 算子（[!9503](https://gitcode.com/cann/ops-transformer/pull/9503)）。
   - 新增 ChunkKdaFwd 算子（[!9979](https://gitcode.com/cann/ops-transformer/pull/9979)）。
   - MlaProlog算子增设RoPE计算操作开关并支持cache输入非连续（[!10296](https://gitcode.com/cann/ops-transformer/pull/10296)）（[!9472](https://gitcode.com/cann/ops-transformer/pull/9472)）。
   - FusedInferAttentionScore算子的MLA模板非量化decode场景支持headNum<=128任意值泛化（[!9773](https://gitcode.com/cann/ops-transformer/pull/9773)）。
   - MegaMoe算子新增支持situ，swigluoai，swiglustep等激活类型（[!8868](https://gitcode.com/cann/ops-transformer/pull/8868)）。
-- Ascend 950PR/Ascend 950DT系列产品适配与场景支持：
+  - 新增MinimaxSparseAttention算子（[!10628](https://gitcode.com/cann/ops-transformer/pull/10628)）。
+  - FusedInferAttentionScore算子的MLA模板支持非连续（[!10114](https://gitcode.com/cann/ops-transformer/pull/10114)）。
+  - FusedInferAttentionScore算子支持cache首轴非连续（[!6399](https://gitcode.com/cann/ops-transformer/pull/6399)）。
+  - FusedInferAttentionScore算子splitfuse支持BNBD格式，性能更友好，对标vllm生态（[!10353](https://gitcode.com/cann/ops-transformer/pull/10353)）。
+<!-- end id2 -->
+<!-- npu="950" id1 -->
+- <term>Ascend 950PR&Ascend 950DT系列产品</term>适配与场景支持：
   - FusedInferAttentionScore算子的MLA模板非量化decode场景支持headNum<=128任意值泛化（[!9773](https://gitcode.com/cann/ops-transformer/pull/9773)）。
+  - 新增MinimaxSparseAttention算子decode q gather kv（[!10628](https://gitcode.com/cann/ops-transformer/pull/10628)）。
+  - MinimaxSparseAttention算子decode q gather kv支持FP8量化（[!11183](https://gitcode.com/cann/ops-transformer/pull/11183)）。
+  - FusedInferAttentionScore算子的MLA模板支持headNum<=128任意值泛化（[!11069](https://gitcode.com/cann/ops-transformer/pull/11069)）。
+  - BlockSparseAttention算子稀疏支持叠加量化mxfp4（[!8474](https://gitcode.com/cann/ops-transformer/pull/8474)）。
+  - BlockSparseAttention算子稀疏支持block粒度小于128、16对齐（[!9148](https://gitcode.com/cann/ops-transformer/pull/9148)）。
+  - BlockSparseAttention算子fp8量化性能增强（[!11145](https://gitcode.com/cann/ops-transformer/pull/11145)）。
+<!-- end id1 -->
 
 ## 删除和废弃特性
 
