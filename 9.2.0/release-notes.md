@@ -331,7 +331,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 <!-- npu="950" id3 -->
 - **基于<term>Ascend 950PR&950DT系列产品</term>，支持Engram分布式推理，将Engram表卸载（offload）至Host内存，通过URMA与Ubmem的接力能力，实现跨卡访问远端Host内存，点击[查看详情](https://gitcode.com/cann/ops-transformer/tree/9.2.0/mc2)。**
 <!-- end id3 -->
-- **PyPTO新增PyPTO PRO编程模式，为算子开发者进一步提供硬件的控制力，点击[查看详情](https://gitcode.com/cann/pypto/blob/master/docs/zh/guide/introduction.md)。**
+- **PyPTO新增PyPTO Pro编程模式，为算子开发者进一步提供硬件的控制力，点击[查看详情](https://gitcode.com/cann/pypto/blob/master/docs/zh/guide/introduction.md)。**
 <!-- npu="950" id4 -->
 - **基于<term>Ascend 950PR&950DT系列产品</term>，CATLASS新增支持Python风格核函数，提供丰富的样例库，点击[查看详情](https://gitcode.com/cann/catlass/blob/master/README.md)。**
 <!-- end id4 -->
@@ -613,18 +613,18 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 <!-- npu="950" id15 -->
 ### PyPTO
 
-#### 支持Ascend 950PR&950DT系列产品上使用PyPTO-Pro开发算子
+#### 支持Ascend 950PR&950DT系列产品上使用PyPTO Pro开发算子
 
-- 新增PyPTO-Pro融合算子开发接口
+- 新增PyPTO Pro融合算子开发接口
   - 泛化支持量化、非量化场景的Cube侧Tile粒度的矩阵的搬运、计算（[!5399](https://gitcode.com/cann/pypto/pull/5399)、[!5439](https://gitcode.com/cann/pypto/pull/5399)）。
   - 泛化支持Vector侧Tile粒度的数据搬运，同时支持SIMD RegBase & SIMT & SIMD Tile三种Vector计算方式（[!4925](https://gitcode.com/cann/pypto/pull/4925)、[!5341](https://gitcode.com/cann/pypto/pull/5341)、[!4946](https://gitcode.com/cann/pypto/pull/4946)）。
   - 泛化支持Mix融合算子开发和流水编排（[!4725](https://gitcode.com/cann/pypto/pull/4725)、[!4925](https://gitcode.com/cann/pypto/pull/4925)）。
 
-- 新增PyPTO-Pro易用性提升
+- 新增PyPTO Pro易用性提升
   - 支持自动核内同步（[!4725](https://gitcode.com/cann/pypto/pull/4725)、[!6209](https://gitcode.com/cann/pypto/pull/6209)）。
   - 支持自动核间流水编排（[!4690](https://gitcode.com/cann/pypto/pull/4690)、[!5332](https://gitcode.com/cann/pypto/pull/5332)、[!6038](https://gitcode.com/cann/pypto/pull/6038)）。
 
-- 新增PyPTO-Pro算子网络接入能力
+- 新增PyPTO Pro算子网络接入能力
   - 支持eager模式直调（[!4695](https://gitcode.com/cann/pypto/pull/4695)）。
   - 支持aclGraph入图（[!4695](https://gitcode.com/cann/pypto/pull/4695)）。
     - 在ops-transformer仓支持aclnn方式生成算子二进制（[!4695](https://gitcode.com/cann/pypto/pull/!4695)、[!6614](https://gitcode.com/cann/pypto/pull/6614)）。
@@ -632,7 +632,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
     - 支持内存越界检测工具（[!5668](https://gitcode.com/cann/pypto/pull/5668)）。
 <!-- end id15 -->
 
-#### PyPTO-Tensor编程方式持续完善
+#### PyPTO Tensor编程方式持续完善
 
 - 新增功能支持
   - IR重构，`@pypto.frontend.jit` 已默认切换为新IR（[!5152](https://gitcode.com/cann/pypto/pull/5152)）。
@@ -648,7 +648,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 支持Kirin（kirin9030/kirinx90）端侧LiteNPU上使用PyPTO开发算子，打通Kernel端到端编译+推理链路：
   - 重构codegen模块提取基类，新增LiteNPU派生类，完成kirin9030/kirinx90的platform/pass/codegen/tileop模块隔离及适配（[!2520](https://gitcode.com/cann/pypto/pull/2520)、[!3010](https://gitcode.com/cann/pypto/pull/3010)、[!3691](https://gitcode.com/cann/pypto/pull/3691)、[!4275](https://gitcode.com/cann/pypto/pull/4275)）。
   - 支持python前端指定platform socversion，支持端侧跳过runtime获取当前设备socversion（端侧不开放runtime接口）（[!2805](https://gitcode.com/cann/pypto/pull/2805)）。
-  - 新增pypto自定义算子导出与部署能力（pypto.extensions.torch_custom_op_litenpu及tools部署支撑库）。
+  - 新增PyPTO自定义算子导出与部署能力（pypto.extensions.torch_custom_op_litenpu及tools部署支撑库）。
 
 ### 运行时
 
