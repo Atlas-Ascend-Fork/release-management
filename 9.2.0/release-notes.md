@@ -659,6 +659,16 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - <term>Ascend 950PR&950DT系列产品</term>支持URMA场景下的对称内存能力，支持用户通过 HcclCommSymWinRegister 注册对称窗口，提升算子算法实现易用性([!2369](https://gitcode.com/cann/hcomm/pull/2369) [!1195](https://gitcode.com/cann/hccl/pull/1195))。
 - <term>Ascend 950PR&950DT系列产品</term>支持CCU资源灵活申请，提升自定义CCU算子灵活性([!3367](https://gitcode.com/cann/hcomm/pull/3367))。
 - <term>Ascend 950PR&950DT系列产品</term>提供 Host 网卡实现扩展能力，支持灵活扩展hcomm接口实现([!4257](https://gitcode.com/cann/hcomm/pull/4257))。
+
+#### HIXL单边通信
+
+- HIXL新增UB_RTP传输协议支持，用于昇腾950平台NPU之间的数据传输([!612](https://gitcode.com/cann/hixl/pull/612)、[!818](https://gitcode.com/cann/hixl/pull/818))。
+- HIXL支持多Channel并发传输，提升链路带宽利用率([!940](https://gitcode.com/cann/hixl/pull/940)、[!1024](https://gitcode.com/cann/hixl/pull/1024)、[!1026](https://gitcode.com/cann/hixl/pull/1026)、[!1318](https://gitcode.com/cann/hixl/pull/1318))。
+- HIXL支持配置每批次最大传输任务数与最大活跃Channel数量，管控通信资源开销([!1105](https://gitcode.com/cann/hixl/pull/1105)、[!704](https://gitcode.com/cann/hixl/pull/704))。
+- HIXL新增传输异常上报机制，可及时感知底层通信故障([!681](https://gitcode.com/cann/hixl/pull/681)、[!787](https://gitcode.com/cann/hixl/pull/787))。
+- FabricMem模式支持AI CPU展开优化，进一步提升传输性能([!839](https://gitcode.com/cann/hixl/pull/839))。
+- HIXL提供Python API能力，以wheel安装包对外发布([!658](https://gitcode.com/cann/hixl/pull/658)、[!903](https://gitcode.com/cann/hixl/pull/903))。
+
 <!-- end id16 -->
 ### PTO虚拟指令集
 
