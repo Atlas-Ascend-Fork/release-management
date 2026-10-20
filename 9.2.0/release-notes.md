@@ -336,9 +336,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - **基于<term>Ascend 950PR&950DT系列产品</term>，CATLASS新增支持Python风格核函数，提供丰富的样例库，点击[查看详情](https://gitcode.com/cann/catlass/blob/master/README.md)。**
 <!-- end id4 -->
 - **算子新增支持Batch一致性计算能力，点击[查看详情](https://gitcode.com/cann/ops-nn/blob/9.2.0/docs/zh/context/batch_consistency.md)。**
-
 - **新增支持inductor路线的自动融合能力，自动识别并融合view、Norm、elementwise、Concat等算子，提升模型执行性能，点击[查看详情](https://gitcode.com/cann/graph-autofusion/blob/master/docs/zh/autofuse/introduction/enable_autofuse_inductor.md)。**
-
 ## 新增特性
 
 ### 公共模块
@@ -437,6 +435,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
     - SituGluGrad，SiTU门控线性单元激活函数的反向梯度计算，根据上游梯度grad_y和前向输入x计算输入x的梯度grad_x（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
     - DequantSituQuant，在Situ激活函数前后添加dequant和quant操作，实现x的DequantSituQuant计算（[!8798](https://gitcode.com/cann/ops-nn/pull/8798)）。
     - MatmulEmuSplitWeight，使用双路BF16 GEMM融合模拟FP32精度矩阵乘法，离线将FP32权重拆分为高位BF16与低位残差BF16，推理阶段执行两次BF16 GEMM并做线性组合（[!9237](https://gitcode.com/cann/ops-nn/pull/9237)）。
+    - TurboQuant，将 MLA 的 KV latent 按 token 归一化后量化为 4bit codebook 索引，并单独输出每个 token 的 FLOAT16 L2 norm，用于 KV cache 的 4bit 压缩（[!10996](https://gitcode.com/cann/ops-nn/pull/10996)）。
   - 算子功能增强：
     - aclnnAddmm/Baddbmm/AddmmWeightNz 支持需要broadcast的bias输入（[!8446](https://gitcode.com/cann/ops-nn/pull/8446)、[!8784](https://gitcode.com/cann/ops-nn/pull/8784)）。
     - aclnnMatmul新增支持8维度输入（[!8785](https://gitcode.com/cann/ops-nn/pull/8785)）。
@@ -490,7 +489,8 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
     - MlaProlog系列支持KV Cache首轴非连续输入；新增aclnnMlaPrologV4WeightNz接口，通过doRope参数控制RoPE计算（[!10296](https://gitcode.com/cann/ops-transformer/pull/10296)、[!9472](https://gitcode.com/cann/ops-transformer/pull/9472)）。
     - MlaPreprocess支持kvCache、kvCacheRope首轴非连续输入（[!6442](https://gitcode.com/cann/ops-transformer/pull/6442)）。
     - SparseFlashMlaGrad支持TopK泛化及通过seqused输入指定实际有效序列长度；SparseLightningIndexerKLLossGrad支持seqused输入，并将TopK范围扩展至1～8192（[!11087](https://gitcode.com/cann/ops-transformer/pull/11087)、[!9367](https://gitcode.com/cann/ops-transformer/pull/9367)、[!11504](https://gitcode.com/cann/ops-transformer/pull/11504)）。
-    - MixedQuantSparseFlashMla在CSA路径新增TurboQuant TQ4压缩KV支持（[!12425](https://gitcode.com/cann/ops-transformer/pull/12425)）。
+    - MixedQuantSparseFlashMla在CSA路径新增TurboQuant TQ4压缩KV支持（[!12425](https://gitcode.com/cann/ops-transformer/pull/12425)、[!13418](https://gitcode.com/cann/ops-transformer/pull/13418)）。
+    - KvQuantSparseFlashAttention算子新增TurboQuant TQ4压缩KV支持（[!12709](https://gitcode.com/cann/ops-transformer/pull/12709)、[!13458](https://gitcode.com/cann/ops-transformer/pull/13458)）。
     - RecurrentGatedDeltaRule支持FLOAT32状态输入输出（[!5750](https://gitcode.com/cann/ops-transformer/pull/5750)）。
     - MoeGatingTopK新增Hash专家选择模式，通过映射表获取专家索引（[!6894](https://gitcode.com/cann/ops-transformer/pull/6894)、[!7415](https://gitcode.com/cann/ops-transformer/pull/7415)）。
     - MoeGatingTopK新增SqrtSoftplus归一化支持（[!11117](https://gitcode.com/cann/ops-transformer/pull/11117)）。
