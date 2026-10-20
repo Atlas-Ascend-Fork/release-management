@@ -645,11 +645,6 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   <!-- end id20 -->
   - 乱序调度预调度阶段新增向量排序算法，减少L1 spill次数（[!5469](https://gitcode.com/cann/pypto/pull/5469)）。
 
-- 支持Kirin（kirin9030/kirinx90）端侧LiteNPU上使用PyPTO开发算子，打通Kernel端到端编译+推理链路：
-  - 重构codegen模块提取基类，新增LiteNPU派生类，完成kirin9030/kirinx90的platform/pass/codegen/tileop模块隔离及适配（[!2520](https://gitcode.com/cann/pypto/pull/2520)、[!3010](https://gitcode.com/cann/pypto/pull/3010)、[!3691](https://gitcode.com/cann/pypto/pull/3691)、[!4275](https://gitcode.com/cann/pypto/pull/4275)）。
-  - 支持python前端指定platform socversion，支持端侧跳过runtime获取当前设备socversion（端侧不开放runtime接口）（[!2805](https://gitcode.com/cann/pypto/pull/2805)）。
-  - 新增PyPTO自定义算子导出与部署能力（pypto.extensions.torch_custom_op_litenpu及tools部署支撑库）。
-
 ### 运行时
 
 - 支持Kernel Launch和模型执行的阻塞调试模式（[!4247](https://gitcode.com/cann/runtime/pull/4247)）。
