@@ -109,7 +109,7 @@ CANN 9.2.0包含Toolkit包、算子包（ops）、加速库（NNAL）3个组合�
     <tr>
       <td rowspan="24">Toolkit</td>
       <td>ascendnpu-ir</td>
-      <td>1.2.0</td>
+      <td>2.0.0</td>
       <td>arm/x86</td>
     </tr>
     <tr>
