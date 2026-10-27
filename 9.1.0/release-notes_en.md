@@ -36,7 +36,7 @@ CANN and Ascend HDK Version Compatibility
   <thead>
     <tr>
       <th rowspan="3">CANN</th>
-      <th colspan="6">Driver Version (Ascend HDK)</th>
+      <th colspan="5">Driver Version (Ascend HDK)</th>
     </tr>
     <tr>
       <th>25.0.X</th>
@@ -44,13 +44,11 @@ CANN and Ascend HDK Version Compatibility
       <th>25.3.X</th>
       <th>25.5.X</th>
       <th>26.0.RC1/25.7.RC1</th>
-      <th>26.1.0</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>8.5.2</td>
-      <td>Y</td>
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
@@ -64,12 +62,10 @@ CANN and Ascend HDK Version Compatibility
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
-      <td>Y</td>
     </tr>
     <tr>
       <td>9.1.X</td>
       <td>N</td>
-      <td>Y</td>
       <td>Y</td>
       <td>Y</td>
       <td>Y</td>
