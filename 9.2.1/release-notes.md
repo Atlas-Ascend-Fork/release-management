@@ -462,97 +462,20 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 <!-- npu="950,A3,910b" id18 -->
 ## 已修复问题
 
-以下问题在9.2.0版本修复：
+以下问题在9.2.1版本修复：
 
-- 修复Atlas A2系列产品、Atlas A3系列产品和Ascend 950PR&950DT系列产品NPU MM算子通过GE aclnn fallback回调执行场景下的HF32属性未正确传递至底层导致性能不达预期的问题。
-- 修复Atlas A2系列产品和Atlas A3系列产品RmsNorm算子在输入shape超过int32最大值有精度误差的问题。
-- 修复Atlas A2系列产品和Atlas A3系列产品matmul算子融合通路转为matmulv2场景下的_deterministic_level属性未继承导致后续节点属性丢失的问题。
-- 修复Atlas A2系列产品和Atlas A3系列产品matmul算子Host端性能劣化场景下的FSDP通信与计算细粒度流水受阻导致模型整体性能下降的问题。
-- 修复FAG算子在EOD场景下存在偶现清空pad不完整的问题。
-- 修复Atlas A3系列产品aclgraph aicpu展开HCCL主流和capture主流为同一条stream时，orderStream图规则校验失败的问题。
-- 修复Atlas A3系列产品AllGatherRingConcurrentDirect算法在大集群规模场景下，主从流任务下发死锁的问题。
-- 修复Atlas A2系列产品和Atlas A3系列产品导入非主线版本环境变量时RingMLAOperation接口demo运行失败问题。
-- 修复Atlas A2系列产品和Atlas A3系列产品torch_npu.npu_format_cast接口format和shape不匹配的场景下，从拦截fallback到aclop的问题。
-- （**不兼容变更**）修复Atlas A2系列产品和Atlas A3系列产品SparseFlashMLA算子torch接口参数默认值错误的问题（ori_mask_mode、cmp_mask_mode、ori_win_left、ori_win_right）。
-- 修复Ascend 950PR&950DT系列产品同一个卡同一个进程下，前一次创建成功的通信域ranksize比接下来要创建子通信域的ranksize小的时候导致子通信域创建失败问题。
+- 修复Atlas A2系列产品、Atlas A3系列产品NPU 在输出tensor shape维度不合法时缺少校验问题。
+- 修复Ascend 950PR&950DT系列产品在推理场景下使用EPLB+mooncake，导致建链超时的问题。
+- 补充Ascend 950PR&950DT系列产品在1825交换机MTU配置不一致对推理训练功能影响的说明。
+- 修复Atlas A2系列产品、Atlas A3系列产品NPU CdistGrad算子边界场景中inf值运算的逻辑错误导致精度失败的问题。
+- 修复Ascend 950PR&950DT系列产品基于OOM包执行chunk_gated_delta_rule单算子，部分场景存在空拷贝导致的AICORE ERROR问题。
+- 修复Ascend 950PR&950DT系列产品的allgatherv算子在图模式场景下，recv_displacements参数size为0时判断错误导致算子中断执行的问题。
+- 修复Atlas A2系列产品、Atlas A3系列产品NPU conv3d_backprop_input_v2算子在大shape场景下通过Vector方案计算fp32数据类型双标杆L2的精度问题。
+- 修复Ascend 950PR&950DT系列产品下线ShapeRange推导，部分算子走框架自动推导报错的问题。
+- 修复Atlas A2系列产品ReduceScatter算子在开启确定性和pipeline算法时，缺少前同步导致概率卡死问题。
+- 修复Ascend 950PR&950DT系列产品SparseFlashMla/QuantSparseFlashMla/MixedQuantSparseFlashMla/KvQuantSparseFlashAttention算子物理地址预处理使用非法事件 ID 8的问题。
+- 修复Ascend 950PR&950DT系列产品bitwise_or在融合kernel内外存在差异导致的精度问题。
 <!-- end id18 -->
-
-## 文档变更说明
-
-### 编程语言
-
-#### Ascend C算子开发
-
-- 补充L2 Cache切分优化说明（[!5418](https://gitcode.com/cann/asc-devkit/pull/5418)）。
-- 新增NPU架构版本3510新特性使用说明（[!5265](https://gitcode.com/cann/asc-devkit/pull/5265)）。
-- “Aclnn算子工程化开发”章节进行优化调整，增加推荐阅读路径、快速入门等内容（[!3929](https://gitcode.com/cann/asc-devkit/pull/3929)）。
-- 新增“高级编程 > 内存模型”章节，介绍缓存一致性和内存一致性的概念、原理、常见问题和解决方案等内容（[!5150](https://gitcode.com/cann/asc-devkit/pull/5150)）。
-- 新增“基于Tensor的C++编程”章节（[!3187](https://gitcode.com/cann/asc-devkit/pull/3187)）。
-- 新增“原子操作指令优化”章节（[!4710](https://gitcode.com/cann/asc-devkit/pull/4710)）。
-
-#### PyPTO算子开发
-
-新增支持PyPTO Pro开发模式，支持面向Tile操作的Tile编程模型（[!4999](https://gitcode.com/cann/pypto/pull/4999)、[!5093](https://gitcode.com/cann/pypto/pull/5093)）。
-
-#### 图开发
-
-- “自定义算子入图”章节进行特性调整和目录结构调整。
-- 优化“AutoFuse自动融合”章节：
-  - 调整目录结构，新增“快速入门”、“启用AutoFuse”章节，环境变量的详细说明移至“附录”章节。
-  - “启用AutoFuse”章节分两条路径分别介绍自动融合的开启模式，新增Inductor路径下的融合开启方式。
-
-### 编译器
-
-#### PTOAS
-
-新增《PTOAS》文档，详细信息请见[PTOAS](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/compiler/ptoas/overview/what_is_ptoas.md)。
-
-### 通信库
-
-#### HCCL集合通信库
-
-优化三个故障案例：“建链超时”、“notify_wait超时”和“通信域建联超时问题背景”章节（[!2782](https://gitcode.com/cann/hccl/pull/2782)）。
-
-### API参考
-<!-- npu="950" id19 -->
-#### Ascend C API
-
-- “C API”章节重构Ascend 950PR&950DT系列产品资料，细化目录结构和优化资料内部结构，完善接口功能说明、调用示例和约束说明（[!5266](https://gitcode.com/cann/asc-devkit/pull/5266)）。
-- “Tensor API”章节完善cube_compute_load/store、layout_structure、data_move、tensor_structure等资料（[!5134](https://gitcode.com/cann/asc-devkit/pull/5134)）。
-- 优化“SIMT API”章节：
-  - 补充UB复用排布规则说明（[!6077](https://gitcode.com/cann/asc-devkit/pull/6077)）。
-  - 数学库接口更新精度说明（[!6047](https://gitcode.com/cann/asc-devkit/pull/6047)）。
-  - 协作组增加grid_group、thread_group说明（[!4795](https://gitcode.com/cann/asc-devkit/pull/4795)、[!5651](https://gitcode.com/cann/asc-devkit/pull/5651)）。
-  - 新增“SIMT指令理论性能汇总”章节（[!5543](https://gitcode.com/cann/asc-devkit/pull/5543)）。
-  - 新增整型转换函数（[!5170](https://gitcode.com/cann/asc-devkit/pull/5170)）。
-  - 新增SIMT编程场景使用的编译选项（[!5035](https://gitcode.com/cann/asc-devkit/pull/5035)）。
-- 新增“CheckOpResSufficient”章节（[!5766](https://gitcode.com/cann/asc-devkit/pull/5766)）。
-<!-- end id19 -->
-
-#### PyPTO API
-
-新增PyPTO Pro API章节（[!4991](https://gitcode.com/cann/pypto/pull/4991)）。
-
-#### 算子库API
-
-《算子库》手册“算子库 > 算子接口（torch_extension）”新增“NN类接口”章节。
-
-### 调试与分析工具
-
-#### 性能调优工具
-
-- 目录结构调整，以采集工具为粒度平铺章节。
-- Ascend PyTorch调优工具、MindSpore调优工具、使用TensorFlow框架接口采集性能数据、使用acl Python接口采集性能数据章节调整至各自源文档发布，《性能调优工具》手册在简介中保留跳转链接。
-
-#### 内存分析工具
-
-- 新增显存OOM分析项，发生OOM时dump最新和最大内存块信息。
-- 支持采集进程显存曲线和整卡显存曲线。
-- 新增host内存泄漏检测功能资料。
-
-#### AMCT模型压缩工具
-
-新增[AMCT（acl）](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/devaids/amct/atlasamct_16_0301.html)场景下的量化特性以及接口说明。
 
 ## 开源软件声明
 
