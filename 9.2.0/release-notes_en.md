@@ -1,7 +1,7 @@
 # CANN 9.2.0 Release Notes
-
 <!-- md-trans-meta sourceCommit=unknown translatedAt=2026-10-21T10:57:14.217Z pushedAt=2026-10-23T01:45:08.406Z nl=2 -->
 
+<!-- npu="950,A3,910b,910,310p,310b" id21 -->
 ## Version Download Address
 
 <https://www.hiascend.com/en/cann/download>
@@ -317,43 +317,53 @@ The CANN ops package has been decoupled from Toolkit and supports independent up
 | [cann-hixl 9.2.0](https://ascend.devcloud.huaweicloud.com/cann/run/software/9.2.0/) | [v9.2.0](https://gitcode.com/cann/hixl/tags/v9.2.0)          | CANN 9.2.0<br>CANN 9.1.x<br>CANN 9.0.x<br>CANN 8.5.2 |
 
 For the specific operations of independent subpackage upgrade, see [Independent Subpackage Upgrade](https://www.hiascend.com/document/detail/en/CANNCommunityEdition/920/softwareinst/instg/instg_0030.html). The ops subpackage version must be greater than or equal to the ops combined package version.
+<!-- end id21 -->
 
 ## Key Features
-
+<!-- npu="950,A3,910b,910,310p,310b" id62 -->
 - **The CANN version mapping assistant is now available in the Ascend community. You can quickly find the matching upstream and downstream software. Click [here](https://www.hiascend.com/developer/download/compatibility) for details.**
+<!-- end id62 -->
 <!-- npu="950" id1 -->
 - **On <term>Ascend 950PR&950DT products</term>, operators such as Matmul, FA, SFA, and BSA support 8-bit low-precision computation. Operators such as Matmul, GroupedMatmul, and BSA further support 4-bit low-precision computation. This low-precision feature supports key parts of models like DeepSeek, GLM, and Kimi, including model weights, activations, KV cache, and attention. Click [here](https://gitcode.com/cann/docs/blob/9.2.0/docs/en/ops-lib/0_README.md) for details.**
 <!-- end id1 -->
+<!-- npu="950,A3" id63 -->
 - **Fused operators such as KDA, SMLA, and MegaMoe further improve pipeline parallelism, improving the performance of models such as Kimi-K3 and GLM 5.2 by 20%. Click [here](https://gitcode.com/cann/ops-transformer/tree/9.2.0) for details.**
-
+<!-- end id63 -->
+<!-- npu="950" id64 -->
 - **Forward and backward computations of sparse attention operators have been extended to cover key phases such as attention computation, sparse index selection, and gradient computation, supporting sparse training of large models. Click [here](https://gitcode.com/cann/ops-transformer/tree/9.2.0/attention) for details.**
+<!-- end id64 -->
 <!-- npu="950" id2 -->
 - **<term>Ascend 950PR&950DT products</term> support dispatch and combine operations in MoE training. Background communication is initiated by AIV directly driving URMA, and DualPipe scheduling enables parallel computation and communication during training. Click [here](https://gitcode.com/cann/ops-transformer/tree/9.2.0/mc2) for details.**
 <!-- end id2 -->
 <!-- npu="950" id3 -->
 - **<term>Ascend 950PR&950DT products</term> support Engram distributed inference. Engram tables are offloaded to the host memory. The relay capability of URMA and Ubmem enables cross-device access to the remote host memory. Click [here](https://gitcode.com/cann/ops-transformer/tree/9.2.0/mc2) for details.**
 <!-- end id3 -->
+<!-- npu="950" id65 -->
 - **The new PyPTO Pro programming mode further empowers operator developers with hardware control. Click [here](https://gitcode.com/cann/pypto/blob/master/docs/en/guide/introduction.md) for details.**
+<!-- end id65 -->
 <!-- npu="950" id4 -->
 - **On <term>Ascend 950PR&950DT products</term>, CATLASS now supports Python-style kernel functions and provides an extensive sample library. Click [here](https://gitcode.com/cann/catlass/blob/master/README.md) for details.**
 <!-- end id4 -->
+<!-- npu="950" id66 -->
 - **Operators now support batch consistency computation. Click [here](https://gitcode.com/cann/ops-nn/blob/9.2.0/docs/en/context/batch_consistency.md) for details.**
 - **Automatic fusion is now available for inductor routes. Operators such as view, Norm, elementwise, and Concat can be automatically identified and fused, improving model execution performance. Click [here](https://gitcode.com/cann/graph-autofusion/blob/master/docs/en/autofuse/introduction/enable_autofuse_inductor.md) for details.**
+<!-- end id66 -->
 
 ## New Features
 
 ### Common Modules
-
+<!-- npu="950,A3" id5 -->
 - CPU performance tuning:
   - The msboost adaptive core binding tool supports core binding based on NPU->CPU topology affinity ([!65](https://gitcode.com/Ascend/msboost/pull/65)).
   - msboost adds the KAOT OS configuration tuning plugin, which automatically tunes OS configurations to improve performance ([!88](https://gitcode.com/Ascend/msboost/pull/88)).
-<!-- npu="950,A3" id5 -->
 - CANN adapts to different Ascend hardware products and adds OS compatibility support:
   - The Atlas 900 A3 SuperPoD adapts to ctyunos-2-25.05 and Debian 12.0.
   - The Atlas 950 SuperPoD adapts to CCOS, Velinux, BCLinux, VesselOS, and MTOS.
   - The Atlas 850 SuperPoD and Atlas 850E SuperPoD adapt to Kylin V11.
 <!-- end id5 -->
+<!-- npu="950,A3,910b,910,310p,310b" id67 -->
 - PyACL has been open-sourced to the runtime repository. For details, see [runtime](https://gitcode.com/cann/runtime/tree/master/python).
+<!-- end id67 -->
 
 ### Operator Libraries
 
@@ -412,10 +422,12 @@ For the specific operations of independent subpackage upgrade, see [Independent 
 <!-- end id8 -->
 
 #### opbase
-
+<!-- npu="950,A3,910b,910,310p,310b" id22 -->
 - Newly added features:
   - The aclnn framework supports strong consistency and batch consistency configuration, and supports deterministic computation and consistency switches taking effect dynamically at the operator level ([!631](https://gitcode.com/cann/opbase/pull/631), [!643](https://gitcode.com/cann/opbase/pull/643)).
+  <!-- npu="950" id23 -->
   - The reduce template supports batch consistency computation, providing corresponding tiling strategies and kernel scheduling capabilities ([!519](https://gitcode.com/cann/opbase/pull/519)).
+  <!-- end id23 -->
   - The aclnn automatic framework supports PCIe passthrough operators, and the broadcast template adds PCIe passthrough scenario identification and scheduling support ([!741](https://gitcode.com/cann/opbase/pull/741), [!742](https://gitcode.com/cann/opbase/pull/742), [!788](https://gitcode.com/cann/opbase/pull/788)).
   - Graph mode aclnn fallback supports two-stage execution encompassing Prepare and Launch ([!740](https://gitcode.com/cann/opbase/pull/740)).
   - A framework for accessing external operator tasks is now available, allowing users to implement selection, tiling, and kernel dispatch on their own ([!962](https://gitcode.com/cann/opbase/pull/962)).
@@ -424,9 +436,11 @@ For the specific operations of independent subpackage upgrade, see [Independent 
   - Building and publishing of software packages in DEB/RPM format is supported ([!678](https://gitcode.com/cann/opbase/pull/678)).
   - Added use case design and mixed tolerance design descriptions to the precision standard for open-source operators ([!508](https://gitcode.com/cann/opbase/pull/508)).
   - Enhanced the log maintainability and testability for aclnn framework cache scenarios ([!849](https://gitcode.com/cann/opbase/pull/849)).
-
+<!-- end id22 -->
+<!-- npu="950" id24 -->
 - Performance tuning:
   - The ReduceProd template uses tree reduction in AR mode when reducing to a single element, optimizing cumulative multiplication performance ([!690](https://gitcode.com/cann/opbase/pull/690)).
+<!-- end id24 -->
 
 #### ops-nn
 <!-- npu="A3,910b" id9 -->
@@ -564,7 +578,7 @@ For the specific operations of independent subpackage upgrade, see [Independent 
 <!-- end id12 -->
 
 ### Graph Engine
-
+<!-- npu="950,A3,910b" id54 -->
 #### Graph Mode
 
 - Added Python APIs for custom Pass development and custom operator development, supporting writing custom Passes and integrating custom operators in the Python environment. ([!4147](https://gitcode.com/cann/ge/pull/4147), [!4254](https://gitcode.com/cann/ge/pull/4254), [!4388](https://gitcode.com/cann/ge/pull/4388))
@@ -573,16 +587,19 @@ For the specific operations of independent subpackage upgrade, see [Independent 
 - Optimized the usability of the RunGraphWithStreamAsync API. In static shape scenarios, when the user has not registered an external Allocator, automatic output memory allocation is also supported. ( [!3306](https://gitcode.com/cann/ge/pull/3306))
 - Supported PCIe operator graph integration and provided the operator PCIe Through capability declaration. ([!430](https://gitcode.com/cann/metadef/pull/430), [!4394](https://gitcode.com/cann/ge/pull/4394))
 - Added dynamic shape scheduling performance tuning in host input scenarios, performing Codegen fusion on operators that execute consecutively on the host CPU to further improve performance. ( [!3626](https://gitcode.com/cann/ge/pull/3626), [!4669](https://gitcode.com/cann/ge/pull/4669))
+<!-- end id54 -->
 
+<!-- npu="950" id55 -->
 #### Automatic Fusion
 
 - Added support for enabling automatic fusion in inductor, supporting view-type operators (transpose/slice/broadcast), generic Norm-type operators, elementwise-type operators, Concat operators, and CV fusion. ([!1654](https://gitcode.com/cann/graph-autofusion/pull/1654), [!1250](https://gitcode.com/cann/graph-autofusion/pull/1250), [!2689](https://gitcode.com/cann/ge/pull/2689), [!1626](https://gitcode.com/cann/graph-autofusion/pull/1626), [!1700](https://gitcode.com/cann/graph-autofusion/pull/1700))
 - Added compilation performance tuning. ([!1799](https://gitcode.com/cann/graph-autofusion/pull/1799), [!1591](https://gitcode.com/cann/graph-autofusion/pull/1591))
 - Improved the AscendLoopIR completeness. ([!1699](https://gitcode.com/cann/graph-autofusion/pull/1699), [!1749](https://gitcode.com/cann/graph-autofusion/pull/1749))
 - Added support for NDDMA performance modeling and ATT modeling optimization. ([!1690](https://gitcode.com/cann/graph-autofusion/pull/1690), [!1792](https://gitcode.com/cann/graph-autofusion/pull/1792), [!1266](https://gitcode.com/cann/graph-autofusion/pull/1266), [!1460](https://gitcode.com/cann/graph-autofusion/pull/1460), [!1580](https://gitcode.com/cann/graph-autofusion/pull/1580), [!534](https://gitcode.com/cann/graph-autofusion/pull/534), [!1208](https://gitcode.com/cann/graph-autofusion/pull/1208))
+<!-- end id55 -->
 
 ### Operator Programming
-
+<!-- npu="950" id25 -->
 #### Key Features
 <!-- npu="950" id13 -->
 - C APIs:
@@ -612,10 +629,10 @@ For the specific operations of independent subpackage upgrade, see [Independent 
   - Added a custom Op sample ([!6174](https://gitcode.com/cann/asc-devkit/pull/6174)).
 - Communication API samples:
   - Added the AIN basic_ring sample, demonstrating point-to-point one-sided communication by the AIV Kernel calling Put/Get through the AIN API in a multi-card ring scenario ([!80](https://gitcode.com/cann/asc-comm/pull/80)).
+<!-- end id25 -->
 
-<!-- npu="950" id15 -->
 ### PyPTO
-
+<!-- npu="950" id15 -->
 #### Support for Developing Operators with PyPTO Pro on Ascend 950PR&950DT Products
 
 - Newly added PyPTO Pro fused operator development APIs:
@@ -635,6 +652,7 @@ For the specific operations of independent subpackage upgrade, see [Independent 
     - Memory out-of-bounds detection tool ([!5668](https://gitcode.com/cann/pypto/pull/5668)).
 <!-- end id15 -->
 
+<!-- npu="950,A3,910b" id26 -->
 #### Continuous Improvement of PyPTO Tensor Programming
 
 - Newly added feature support:
@@ -647,62 +665,91 @@ For the specific operations of independent subpackage upgrade, see [Independent 
   - The RadixSelect algorithm path of the TopK API on <term>Ascend 950PR&950DT products</term> is optimized by reducing the number of instructions to improve sorting performance ([!5239](https://gitcode.com/cann/pypto/pull/5239)).
   <!-- end id20 -->
   - A vector sorting algorithm is added to the pre-scheduling stage of out-of-order execution to reduce the number of L1 spills ([!5469](https://gitcode.com/cann/pypto/pull/5469)).
+<!-- end id26 -->
 
 ### Runtime
-
+<!-- npu="950,A3,910b" id27 -->
 - Supports blocking debug mode for Kernel Launch and model execution ([!4247](https://gitcode.com/cann/runtime/pull/4247)).
 - Supports ordered cross-stream execution of the same captured model in aclGraph ([!4479](https://gitcode.com/cann/runtime/pull/4479)).
 - Added PCI Bus ID bidirectional query APIs: aclrtDeviceGetPCIBusId and aclrtDeviceGetByPCIBusId ([!4066](https://gitcode.com/cann/runtime/pull/4066)).
-<!-- npu="950" id16 -->
-### Communication Library
+<!-- end id27 -->
 
+### Communication Library
+<!-- npu="950" id16 -->
 #### Collective Communication
 
 - <term>Ascend 950PR&950DT products</term> support extending custom algorithms in the experimental directory, improving the ease of ecosystem extension ([!2734](https://gitcode.com/cann/hccl/pull/2734)).
 - <term>Ascend 950PR&950DT products</term> support symmetric memory capability in URMA scenarios, allowing users to register symmetric windows through HcclCommSymWinRegister, improving the ease of operator algorithm implementation ([!2369](https://gitcode.com/cann/hcomm/pull/2369) and [!1195](https://gitcode.com/cann/hccl/pull/1195)).
 - <term>Ascend 950PR&950DT products</term> support flexible CCU resource application, improving the flexibility of custom CCU operators ([!3367](https://gitcode.com/cann/hcomm/pull/3367)).
 - <term>Ascend 950PR&950DT products</term> provide host NIC implementation extension capability, supporting flexible extension of hcomm API implementations ([!4257](https://gitcode.com/cann/hcomm/pull/4257)).
+<!-- end id16 -->
 
 #### HIXL One-Sided Communication
-
+<!-- npu="950" id28 -->
 - HIXL adds support for the UB_RTP transport protocol for data transfer between NPUs on the Ascend 950 platform ([!612](https://gitcode.com/cann/hixl/pull/612), [!818](https://gitcode.com/cann/hixl/pull/818)).
+<!-- end id28 -->
+<!-- npu="950,A3,910b" id29 -->
 - HIXL supports multi-channel concurrent transmission to improve link bandwidth utilization ([!940](https://gitcode.com/cann/hixl/pull/940), [!1024](https://gitcode.com/cann/hixl/pull/1024), [!1026](https://gitcode.com/cann/hixl/pull/1026), [!1318](https://gitcode.com/cann/hixl/pull/1318)).
+<!-- end id29 -->
+<!-- npu="950,A3,910b" id30 -->
 - HIXL supports configuring the maximum number of transfer tasks per batch and the maximum number of active channels to control communication resource overhead ([!1105](https://gitcode.com/cann/hixl/pull/1105), [!704](https://gitcode.com/cann/hixl/pull/704)).
+<!-- end id30 -->
+<!-- npu="950" id31 -->
 - HIXL adds a transfer exception reporting mechanism to promptly detect underlying communication faults ([!681](https://gitcode.com/cann/hixl/pull/681), [!787](https://gitcode.com/cann/hixl/pull/787)).
+<!-- end id31 -->
+<!-- npu="A3" id32 -->
 - FabricMem mode supports AICPU unrolling optimization to further improve transfer performance ([!839](https://gitcode.com/cann/hixl/pull/839)).
+<!-- end id32 -->
+<!-- npu="950,A3,910b" id33 -->
 - HIXL provides Python API capabilities, released externally as a wheel package ([!658](https://gitcode.com/cann/hixl/pull/658), [!903](https://gitcode.com/cann/hixl/pull/903)).
+<!-- end id33 -->
 
-<!-- end id16 -->
 ### PTO Virtual Instruction Set
-
+<!-- npu="950,A3,910b" id35 -->
 - Basic vector & cube instructions:
+  <!-- npu="950" id56 -->
   - Newly added support for 64-bit data types ([!1711](https://gitcode.com/cann/pto-isa/pull/1711), [!1585](https://gitcode.com/cann/pto-isa/pull/1585), [!1428](https://gitcode.com/cann/pto-isa/pull/1428)).
+  <!-- end id56 -->
+  <!-- npu="950,A3,910b" id57 -->
   - TMOV/TEXTRACT/TINSERT newly added support for layout format conversion ([!1450](https://gitcode.com/cann/pto-isa/pull/1450), [!1459](https://gitcode.com/cann/pto-isa/pull/1459), [!1718](https://gitcode.com/cann/pto-isa/pull/1718)).
   - TPUSH/TPOP added support for odd splitting ([!1380](https://gitcode.com/cann/pto-isa/pull/1380)).
+  <!-- end id57 -->
+<!-- end id35 -->
 - Communication instructions:
+  <!-- npu="950" id58 -->
   - TPUT_ASYNC and TGET_ASYNC added cross-machine RDMA communication capability for A5 based on the 1825 NIC ([!1374](https://gitcode.com/cann/pto-isa/pull/1374)).
+  <!-- end id58 -->
+  <!-- npu="950,A3,910b" id59 -->
   - Newly added TPUT_ASYNC_NOTIFY instruction ([!1516](https://gitcode.com/cann/pto-isa/pull/1516)).
+  <!-- end id59 -->
+<!-- npu="A3,910b" id60 -->
 - CostModel simulation: integrated full A2/A3 latency PTO ISA instruction performance prediction, achieving 90%+ for cycles prediction accuracy ([!1674](https://gitcode.com/cann/pto-isa/pull/1674)).
+<!-- end id60 -->
+<!-- npu="950,A3,910b,910,310p,310b" id61 -->
 - CPU-SIM: newly added CPU simulation instructions synchronized with the NPU.
+<!-- end id61 -->
 
 ### PTOAS (PTO Assembler)
-
+<!-- npu="950,A3,910b" id34 -->
 A new toolchain is added, supporting command-line compilation, PTO ISA specification compilation, Python binding, and script-based entry construction capabilities. Its main responsibilities are as follows:
 
   - Parse PTO bytecode files.
   - Verify PTO ISA structure, types, and target-related constraints.
   - Support processing key capabilities such as layout, address, and synchronization according to user-specified compilation options.
   - Emit callable code.
+<!-- end id34 -->
 
 ### Debugging and Analysis Tools
-
+<!-- npu="950,A3,910b" id36 -->
 - Profiling supports collecting the number of page faults of a task ([!3279](https://gitcode.com/cann/runtime/pull/3279)).
 - The aclrt APIs now additionally report profiling data such as memory size and copy direction ([!3644](https://gitcode.com/cann/runtime/pull/3644)).
-
+<!-- end id36 -->
 ### Diagnostics
-
+<!-- npu="950,A3,910b" id37 -->
 - aicore err supports automatic parsing of error line numbers ([!4080](https://gitcode.com/cann/runtime/pull/4080)).
+<!-- end id37 -->
 
+<!-- npu="950,A3,910b,910,310p,310b" id38 -->
 ## Removed and Deprecated Features
 
 ### Description
@@ -861,29 +908,39 @@ The DVPP acceleration function used by the following operator IRs is deprecated:
 | Deprecated Item | Replacement |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 |  Environment variable `ASCEND_SLOG_PRINT_TO_STDOUT` | Environment variable `ASCEND_LOG_PRINT_TO_STDOUT` |
+<!-- end id38 -->
 
-<!-- npu="950,A3,910b" id18 -->
 ## Fixed Issues
 
 The following issues are fixed in version 9.2.0:
 
+<!-- npu="950,A3,910b" id18 -->
 - Fixed the issue where the HF32 attribute was not correctly passed to the bottom layer, causing performance degradation, when the NPU MM operators on Atlas A2 products, Atlas A3 products, and Ascend 950PR&950DT products were executed through the GE aclnn fallback callback path.
+<!-- end id18 -->
+<!-- npu="A3,910b" id39 -->
 - Fixed the precision issue of the RMSNorm operator on Atlas A2 products and Atlas A3 products when the input shape exceeds the int32 maximum value.
 - Fixed the issue where the `_deterministic_level` attribute was not inherited when the matmul operator fusion path on Atlas A2 products and Atlas A3 products was converted to matmulv2, causing the attributes of subsequent nodes to be lost.
 - Fixed the issue where the fine-grained FSDP communication and computation pipeline was blocked due to host-side performance degradation of the Matmul operators on Atlas A2 products and Atlas A3 products, causing overall model performance degradation.
 - Fixed the issue where the FAG operator occasionally failed to fully clear the pad in EOD scenarios.
+<!-- end id39 -->
+<!-- npu="A3" id40 -->
 - Fixed the issue where the orderStream graph rule validation failed when aclrGraph AICPU unrolling used the same stream for the HCCL main stream and the capture stream on Atlas A3 products.
 - Fixed the issue where the AllGatherRingConcurrentDirect algorithm deadlocked when dispatching primary/standby stream tasks in large-scale clusters on Atlas A3 products.
+<!-- end id40 -->
+<!-- npu="A3,910b" id41 -->
 - Fixed the issue where the RingMLAOperation API demo failed to run when importing environment variables from a non-mainline version on Atlas A2 and Atlas A3 products.
 - Fixed the issue where `torch_npu.npu_format_cast` fell back from interception to aclop when the format and shape did not match on Atlas A2 and Atlas A3 products.
 - (**Incompatible change**) Fixed the issue where the default values of the torch API parameters of the SparseFlashMLA operator were incorrect on Atlas A2 and Atlas A3 products (ori_mask_mode, cmp_mask_mode, ori_win_left, ori_win_right).
+<!-- end id41 -->
+<!-- npu="950" id42 -->
 - Fixed the issue on Ascend 950PR&950DT products where, within the same process on the same card, the creation of a sub-communication domain failed when the rank size of the previously created communication domain was smaller than the rank size of the sub-communication domain to be created next.
-<!-- end id18 -->
+<!-- end id42 -->
 
 ## Documentation Changes
 
 ### Programming Language
 
+<!-- npu="950,A3,910b,910,310p,310b" id43 -->
 #### Ascend C Operator Development
 
 - Added L2 cache partitioning optimization description ([!5418](https://gitcode.com/cann/asc-devkit/pull/5418)).
@@ -892,32 +949,41 @@ The following issues are fixed in version 9.2.0:
 - Added the "Advanced Programming > Memory Model" section, introducing the concepts, principles, common issues, and solutions of cache consistency and memory consistency ([!5150](https://gitcode.com/cann/asc-devkit/pull/5150)).
 - Added the "Tensor-Based C++ Programming" section ([!3187](https://gitcode.com/cann/asc-devkit/pull/3187)).
 - Added the "Atomic Operation Instruction Optimization" section ([!4710](https://gitcode.com/cann/asc-devkit/pull/4710)).
+<!-- end id43 -->
 
+<!-- npu="950,A3,910b" id44 -->
 #### PyPTO Operator Development
 
 Added support for the PyPTO Pro development mode, supporting the tile-oriented programming model ([!4999](https://gitcode.com/cann/pypto/pull/4999), [!5093](https://gitcode.com/cann/pypto/pull/5093)).
+<!-- end id44 -->
 
+<!-- npu="950,A3,910b,910,310p,310b" id45 -->
 #### Graph Development
 
 - The "Custom Operator Graph Integration" section has undergone feature adjustments and structural reorganization.
 - Optimized the "AutoFuse Automatic Fusion" section:
   - Reorganized the directory structure, added "Quick Start" and "Enabling AutoFuse" sections, and moved the detailed description of environment variables to the "Appendix" section.
   - The "Enabling AutoFuse" chapter introduces the automatic fusion enabling modes through two separate paths, and adds the fusion enabling method under the Inductor path.
+<!-- end id45 -->
 
 ### Compiler
 
+<!-- npu="950,A3,910b" id46 -->
 #### PTOAS
 
 Added the *PTOAS* document. For details, see [PTOAS](https://www.hiascend.com/document/detail/en/CANNCommunityEdition/920/compiler/ptoas/overview/what_is_ptoas.md).
+<!-- end id46 -->
 
 ### Communication Library
 
+<!-- npu="950,A3,910b,910,310p" id47 -->
 #### HCCL Collective Communication Library
 
 Optimized three fault cases in sections "Link Establishment Timeout", "notify_wait Timeout", and "Communication Domain Link Establishment Timeout Background" ([!2782](https://gitcode.com/cann/hccl/pull/2782)).
+<!-- end id47 -->
 
 ### API Reference
-<!-- npu="950" id19 -->
+<!-- npu="950,A3,910b,910,310p,310b" id19 -->
 #### Ascend C APIs
 
 - The "C API" chapter was restructured for Ascend 950PR&950DT products, refining the directory structure, optimizing the internal structure of the documentation, and improving the API function descriptions, invocation examples, and constraint descriptions ([!5266](https://gitcode.com/cann/asc-devkit/pull/5266)).
@@ -932,31 +998,42 @@ Optimized three fault cases in sections "Link Establishment Timeout", "notify_wa
 - Added the "CheckOpResSufficient" section ([!5766](https://gitcode.com/cann/asc-devkit/pull/5766)).
 <!-- end id19 -->
 
+<!-- npu="950,A3,910b" id48 -->
 #### PyPTO APIs
 
 Added the PyPTO Pro API chapter ([!4991](https://gitcode.com/cann/pypto/pull/4991)).
+<!-- end id48 -->
 
+<!-- npu="950,A3,910b,910,310p,310b" id49 -->
 #### Operator Library APIs
 
 A new "NN APIs" section is added to "Operator Library > Operator APIs (torch_extension)" in the *Operator Library* document.
+<!-- end id49 -->
 
 ### Debugging and Analysis Tools
 
+<!-- npu="950,A3,910b,910,310p,310b" id50 -->
 #### Performance Tuning Tool
 
 - The directory structure is adjusted, with chapters flattened by the collection tool.
 - The sections for Ascend PyTorch tuning tool, MindSpore tuning tool, collecting performance data using TensorFlow framework APIs, and collecting performance data using acl Python APIs are adjusted to be published in their respective source documents. The *Performance Tuning Tool* document retains jump links in its introduction.
+<!-- end id50 -->
 
+<!-- npu="950,A3,910b,910,310p,310b" id51 -->
 #### Memory Analysis Tool
 
 - Added a device memory OOM analysis item. When OOM occurs, dump the latest and maximum memory block information.
 - Added support for collecting process device memory curves and full-card device memory curves.
 - Added documentation for the host memory leak detection feature.
+<!-- end id51 -->
 
+<!-- npu="950,A3,910b,910,310p,310b" id52 -->
 #### AMCT Model Compression Tool
 
 Added the quantization features and API description for the [AMCT (acl)](https://www.hiascend.com/document/detail/en/CANNCommunityEdition/920/devaids/amct/atlasamct_16_0301.html) scenario.
+<!-- end id52 -->
 
+<!-- npu="950,A3,910b,910,310p,310b" id53 -->
 ## Open Source Software Statement
 
 For the open source software statement, see [Open Source Software Statement](https://www.hiascend.com/document/detail/en/CANNCommunityEdition/920/maintenref/refdoc/refer003.html).
@@ -968,3 +1045,4 @@ For details about the fixed vulnerabilities for open-source and third-party soft
 ## Virus Scan Report
 
 For the virus scan report, see [Virus Scan Report](https://www.hiascend.com/document/detail/en/CANNCommunityEdition/920/maintenref/refdoc/refer004.html).
+<!-- end id53 -->

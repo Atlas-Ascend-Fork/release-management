@@ -1,5 +1,5 @@
 # CANN 9.2.1版本说明书
-
+<!-- npu="950,A3,910b,910,310p,310b" id1 -->
 ## 版本下载地址
 
 <https://www.hiascend.com/cann/download>
@@ -458,25 +458,40 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 | 废弃的目录、文件和接口                                       | 替换的目录、文件和接口                                       |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ASCEND_SLOG_PRINT_TO_STDOUT环境变量 | ASCEND_LOG_PRINT_TO_STDOUT环境变量 |
+<!-- end id1 -->
 
-<!-- npu="950,A3,910b" id18 -->
 ## 已修复问题
 
 以下问题在9.2.1版本修复：
-
+<!-- npu="A3,910b" id2 -->
 - 修复Atlas A2系列产品、Atlas A3系列产品NPU 在输出tensor shape维度不合法时缺少校验问题([!13774](https://gitcode.com/cann/ops-transformer/pull/13774))。
+<!-- end id2 -->
+<!-- npu="950" id3 -->
 - 修复Ascend 950PR&950DT系列产品在推理场景下使用EPLB+mooncake，导致建链超时的问题([!6139](https://gitcode.com/cann/comm/pull/6139/discuss))。
 - 补充Ascend 950PR&950DT系列产品在1825交换机MTU配置不一致对推理训练功能影响的说明([!1425](https://gitcode.com/cann/hixl/pull/1425))。
+<!-- end id3 -->
+<!-- npu="A3,910b" id4 -->
 - 修复Atlas A2系列产品、Atlas A3系列产品NPU CdistGrad算子边界场景中inf值运算的逻辑错误导致精度失败的问题([!6518](https://gitcode.com/cann/ops-math/pull/6518))。
+<!-- end id4 -->
+<!-- npu="950" id5 -->
 - 修复Ascend 950PR&950DT系列产品基于OOM包执行chunk_gated_delta_rule单算子，部分场景存在空拷贝导致的AICORE ERROR问题([!13612](https://gitcode.com/cann/ops-transformer/pull/13612))。
 - 修复Ascend 950PR&950DT系列产品的allgatherv算子在图模式场景下，recv_displacements参数size为0时判断错误导致算子中断执行的问题([!3624](https://gitcode.com/cann/hccl/pull/3624/discuss))。
+<!-- end id5 -->
+<!-- npu="A3,910b" id6 -->
 - 修复Atlas A2系列产品、Atlas A3系列产品NPU conv3d_backprop_input_v2算子在大shape场景下通过Vector方案计算fp32数据类型双标杆L2的精度问题([!12180](https://gitcode.com/cann/ops-nn/pull/12180))。
+<!-- end id6 -->
+<!-- npu="950" id7 -->
 - 修复Ascend 950PR&950DT系列产品下线ShapeRange推导，部分算子走框架自动推导报错的问题([!1041](https://gitcode.com/cann/opbase/pull/1041)、[!5482](https://gitcode.com/cann/ge/pull/5482))。
+<!-- end id7 -->
+<!-- npu="910b" id8 -->
 - 修复Atlas A2系列产品ReduceScatter算子在开启确定性和pipeline算法时，缺少前同步导致概率卡死问题([!6056](https://gitcode.com/cann/hcomm/pull/6056))。
+<!-- end id8 -->
+<!-- npu="950" id9 -->
 - 修复Ascend 950PR&950DT系列产品SparseFlashMla/QuantSparseFlashMla/MixedQuantSparseFlashMla/KvQuantSparseFlashAttention算子物理地址预处理使用非法事件 ID 8的问题([!13775](https://gitcode.com/cann/ops-transformer/pull/13775)、[!14183](https://gitcode.com/cann/ops-transformer/pull/14183))。
 - 修复Ascend 950PR&950DT系列产品bitwise_or在融合kernel内外存在差异导致的精度问题([!2536](https://gitcode.com/cann/graph-autofusion/pull/2536))。
-<!-- end id18 -->
+<!-- end id9 -->
 
+<!-- npu="950,A3,910b,910,310p,310b" id10 -->
 ## 开源软件声明
 
 开源软件声明请查看[开源软件声明](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/maintenref/refdoc/refer003.html)。
@@ -488,3 +503,4 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 ## 病毒扫描报告
 
 病毒扫描报告请查看[病毒扫描报告](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/maintenref/refdoc/refer004.html)。
+<!-- end id10 -->

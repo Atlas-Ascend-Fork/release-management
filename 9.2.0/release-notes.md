@@ -1,5 +1,5 @@
 # CANN 9.2.0版本说明书
-
+<!-- npu="950,A3,910b,910,310p,310b" id21 -->
 ## 版本下载地址
 
 <https://www.hiascend.com/cann/download>
@@ -315,43 +315,53 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 | [cann-hixl 9.2.0](https://ascend.devcloud.huaweicloud.com/cann/run/software/9.2.0/) | [v9.2.0](https://gitcode.com/cann/hixl/tags/v9.2.0)          | CANN 9.2.0<br>CANN 9.1.x<br>CANN 9.0.x<br>CANN 8.5.2 |
 
 子包独立升级的具体操作请参考[子包独立升级](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/softwareinst/instg/instg_0030.html)。要求ops子包版本>=ops组合包版本。
+<!-- end id21 -->
 
 ## 关键特性
-
+<!-- npu="950,A3,910b,910,310p,310b" id62 -->
 - **昇腾社区上线CANN版本配套查询助手，用户可快速获取CANN与上下游软件配套关系，点击[查看详情](https://www.hiascend.com/developer/download/compatibility)。**
+<!-- end id62 -->
 <!-- npu="950" id1 -->
 - **基于<term>Ascend 950PR&950DT系列产品</term>，Matmul、FA、SFA、BSA等算子支持8bit低精度计算，Matmul、GroupedMatmul、BSA等进一步支持4bit低精度计算，低精能力全面覆盖Deepseek、GLM、Kimi等模型权重、激活、KV Cache和Attention等关键路径，点击[查看详情](https://gitcode.com/cann/docs/blob/9.2.0/docs/zh/ops-lib/0_README.md)。**
 <!-- end id1 -->
+<!-- npu="950,A3" id63 -->
 - **KDA、SMLA、MegaMoe等融合算子进一步提升流水并行度，支持Kimi-K3、GLM5.2等模型性能提升20%，点击[查看详情](https://gitcode.com/cann/ops-transformer/tree/9.2.0)。**
-
+<!-- end id63 -->
+<!-- npu="950" id64 -->
 - **扩展稀疏Attention系列算子的正反向计算能力，覆盖注意力计算、稀疏索引选择与梯度计算等关键环节，支撑大模型稀疏训练，点击[查看详情](https://gitcode.com/cann/ops-transformer/tree/9.2.0/attention)。**
+<!-- end id64 -->
 <!-- npu="950" id2 -->
 - **基于<term>Ascend 950PR&950DT系列产品</term>，支持MoE训练场景的Dispatch、Combine，通过AIV直驱URMA发起后台通信，配合DualPipe调度，实现训练中计算与通信的并行，点击[查看详情](https://gitcode.com/cann/ops-transformer/tree/9.2.0/mc2)。**
 <!-- end id2 -->
 <!-- npu="950" id3 -->
 - **基于<term>Ascend 950PR&950DT系列产品</term>，支持Engram分布式推理，将Engram表卸载（offload）至Host内存，通过URMA与Ubmem的接力能力，实现跨卡访问远端Host内存，点击[查看详情](https://gitcode.com/cann/ops-transformer/tree/9.2.0/mc2)。**
 <!-- end id3 -->
+<!-- npu="950" id65 -->
 - **PyPTO新增PyPTO Pro编程模式，为算子开发者进一步提供硬件的控制力，点击[查看详情](https://gitcode.com/cann/pypto/blob/master/docs/zh/guide/introduction.md)。**
+<!-- end id65 -->
 <!-- npu="950" id4 -->
 - **基于<term>Ascend 950PR&950DT系列产品</term>，CATLASS新增支持Python风格核函数，提供丰富的样例库，点击[查看详情](https://gitcode.com/cann/catlass/blob/master/README.md)。**
 <!-- end id4 -->
+<!-- npu="950" id66 -->
 - **算子新增支持Batch一致性计算能力，点击[查看详情](https://gitcode.com/cann/ops-nn/blob/9.2.0/docs/zh/context/batch_consistency.md)。**
 - **新增支持inductor路线的自动融合能力，自动识别并融合view、Norm、elementwise、Concat等算子，提升模型执行性能，点击[查看详情](https://gitcode.com/cann/graph-autofusion/blob/master/docs/zh/autofuse/introduction/enable_autofuse_inductor.md)。**
+<!-- end id66 -->
 
 ## 新增特性
 
 ### 公共模块
-
+<!-- npu="950,A3" id5 -->
 - CPU性能调优：
   - msboost自适应绑核工具支持按照NPU->CPU 拓扑亲和性绑核([!65](https://gitcode.com/Ascend/msboost/pull/65))。
   - msboost新增KAOT OS配置调优插件，通过对OS配置进行自动化调优，实现性能优化([!88](https://gitcode.com/Ascend/msboost/pull/88))。
-<!-- npu="950,A3" id5 -->
 - CANN适配不同昇腾硬件产品，新增OS兼容性支持：
   - Atlas 900 A3 SuperPoD超节点适配ctyunos-2-25.05、Debian12.0。
   - Atlas 950 SuperPoD超节点适配CCOS、Velinux、BCLinux、VesselOS、MTOS。
   - Atlas 850超节点、Atlas 850E超节点适配 Kylin V11。
 <!-- end id5 -->
+<!-- npu="950,A3,910b,910,310p,310b" id67 -->
 - PyACL开源至runtime，详细信息请见[runtime](https://gitcode.com/cann/runtime/tree/master/python)。
+<!-- end id67 -->
 
 ### 算子库
 
@@ -410,10 +420,12 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 <!-- end id8 -->
 
 #### opbase库
-
+<!-- npu="950,A3,910b,910,310p,310b" id22 -->
 - 新增特性：
   - ACLNN框架支持强一致性与Batch一致性配置，并支持确定性计算与一致性开关在算子级动态生效（[!631](https://gitcode.com/cann/opbase/pull/631)、[!643](https://gitcode.com/cann/opbase/pull/643)）。
+  <!-- npu="950" id23 -->
   - Reduce模板支持Batch一致性计算，提供相应的tiling切分策略和kernel调度能力（[!519](https://gitcode.com/cann/opbase/pull/519)）。
+  <!-- end id23 -->
   - ACLNN自动框架支持PCIe直通算子，broadcast模板增加PCIe直通场景识别与调度支持（[!741](https://gitcode.com/cann/opbase/pull/741)、[!742](https://gitcode.com/cann/opbase/pull/742)、[!788](https://gitcode.com/cann/opbase/pull/788)）。
   - 图模式ACLNN Fallback支持Prepare与Launch两阶段执行（[!740](https://gitcode.com/cann/opbase/pull/740)）。
   - 新增外部算子任务接入框架，支持实现方自行完成实现选择、tiling与kernel下发（[!962](https://gitcode.com/cann/opbase/pull/962)）。
@@ -422,9 +434,11 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   - 支持DEB/RPM格式的软件包构建与发布（[!678](https://gitcode.com/cann/opbase/pull/678)）。
   - 开源算子精度标准增加用例设计与混合容差设计说明（[!508](https://gitcode.com/cann/opbase/pull/508)）。
   - 增强ACLNN框架缓存场景的日志维测能力（[!849](https://gitcode.com/cann/opbase/pull/849)）。
-
+<!-- end id22 -->
+<!-- npu="950" id24 -->
 - 性能优化：
   - ReduceProd模板在AR模式归约为单个元素的场景采用树形归约，优化累乘性能（[!690](https://gitcode.com/cann/opbase/pull/690)）。
+<!-- end id24 -->
 
 #### ops-nn库
 <!-- npu="A3,910b" id9 -->
@@ -562,7 +576,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 <!-- end id12 -->
 
 ### 图引擎
-
+<!-- npu="950,A3,910b" id54 -->
 #### 图模式
 
 - 新增自定义Pass开发和自定义算子开发的Python API，支持在Python环境下编写自定义Pass及接入自定义算子。([!4147](https://gitcode.com/cann/ge/pull/4147)、[!4254](https://gitcode.com/cann/ge/pull/4254)、[!4388](https://gitcode.com/cann/ge/pull/4388))
@@ -571,16 +585,17 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 优化RunGraphWithStreamAsync接口易用性，静态Shape场景下用户未注册外置Allocator时，也支持自动分配输出内存。( [!3306](https://gitcode.com/cann/ge/pull/3306))
 - 支持PCIe算子入图，并提供算子声明PCIe Through能力。([!430](https://gitcode.com/cann/metadef/pull/430)、[!4394](https://gitcode.com/cann/ge/pull/4394))
 - 新增Host输入场景下的动态Shape调度性能优化，对连续在Host CPU上执行的算子进行Codegen融合，进一步提升性能。( [!3626](https://gitcode.com/cann/ge/pull/3626)、[!4669](https://gitcode.com/cann/ge/pull/4669))
-
+<!-- end id54 -->
+<!-- npu="950" id55 -->
 #### 自动融合
 
 - 新增支持inductor开启自动融合能力，支持view类算子（transpose/slice/broadcast）、泛Norm类算子、elementwise类算子、Concat算子、CV融合。([!1654](https://gitcode.com/cann/graph-autofusion/pull/1654)、[!1250](https://gitcode.com/cann/graph-autofusion/pull/1250)、[!2689](https://gitcode.com/cann/ge/pull/2689)、[!1626](https://gitcode.com/cann/graph-autofusion/pull/1626)、[!1700](https://gitcode.com/cann/graph-autofusion/pull/1700))
 - 新增编译性能优化。([!1799](https://gitcode.com/cann/graph-autofusion/pull/1799)、[!1591](https://gitcode.com/cann/graph-autofusion/pull/1591))
 - 补齐AscendLoopIR完备度。([!1699](https://gitcode.com/cann/graph-autofusion/pull/1699)、[!1749](https://gitcode.com/cann/graph-autofusion/pull/1749))
 - 新增支持NDDMA性能建模，ATT建模优化。([!1690](https://gitcode.com/cann/graph-autofusion/pull/1690)、[!1792](https://gitcode.com/cann/graph-autofusion/pull/1792)、[!1266](https://gitcode.com/cann/graph-autofusion/pull/1266)、[!1460](https://gitcode.com/cann/graph-autofusion/pull/1460)、[!1580](https://gitcode.com/cann/graph-autofusion/pull/1580)、[!534](https://gitcode.com/cann/graph-autofusion/pull/534)、[!1208](https://gitcode.com/cann/graph-autofusion/pull/1208))
-
+<!-- end id55 -->
 ### 算子编程
-
+<!-- npu="950" id25 -->
 #### 关键特性
 <!-- npu="950" id13 -->
 - C API：
@@ -610,10 +625,10 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   - 新增自定义Op样例（[!6174](https://gitcode.com/cann/asc-devkit/pull/6174)）。
 - 通信API样例：
   - 新增AIN的basic_ring样例，演示多卡环形场景下AIV Kernel通过AIN接口调用Put/Get进行点对点单边通信（[!80](https://gitcode.com/cann/asc-comm/pull/80)）。
+<!-- end id25 -->
 
-<!-- npu="950" id15 -->
 ### PyPTO
-
+<!-- npu="950" id15 -->
 #### 支持Ascend 950PR&950DT系列产品上使用PyPTO Pro开发算子
 
 - 新增PyPTO Pro融合算子开发接口：
@@ -632,7 +647,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
     - 支持profiling数据采集（[!6221](https://gitcode.com/cann/pypto/pull/6221)、[!6306](https://gitcode.com/cann/pypto/pull/!6306)、[!6634](https://gitcode.com/cann/pypto/pull/!6634)）。
     - 支持内存越界检测工具（[!5668](https://gitcode.com/cann/pypto/pull/5668)）。
 <!-- end id15 -->
-
+<!-- npu="950,A3,910b" id26 -->
 #### PyPTO Tensor编程方式持续完善
 
 - 新增功能支持：
@@ -645,62 +660,91 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   - TopK API在<term>Ascend 950PR&950DT系列产品</term>上的RadixSelect算法路径优化，通过缩减指令数提升排序性能（[!5239](https://gitcode.com/cann/pypto/pull/5239)）。
   <!-- end id20 -->
   - 乱序调度预调度阶段新增向量排序算法，减少L1 spill次数（[!5469](https://gitcode.com/cann/pypto/pull/5469)）。
+<!-- end id26 -->
 
 ### 运行时
-
+<!-- npu="950,A3,910b" id27 -->
 - 支持Kernel Launch和模型执行的阻塞调试模式（[!4247](https://gitcode.com/cann/runtime/pull/4247)）。
 - 支持ACL Graph同一捕获模型跨流执行有序（[!4479](https://gitcode.com/cann/runtime/pull/4479)）。
 - 新增PCI Bus ID双向查询接口：aclrtDeviceGetPCIBusId、aclrtDeviceGetByPCIBusId（[!4066](https://gitcode.com/cann/runtime/pull/4066)）。
-<!-- npu="950" id16 -->
-### 通信库
+<!-- end id27 -->
 
+### 通信库
+<!-- npu="950" id16 -->
 #### 集合通信
 
 - <term>Ascend 950PR&950DT系列产品</term>支持在experimental目录扩展自定义算法，提升生态扩展易用性([!2734](https://gitcode.com/cann/hccl/pull/2734))。
 - <term>Ascend 950PR&950DT系列产品</term>支持URMA场景下的对称内存能力，支持用户通过 HcclCommSymWinRegister 注册对称窗口，提升算子算法实现易用性([!2369](https://gitcode.com/cann/hcomm/pull/2369)、[!1195](https://gitcode.com/cann/hccl/pull/1195))。
 - <term>Ascend 950PR&950DT系列产品</term>支持CCU资源灵活申请，提升自定义CCU算子灵活性([!3367](https://gitcode.com/cann/hcomm/pull/3367))。
 - <term>Ascend 950PR&950DT系列产品</term>提供 Host 网卡实现扩展能力，支持灵活扩展hcomm接口实现([!4257](https://gitcode.com/cann/hcomm/pull/4257))。
+<!-- end id16 -->
 
 #### HIXL单边通信
-
+<!-- npu="950" id28 -->
 - HIXL新增UB_RTP传输协议支持，用于昇腾950平台NPU之间的数据传输([!612](https://gitcode.com/cann/hixl/pull/612)、[!818](https://gitcode.com/cann/hixl/pull/818))。
+<!-- end id28 -->
+<!-- npu="950,A3,910b" id29 -->
 - HIXL支持多Channel并发传输，提升链路带宽利用率([!940](https://gitcode.com/cann/hixl/pull/940)、[!1024](https://gitcode.com/cann/hixl/pull/1024)、[!1026](https://gitcode.com/cann/hixl/pull/1026)、[!1318](https://gitcode.com/cann/hixl/pull/1318))。
+<!-- end id29 -->
+<!-- npu="950,A3,910b" id30 -->
 - HIXL支持配置每批次最大传输任务数与最大活跃Channel数量，管控通信资源开销([!1105](https://gitcode.com/cann/hixl/pull/1105)、[!704](https://gitcode.com/cann/hixl/pull/704))。
+<!-- end id30 -->
+<!-- npu="950" id31 -->
 - HIXL新增传输异常上报机制，可及时感知底层通信故障([!681](https://gitcode.com/cann/hixl/pull/681)、[!787](https://gitcode.com/cann/hixl/pull/787))。
+<!-- end id31 -->
+<!-- npu="A3" id32 -->
 - FabricMem模式支持AI CPU展开优化，进一步提升传输性能([!839](https://gitcode.com/cann/hixl/pull/839))。
+<!-- end id32 -->
+<!-- npu="950,A3,910b" id33 -->
 - HIXL提供Python API能力，以wheel安装包对外发布([!658](https://gitcode.com/cann/hixl/pull/658)、[!903](https://gitcode.com/cann/hixl/pull/903))。
+<!-- end id33 -->
 
-<!-- end id16 -->
 ### PTO虚拟指令集
-
+<!-- npu="950,A3,910b" id35 -->
 - 基础Vector&Cube指令：
+   <!-- npu="950" id56 -->
   - 新增支持64位数据类型（[!1711](https://gitcode.com/cann/pto-isa/pull/1711)、[!1585](https://gitcode.com/cann/pto-isa/pull/1585)、[!1428](https://gitcode.com/cann/pto-isa/pull/1428)）。
+  <!-- end id56 -->
+  <!-- npu="950,A3,910b" id57 -->
   - TMOV/TEXTRACT/TINSERT新增支持布局格式转换（[!1450](https://gitcode.com/cann/pto-isa/pull/1450)、[!1459](https://gitcode.com/cann/pto-isa/pull/1459)、[!1718](https://gitcode.com/cann/pto-isa/pull/1718)）。
   - TPUSH/TPOP新增奇数切分（[!1380](https://gitcode.com/cann/pto-isa/pull/1380)）。
+  <!-- end id57 -->
+<!-- end id35 -->
 - 通信类指令：
+  <!-- npu="950" id58 -->
   - TPUT_ASYNC、TGET_ASYNC增加A5基于1825网卡的跨机RDMA通信能力（[!1374](https://gitcode.com/cann/pto-isa/pull/1374)）。
+  <!-- end id58 -->
+  <!-- npu="950,A3,910b" id59 -->
   - 新增TPUT_ASYNC_NOTIFY指令（[!1516](https://gitcode.com/cann/pto-isa/pull/1516)）。
+  <!-- end id59 -->
+<!-- npu="A3,910b" id60 -->
 - CostModel仿真：接入A2A3全量耗时PTO ISA指令性能预测，实现cycles 90%+预测准确度（[!1674](https://gitcode.com/cann/pto-isa/pull/1674)）。
+<!-- end id60 -->
+<!-- npu="950,A3,910b,910,310p,310b" id61 -->
 - CPU-SIM：随NPU同步新增CPU仿真指令。
+<!-- end id61 -->
 
 ### PTOAS（PTO汇编器）
-
+<!-- npu="950,A3,910b" id34 -->
 新增工具链，支持命令行编译，PTO ISA规范编译，Python绑定和脚本构造入口能力，主要职责：
 
   - 解析PTO字节码文件。
   - 验证PTO ISA结构、类型和目标相关约束。
   - 支持根据用户指定编译选项处理布局、地址和同步等关键能力。
   - Emit可调用代码。
+<!-- end id34 -->
 
 ### 调试与分析工具
-
+<!-- npu="950,A3,910b" id36 -->
 - Profiling支持采集task的page fault次数（[!3279](https://gitcode.com/cann/runtime/pull/3279)）。
 - aclrt接口补充上报内存大小、拷贝方向等profiling数据（[!3644](https://gitcode.com/cann/runtime/pull/3644)）。
-
+<!-- end id36 -->
 ### 维测能力
-
+<!-- npu="950,A3,910b" id37 -->
 - aicore err支持自动解析错误行号（[!4080](https://gitcode.com/cann/runtime/pull/4080)）。
+<!-- end id37 -->
 
+<!-- npu="950,A3,910b,910,310p,310b" id38 -->
 ## 删除和废弃特性
 
 ### 说明
@@ -859,29 +903,37 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 | 废弃的目录、文件和接口                                       | 替换的目录、文件和接口                                       |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ASCEND_SLOG_PRINT_TO_STDOUT环境变量 | ASCEND_LOG_PRINT_TO_STDOUT环境变量 |
+<!-- end id38 -->
 
-<!-- npu="950,A3,910b" id18 -->
 ## 已修复问题
 
 以下问题在9.2.0版本修复：
-
+<!-- npu="950,A3,910b" id18 -->
 - 修复Atlas A2系列产品、Atlas A3系列产品和Ascend 950PR&950DT系列产品NPU MM算子通过GE aclnn fallback回调执行场景下的HF32属性未正确传递至底层导致性能不达预期的问题。
+<!-- end id18 -->
+<!-- npu="A3,910b" id39 -->
 - 修复Atlas A2系列产品和Atlas A3系列产品RMSNorm算子在输入shape超过int32最大值有精度误差的问题。
 - 修复Atlas A2系列产品和Atlas A3系列产品matmul算子融合通路转为matmulv2场景下的_deterministic_level属性未继承导致后续节点属性丢失的问题。
 - 修复Atlas A2系列产品和Atlas A3系列产品matmul算子Host端性能劣化场景下的FSDP通信与计算细粒度流水受阻导致模型整体性能下降的问题。
 - 修复FAG算子在EOD场景下存在偶现清空pad不完整的问题。
+<!-- end id39 -->
+<!-- npu="A3" id40 -->
 - 修复Atlas A3系列产品aclgraph aicpu展开HCCL主流和capture主流为同一条stream时，orderStream图规则校验失败的问题。
 - 修复Atlas A3系列产品AllGatherRingConcurrentDirect算法在大集群规模场景下，主从流任务下发死锁的问题。
+<!-- end id40 -->
+<!-- npu="A3,910b" id41 -->
 - 修复Atlas A2系列产品和Atlas A3系列产品导入非主线版本环境变量时RingMLAOperation接口demo运行失败问题。
 - 修复Atlas A2系列产品和Atlas A3系列产品torch_npu.npu_format_cast接口format和shape不匹配的场景下，从拦截fallback到aclop的问题。
 - （**不兼容变更**）修复Atlas A2系列产品和Atlas A3系列产品SparseFlashMLA算子torch接口参数默认值错误的问题（ori_mask_mode、cmp_mask_mode、ori_win_left、ori_win_right）。
+<!-- end id41 -->
+<!-- npu="950" id42 -->
 - 修复Ascend 950PR&950DT系列产品同一个卡同一个进程下，前一次创建成功的通信域ranksize比接下来要创建子通信域的ranksize小的时候导致子通信域创建失败问题。
-<!-- end id18 -->
+<!-- end id42 -->
 
 ## 文档变更说明
 
 ### 编程语言
-
+<!-- npu="950,A3,910b,910,310p,310b" id43 -->
 #### Ascend C算子开发
 
 - 补充L2 Cache切分优化说明（[!5418](https://gitcode.com/cann/asc-devkit/pull/5418)）。
@@ -890,32 +942,34 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 新增“高级编程 > 内存模型”章节，介绍缓存一致性和内存一致性的概念、原理、常见问题和解决方案等内容（[!5150](https://gitcode.com/cann/asc-devkit/pull/5150)）。
 - 新增“基于Tensor的C++编程”章节（[!3187](https://gitcode.com/cann/asc-devkit/pull/3187)）。
 - 新增“原子操作指令优化”章节（[!4710](https://gitcode.com/cann/asc-devkit/pull/4710)）。
-
+<!-- end id43 -->
+<!-- npu="950,A3,910b" id44 -->
 #### PyPTO算子开发
 
 新增支持PyPTO Pro开发模式，支持面向Tile操作的Tile编程模型（[!4999](https://gitcode.com/cann/pypto/pull/4999)、[!5093](https://gitcode.com/cann/pypto/pull/5093)）。
-
+<!-- end id44 -->
+<!-- npu="950,A3,910b,910,310p,310b" id45 -->
 #### 图开发
 
 - “自定义算子入图”章节进行特性调整和目录结构调整。
 - 优化“AutoFuse自动融合”章节：
   - 调整目录结构，新增“快速入门”、“启用AutoFuse”章节，环境变量的详细说明移至“附录”章节。
   - “启用AutoFuse”章节分两条路径分别介绍自动融合的开启模式，新增Inductor路径下的融合开启方式。
-
+<!-- end id45 -->
 ### 编译器
-
+<!-- npu="950,A3,910b" id46 -->
 #### PTOAS
 
 新增《PTOAS》文档，详细信息请见[PTOAS](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/compiler/ptoas/overview/what_is_ptoas.md)。
-
+<!-- end id46 -->
 ### 通信库
-
+<!-- npu="950,A3,910b,910,310p" id47 -->
 #### HCCL集合通信库
 
 优化三个故障案例：“建链超时”、“notify_wait超时”和“通信域建联超时问题背景”章节（[!2782](https://gitcode.com/cann/hccl/pull/2782)）。
-
+<!-- end id47 -->
 ### API参考
-<!-- npu="950" id19 -->
+<!-- npu="950,A3,910b,910,310p,310b" id19 -->
 #### Ascend C API
 
 - “C API”章节重构Ascend 950PR&950DT系列产品资料，细化目录结构和优化资料内部结构，完善接口功能说明、调用示例和约束说明（[!5266](https://gitcode.com/cann/asc-devkit/pull/5266)）。
@@ -929,32 +983,36 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
   - 新增SIMT编程场景使用的编译选项（[!5035](https://gitcode.com/cann/asc-devkit/pull/5035)）。
 - 新增“CheckOpResSufficient”章节（[!5766](https://gitcode.com/cann/asc-devkit/pull/5766)）。
 <!-- end id19 -->
-
+<!-- npu="950,A3,910b" id48 -->
 #### PyPTO API
 
 新增PyPTO Pro API章节（[!4991](https://gitcode.com/cann/pypto/pull/4991)）。
-
+<!-- end id48 -->
+<!-- npu="950,A3,910b,910,310p,310b" id49 -->
 #### 算子库API
 
 《算子库》手册“算子库 > 算子接口（torch_extension）”新增“NN类接口”章节。
-
+<!-- end id49 -->
 ### 调试与分析工具
-
+<!-- npu="950,A3,910b,910,310p,310b" id50 -->
 #### 性能调优工具
 
 - 目录结构调整，以采集工具为粒度平铺章节。
 - Ascend PyTorch调优工具、MindSpore调优工具、使用TensorFlow框架接口采集性能数据、使用acl Python接口采集性能数据章节调整至各自源文档发布，《性能调优工具》手册在简介中保留跳转链接。
-
+<!-- end id50 -->
+<!-- npu="950,A3,910b,910,310p,310b" id51 -->
 #### 内存分析工具
 
 - 新增显存OOM分析项，发生OOM时dump最新和最大内存块信息。
 - 支持采集进程显存曲线和整卡显存曲线。
 - 新增Host内存泄漏检测功能资料。
-
+<!-- end id51 -->
+<!-- npu="950,A3,910b,910,310p,310b" id52 -->
 #### AMCT模型压缩工具
 
 新增[AMCT（acl）](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/devaids/amct/atlasamct_16_0301.html)场景下的量化特性以及接口说明。
-
+<!-- end id52 -->
+<!-- npu="950,A3,910b,910,310p,310b" id53 -->
 ## 开源软件声明
 
 开源软件声明请查看[开源软件声明](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/maintenref/refdoc/refer003.html)。
@@ -966,3 +1024,4 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 ## 病毒扫描报告
 
 病毒扫描报告请查看[病毒扫描报告](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/maintenref/refdoc/refer004.html)。
+<!-- end id53 -->
