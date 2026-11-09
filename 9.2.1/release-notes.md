@@ -94,7 +94,7 @@ CANN与Ascend HDK版本兼容
 
 ### CANN组合配套关系
 
-CANN 9.2.0包含Toolkit包、算子包（ops）、加速库（NNAL）3个组合包。CANN组合包与子包的配套关系如下，其中6个子包支持独立升级，用户可根据需求灵活安装。
+CANN 9.2.1包含Toolkit包、算子包（ops）、加速库（NNAL）3个组合包。CANN组合包与子包的配套关系如下，其中6个子包支持独立升级，用户可根据需求灵活安装。
 
 <table>
   <thead>
@@ -124,12 +124,12 @@ CANN 9.2.0包含Toolkit包、算子包（ops）、加速库（NNAL）3个组合�
     </tr>
     <tr>
       <td>cann-asc-devkit</td>
-      <td><a href="https://gitcode.com/cann/asc-devkit/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/asc-devkit/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>cann-asc-tools</td>
-      <td><a href="https://gitcode.com/cann/asc-tools/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/asc-tools/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
@@ -139,32 +139,32 @@ CANN 9.2.0包含Toolkit包、算子包（ops）、加速库（NNAL）3个组合�
     </tr>
     <tr>
       <td>cann-dflow-executor</td>
-      <td><a href="https://gitcode.com/cann/ge/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/ge/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>cann-ge-compiler</td>
-      <td><a href="https://gitcode.com/cann/ge/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/ge/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>cann-ge-executor</td>
-      <td><a href="https://gitcode.com/cann/ge/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/ge/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>cann-graph-autofusion</td>
-      <td><a href="https://gitcode.com/cann/graph-autofusion/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/graph-autofusion/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>cann-hcomm</td>
-      <td><a href="https://gitcode.com/cann/hcomm/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/hcomm/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>cann-metadef</td>
-      <td><a href="https://gitcode.com/cann/metadef/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/metadef/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
@@ -174,17 +174,17 @@ CANN 9.2.0包含Toolkit包、算子包（ops）、加速库（NNAL）3个组合�
     </tr>
     <tr>
       <td>cann-npu-runtime</td>
-      <td><a href="https://gitcode.com/cann/runtime/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/runtime/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>cann-oam-tools</td>
-      <td><a href="https://gitcode.com/cann/oam-tools/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/oam-tools/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>cann-opbase</td>
-      <td><a href="https://gitcode.com/cann/opbase/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/opbase/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
@@ -194,12 +194,12 @@ CANN 9.2.0包含Toolkit包、算子包（ops）、加速库（NNAL）3个组合�
     </tr>
     <tr>
       <td>cann-pto-isa</td>
-      <td><a href="https://gitcode.com/cann/pto-isa/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/pto-isa/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>cann-pypto</td>
-      <td><a href="https://gitcode.com/cann/pypto/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/pypto/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
@@ -235,7 +235,7 @@ CANN 9.2.0包含Toolkit包、算子包（ops）、加速库（NNAL）3个组合�
     </tr>
     <tr>
       <td>cann-opbase</td>
-      <td><a href="https://gitcode.com/cann/opbase/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/opbase/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
@@ -245,48 +245,48 @@ CANN 9.2.0包含Toolkit包、算子包（ops）、加速库（NNAL）3个组合�
     </tr>
     <tr>
       <td>cann-hccl</td>
-      <td><a href="https://gitcode.com/cann/hccl/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/hccl/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>cann-hixl</td>
-      <td><a href="https://gitcode.com/cann/hixl/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/hixl/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>ops-cv</td>
-      <td><a href="https://gitcode.com/cann/ops-cv/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/ops-cv/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>ops-math</td>
-      <td><a href="https://gitcode.com/cann/ops-math/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/ops-math/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>ops-nn</td>
-      <td><a href="https://gitcode.com/cann/ops-nn/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/ops-nn/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>ops-transformer</td>
-      <td><a href="https://gitcode.com/cann/ops-transformer/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/ops-transformer/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>ops-ras</td>
-      <td><a href="https://gitcode.com/cann/ops-ras/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/ops-ras/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td rowspan="2">加速库（NNAL）</td>
       <td>atb</td>
-      <td><a href="https://gitcode.com/cann/ascend-transformer-boost/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/ascend-transformer-boost/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
     <tr>
       <td>sip</td>
-      <td><a href="https://gitcode.com/cann/sip/tags/v9.2.0">9.2.1</a></td>
+      <td><a href="https://gitcode.com/cann/sip/tags/v9.2.1">9.2.1</a></td>
       <td>arm/x86</td>
     </tr>
   </tbody>
