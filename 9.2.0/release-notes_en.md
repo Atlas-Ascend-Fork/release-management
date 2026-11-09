@@ -366,7 +366,7 @@ For the specific operations of independent subpackage upgrade, see [Independent 
 <!-- end id67 -->
 
 ### Operator Libraries
-
+<!-- npu="950,A3,910b" id68 -->
 #### ops-math
 <!-- npu="950" id6 -->
 - Ascend 950PR&950DT product adaptation and support:
@@ -399,9 +399,11 @@ For the specific operations of independent subpackage upgrade, see [Independent 
 
     - aclnnAngleV2 supports non-contiguous input and output ([!4897](https://gitcode.com/cann/ops-math/pull/4897)).
 <!-- end id7 -->
+<!-- end id68 -->
 
-#### ops-cv
 <!-- npu="950" id8 -->
+#### ops-cv
+
 - Ascend 950PR&950DT product adaptation and support:
 
   - Newly added operators:
@@ -441,7 +443,7 @@ For the specific operations of independent subpackage upgrade, see [Independent 
 - Performance tuning:
   - The ReduceProd template uses tree reduction in AR mode when reducing to a single element, optimizing cumulative multiplication performance ([!690](https://gitcode.com/cann/opbase/pull/690)).
 <!-- end id24 -->
-
+<!-- npu="950,A3,910b" id69 -->
 #### ops-nn
 <!-- npu="A3,910b" id9 -->
 - Atlas A2 and Atlas A3 product adaptation and support:
@@ -487,7 +489,8 @@ For the specific operations of independent subpackage upgrade, see [Independent 
     - QuantBatchMatmul StreamK benefit determination includes Fixpipe write-back overhead ([!9506](https://gitcode.com/cann/ops-nn/pull/9506)).
     - DepthwiseConv2d is split from the general convolution implementation into a dedicated template to optimize the scalar bound ([!5726](https://gitcode.com/cann/ops-nn/pull/5726)).
 <!-- end id10 -->
-
+<!-- end id69 -->
+<!-- npu="950,A3,910b" id70 -->
 #### ops-transformer
 <!-- npu="A3,910b" id11 -->
 - Atlas A2 and Atlas A3 product adaptation and support:
@@ -576,7 +579,8 @@ For the specific operations of independent subpackage upgrade, see [Independent 
     - Optimized the A8W4/A4W4 Wave pipeline scheduling of MegaMoe on the MTE communication path to improve the pipeline overlap efficiency of Dispatch, expert computation, and Combine ([!10092](https://gitcode.com/cann/ops-transformer/pull/10092), [!10319](https://gitcode.com/cann/ops-transformer/pull/10319), [!10302](https://gitcode.com/cann/ops-transformer/pull/10302)).
     - Optimized the computation pipeline of MhcPre and MhcPreBackward ([!9243](https://gitcode.com/cann/ops-transformer/pull/9243), [!12232](https://gitcode.com/cann/ops-transformer/pull/12232)).
 <!-- end id12 -->
-
+<!-- end id70 -->
+<!-- npu="950,A3,910b" id71 -->
 ### Graph Engine
 <!-- npu="950,A3,910b" id54 -->
 #### Graph Mode
@@ -597,9 +601,11 @@ For the specific operations of independent subpackage upgrade, see [Independent 
 - Improved the AscendLoopIR completeness. ([!1699](https://gitcode.com/cann/graph-autofusion/pull/1699), [!1749](https://gitcode.com/cann/graph-autofusion/pull/1749))
 - Added support for NDDMA performance modeling and ATT modeling optimization. ([!1690](https://gitcode.com/cann/graph-autofusion/pull/1690), [!1792](https://gitcode.com/cann/graph-autofusion/pull/1792), [!1266](https://gitcode.com/cann/graph-autofusion/pull/1266), [!1460](https://gitcode.com/cann/graph-autofusion/pull/1460), [!1580](https://gitcode.com/cann/graph-autofusion/pull/1580), [!534](https://gitcode.com/cann/graph-autofusion/pull/534), [!1208](https://gitcode.com/cann/graph-autofusion/pull/1208))
 <!-- end id55 -->
+<!-- end id71 -->
 
-### Operator Programming
 <!-- npu="950" id25 -->
+### Operator Programming
+
 #### Key Features
 <!-- npu="950" id13 -->
 - C APIs:
@@ -630,7 +636,7 @@ For the specific operations of independent subpackage upgrade, see [Independent 
 - Communication API samples:
   - Added the AIN basic_ring sample, demonstrating point-to-point one-sided communication by the AIV Kernel calling Put/Get through the AIN API in a multi-card ring scenario ([!80](https://gitcode.com/cann/asc-comm/pull/80)).
 <!-- end id25 -->
-
+<!-- npu="950,A3,910b" id72 -->
 ### PyPTO
 <!-- npu="950" id15 -->
 #### Support for Developing Operators with PyPTO Pro on Ascend 950PR&950DT Products
@@ -666,14 +672,16 @@ For the specific operations of independent subpackage upgrade, see [Independent 
   <!-- end id20 -->
   - A vector sorting algorithm is added to the pre-scheduling stage of out-of-order execution to reduce the number of L1 spills ([!5469](https://gitcode.com/cann/pypto/pull/5469)).
 <!-- end id26 -->
+<!-- end id72 -->
 
-### Runtime
 <!-- npu="950,A3,910b" id27 -->
+### Runtime
+
 - Supports blocking debug mode for Kernel Launch and model execution ([!4247](https://gitcode.com/cann/runtime/pull/4247)).
 - Supports ordered cross-stream execution of the same captured model in aclGraph ([!4479](https://gitcode.com/cann/runtime/pull/4479)).
 - Added PCI Bus ID bidirectional query APIs: aclrtDeviceGetPCIBusId and aclrtDeviceGetByPCIBusId ([!4066](https://gitcode.com/cann/runtime/pull/4066)).
 <!-- end id27 -->
-
+<!-- npu="950,A3,910b" id73 -->
 ### Communication Library
 <!-- npu="950" id16 -->
 #### Collective Communication
@@ -703,7 +711,8 @@ For the specific operations of independent subpackage upgrade, see [Independent 
 <!-- npu="950,A3,910b" id33 -->
 - HIXL provides Python API capabilities, released externally as a wheel package ([!658](https://gitcode.com/cann/hixl/pull/658), [!903](https://gitcode.com/cann/hixl/pull/903)).
 <!-- end id33 -->
-
+<!-- end id73 -->
+<!-- npu="950,A3,910b,910,310p,310b" id74 -->
 ### PTO Virtual Instruction Set
 <!-- npu="950,A3,910b" id35 -->
 - Basic vector & cube instructions:
@@ -728,9 +737,10 @@ For the specific operations of independent subpackage upgrade, see [Independent 
 <!-- npu="950,A3,910b,910,310p,310b" id61 -->
 - CPU-SIM: newly added CPU simulation instructions synchronized with the NPU.
 <!-- end id61 -->
-
-### PTOAS (PTO Assembler)
+<!-- end id74 -->
 <!-- npu="950,A3,910b" id34 -->
+### PTOAS (PTO Assembler)
+
 A new toolchain is added, supporting command-line compilation, PTO ISA specification compilation, Python binding, and script-based entry construction capabilities. Its main responsibilities are as follows:
 
   - Parse PTO bytecode files.
@@ -738,7 +748,7 @@ A new toolchain is added, supporting command-line compilation, PTO ISA specifica
   - Support processing key capabilities such as layout, address, and synchronization according to user-specified compilation options.
   - Emit callable code.
 <!-- end id34 -->
-
+<!-- npu="950,A3,910b" id75 -->
 ### Debugging and Analysis Tools
 <!-- npu="950,A3,910b" id36 -->
 - Profiling supports collecting the number of page faults of a task ([!3279](https://gitcode.com/cann/runtime/pull/3279)).
@@ -748,6 +758,7 @@ A new toolchain is added, supporting command-line compilation, PTO ISA specifica
 <!-- npu="950,A3,910b" id37 -->
 - aicore err supports automatic parsing of error line numbers ([!4080](https://gitcode.com/cann/runtime/pull/4080)).
 <!-- end id37 -->
+<!-- end id75 -->
 
 <!-- npu="950,A3,910b,910,310p,310b" id38 -->
 ## Removed and Deprecated Features
@@ -909,7 +920,7 @@ The DVPP acceleration function used by the following operator IRs is deprecated:
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 |  Environment variable `ASCEND_SLOG_PRINT_TO_STDOUT` | Environment variable `ASCEND_LOG_PRINT_TO_STDOUT` |
 <!-- end id38 -->
-
+<!-- npu="950,A3,910b" id76 -->
 ## Fixed Issues
 
 The following issues are fixed in version 9.2.0:
@@ -935,7 +946,8 @@ The following issues are fixed in version 9.2.0:
 <!-- npu="950" id42 -->
 - Fixed the issue on Ascend 950PR&950DT products where, within the same process on the same card, the creation of a sub-communication domain failed when the rank size of the previously created communication domain was smaller than the rank size of the sub-communication domain to be created next.
 <!-- end id42 -->
-
+<!-- end id76 -->
+<!-- npu="950,A3,910b,910,310p,310b" id77 -->
 ## Documentation Changes
 
 ### Programming Language
@@ -966,17 +978,16 @@ Added support for the PyPTO Pro development mode, supporting the tile-oriented p
   - The "Enabling AutoFuse" chapter introduces the automatic fusion enabling modes through two separate paths, and adds the fusion enabling method under the Inductor path.
 <!-- end id45 -->
 
+<!-- npu="950,A3,910b" id46 -->
 ### Compiler
 
-<!-- npu="950,A3,910b" id46 -->
 #### PTOAS
 
 Added the *PTOAS* document. For details, see [PTOAS](https://www.hiascend.com/document/detail/en/CANNCommunityEdition/920/compiler/ptoas/overview/what_is_ptoas.md).
 <!-- end id46 -->
-
+<!-- npu="950,A3,910b,910,310p" id47 -->
 ### Communication Library
 
-<!-- npu="950,A3,910b,910,310p" id47 -->
 #### HCCL Collective Communication Library
 
 Optimized three fault cases in sections "Link Establishment Timeout", "notify_wait Timeout", and "Communication Domain Link Establishment Timeout Background" ([!2782](https://gitcode.com/cann/hccl/pull/2782)).
@@ -1032,6 +1043,7 @@ A new "NN APIs" section is added to "Operator Library > Operator APIs (torch_ext
 
 Added the quantization features and API description for the [AMCT (acl)](https://www.hiascend.com/document/detail/en/CANNCommunityEdition/920/devaids/amct/atlasamct_16_0301.html) scenario.
 <!-- end id52 -->
+<!-- end id77 -->
 
 <!-- npu="950,A3,910b,910,310p,310b" id53 -->
 ## Open Source Software Statement

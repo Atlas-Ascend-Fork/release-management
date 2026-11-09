@@ -459,7 +459,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ASCEND_SLOG_PRINT_TO_STDOUT环境变量 | ASCEND_LOG_PRINT_TO_STDOUT环境变量 |
 <!-- end id1 -->
-
+<!-- npu="950,A3,910b" id11 -->
 ## 已修复问题
 
 以下问题在9.2.1版本修复：
@@ -490,7 +490,7 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 修复Ascend 950PR&950DT系列产品SparseFlashMla/QuantSparseFlashMla/MixedQuantSparseFlashMla/KvQuantSparseFlashAttention算子物理地址预处理使用非法事件 ID 8的问题([!13775](https://gitcode.com/cann/ops-transformer/pull/13775)、[!14183](https://gitcode.com/cann/ops-transformer/pull/14183))。
 - 修复Ascend 950PR&950DT系列产品bitwise_or在融合kernel内外存在差异导致的精度问题([!2536](https://gitcode.com/cann/graph-autofusion/pull/2536))。
 <!-- end id9 -->
-
+<!-- end id11 -->
 <!-- npu="950,A3,910b,910,310p,310b" id10 -->
 ## 开源软件声明
 
