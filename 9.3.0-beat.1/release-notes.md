@@ -14,7 +14,7 @@ CANN软件版本配套表
   </tr>
   <tr>
     <td>9.3.0-beta.1</td>
-    <td><a href="https://www.hiascend.com/hardware/firmware-drivers?ids=d803%2C89dda9ba9de741349efa03687a487678%2C22%2CAArch64%2Conline_Yum">26.1.1</a></td>
+    <td><a href="https://www.hiascend.com/hardware/firmware-drivers?ids=d803%2C89dda9ba9de741349efa03687a487678%2C22%2CAArch64%2Conline_Yum">26.2.RC1</a></td>
   </tr>
 </table>
 
@@ -35,9 +35,9 @@ CANN 9.3.0-beta.1包含Toolkit包、算子包（ops）、加速库（NNAL）3个
   </thead>
   <tbody>
     <tr>
-      <td rowspan="22">Toolkit</td>
+      <td rowspan="24">Toolkit</td>
       <td>ascendnpu-ir</td>
-      <td>1.2.0</td>
+      <td>2.0.0</td>
       <td>arm/x86</td>
     </tr>
     <tr>
@@ -115,6 +115,21 @@ CANN 9.3.0-beta.1包含Toolkit包、算子包（ops）、加速库（NNAL）3个
       <td><a href="https://gitcode.com/cann/opbase/tags/v9.3.0-beta.1">9.3.0-beta.1</a></td>
       <td>arm/x86</td>
     </tr>
+   <tr>
+      <td>cann-pto-as</td>
+      <td>9.3.0-beta.1</td>
+      <td>arm/x86</td>
+    </tr>
+    <tr>
+      <td>cann-pto-isa</td>
+      <td><a href="https://gitcode.com/cann/pto-isa/tags/v9.3.0-beta.1">9.3.0-beta.1</a></td>
+      <td>arm/x86</td>
+    </tr>
+     <tr>
+      <td>cann-pypto</td>
+      <td><a href="https://gitcode.com/cann/pypto/tags/v9.3.0-beta.1">9.3.0-beta.1</a></td>
+      <td>arm/x86</td>
+    </tr>
     <tr>
       <td>cann-tbe-tik</td>
       <td>9.3.0-beta.1</td>
@@ -126,13 +141,8 @@ CANN 9.3.0-beta.1包含Toolkit包、算子包（ops）、加速库（NNAL）3个
       <td>arm/x86</td>
     </tr>
     <tr>
-      <td>cann-pto-isa</td>
-      <td><a href="https://gitcode.com/cann/pto-isa/tags/v9.3.0-beta.1">9.3.0-beta.1</a></td>
-      <td>arm/x86</td>
-    </tr>
-    <tr>
       <td>mindstudio-toolkit</td>
-      <td>26.1.0</td>
+      <td>26.2.0</td>
       <td>arm/x86</td>
     </tr>
     <tr>
