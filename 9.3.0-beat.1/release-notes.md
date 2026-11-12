@@ -241,47 +241,18 @@ CANN 9.3.0-beta.1包含Toolkit包、算子包（ops）、加速库（NNAL）3个
 
 ## 关键特性
 
-- **新增支持KDA、situ等融合算子，支持Kimi K3模型性能优化。点击[查看详情](https://gitcode.com/cann/ops-transformer/blob/9.3.0-beta.1/attention/chunk_kda_fwd/README.md)。**
+- **面向Ascend 950PR&950DT系列产品新增CANNBot-DSL，具有Agent-Friendly属性，基于Agent可以完成高性能复杂算子的开发。CANNBot-DSL由框架完成同步插入/NBuffer等复杂操作，同时可显式控制内存管理、流水排布等高性能优化方案。（CANNBot-DSL是尝鲜版本，接口为实验性接口，后续存在变更可能）**
 
 ## 新增特性
 
-### ops-nn库
-
-- Atlas A2 训练系列产品/Atlas A2 推理系列产品 和 Atlas A3 训练系列产品/Atlas A3 推理系列产品适配与场景支持：
-  - 新增适配以下算子
-    - SituGlu （[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
-    - SituGluGrad（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
-    - DequantSituQuant （[!8798](https://gitcode.com/cann/ops-nn/pull/8798)）。
-- Ascend 950PR/Ascend 950DT系列产品适配与场景支持：
-  - 新增适配以下算子
-    - SituGlu （[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
-    - SituGluGrad（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
-    - SituMxQuant （[!8798](https://gitcode.com/cann/ops-nn/pull/8798)）。
 
 ### ops-transformer库
 
 <!-- npu="A3,910b" id2 -->
 - <term>Atlas A2系列产品</term>和<term>Atlas A3系列产品</term>适配与场景支持：
-  - 新增 MsaIndexScore 算子（[!9503](https://gitcode.com/cann/ops-transformer/pull/9503)）。
-  - 新增 ChunkKdaFwd 算子（[!9979](https://gitcode.com/cann/ops-transformer/pull/9979)）。
-  - MlaProlog算子增设RoPE计算操作开关并支持cache输入非连续（[!10296](https://gitcode.com/cann/ops-transformer/pull/10296)）（[!9472](https://gitcode.com/cann/ops-transformer/pull/9472)）。
-  - FusedInferAttentionScore算子的MLA模板非量化decode场景支持headNum<=128任意值泛化（[!9773](https://gitcode.com/cann/ops-transformer/pull/9773)）。
-  - MegaMoe算子新增支持situ，swigluoai，swiglustep等激活类型（[!8868](https://gitcode.com/cann/ops-transformer/pull/8868)）。
-  - 新增MinimaxSparseAttention算子（[!10628](https://gitcode.com/cann/ops-transformer/pull/10628)）。
-  - FusedInferAttentionScore算子的MLA模板支持非连续（[!10114](https://gitcode.com/cann/ops-transformer/pull/10114)）。
-  - FusedInferAttentionScore算子支持cache首轴非连续（[!6399](https://gitcode.com/cann/ops-transformer/pull/6399)）。
-  - FusedInferAttentionScore算子splitfuse支持BNBD格式，性能更友好，对标vllm生态（[!10353](https://gitcode.com/cann/ops-transformer/pull/10353)）。
+  - MsaIndexScore前置融合算子decode场景性能优化（[!13514](https://gitcode.com/cann/ops-transformer/pull/13514)）（[!14316](https://gitcode.com/cann/ops-transformer/pull/14316)）。
+  - GenericBlockSparseAttention算子规格扩展（[!14513](https://gitcode.com/cann/ops-transformer/pull/14513)）。
 <!-- end id2 -->
-<!-- npu="950" id1 -->
-- <term>Ascend 950PR&Ascend 950DT系列产品</term>适配与场景支持：
-  - FusedInferAttentionScore算子的MLA模板非量化decode场景支持headNum<=128任意值泛化（[!9773](https://gitcode.com/cann/ops-transformer/pull/9773)）。
-  - 新增MinimaxSparseAttention算子decode q gather kv（[!10628](https://gitcode.com/cann/ops-transformer/pull/10628)）。
-  - MinimaxSparseAttention算子decode q gather kv支持FP8量化（[!11183](https://gitcode.com/cann/ops-transformer/pull/11183)）。
-  - FusedInferAttentionScore算子的MLA模板支持headNum<=128任意值泛化（[!11069](https://gitcode.com/cann/ops-transformer/pull/11069)）。
-  - BlockSparseAttention算子稀疏支持叠加量化mxfp4（[!8474](https://gitcode.com/cann/ops-transformer/pull/8474)）。
-  - BlockSparseAttention算子稀疏支持block粒度小于128、16对齐（[!9148](https://gitcode.com/cann/ops-transformer/pull/9148)）。
-  - BlockSparseAttention算子fp8量化性能增强（[!11145](https://gitcode.com/cann/ops-transformer/pull/11145)）。
-<!-- end id1 -->
 
 ## 删除和废弃特性
 
@@ -418,12 +389,6 @@ CANN 9.3.0-beta.1包含Toolkit包、算子包（ops）、加速库（NNAL）3个
 | ${install_path}/ascend-toolkit/latest/include/base/alog_pub.h中的AlogCheckDebugLevel接口 | ${install_path}/cann/pkg_inc/base/dlog_pub.h中的CheckLogLevel接口 |
 | ${install_path}/ascend-toolkit/latest/include/base/alog_pub.h中的AlogRecord接口 | ${install_path}/cann/pkg_inc/base/dlog_pub.h中的DlogRecord接口或封装的dlog_error、dlog_warn等宏 |
 
-**以下目录、文件和接口等在CANN 9.2.0中被标记为废弃，将在2027.9.30之后的版本删除**
-
-| 废弃的目录、文件和接口                                       | 替换的目录、文件和接口                                       |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| E5、E6、E7、E8 开头的错误码将在 ${install_path}/ascend-toolkit/latest/conf/error_manager/error_code.json 中废弃，如若代码中仍使用这些错误码，会上报失败 |
-| 相应功能错误码使用opbase仓内错误码接口宏替换 ${install_path}/ascend-toolkit/latest/include/op_common/log/log.h |
 
 ## 漏洞修补列表
 
