@@ -20,7 +20,7 @@
 |4|[ops-math仓编译构建能力增强和代码结构优化](https://gitcode.com/cann/ops-math/issues/72)|Accepted|sig-ops-basic|zhou-qilong|
 |5|[ops-cv仓编译构建能力增强和代码结构优化](https://gitcode.com/cann/ops-cv/issues/3)|Accepted|sig-ops-basic|zhou-qilong|
 |6|[ops-transformer仓编译构建能力增强和代码结构优化](https://gitcode.com/cann/ops-transformer/issues/69)|Accepted|sig-ops-transformer|YuZhengzhong|
-|7|[opbase代码结构优化](https://gitcode.com/cann/opsbase/issues/5)|Accepted|sig-ops-basic|zhou-qilong|
+|7|[opbase代码结构优化](https://gitcode.com/cann/opbase/issues/5)|Accepted|sig-ops-basic|zhou-qilong|
 |8|[Matmul算子支持4选2稀疏量化能力](https://gitcode.com/cann/ops-nn/issues/45)|Accepted|sig-ops-nn|tangweiwei2|
 |9|[Ascend-transformer-boost仓算子工程易用性提升]()|Accepted|sig-aal|nino888|
 |10|[CATLASS仓新增FA、Matmul类算子样例]()|Accepted|sig-catlass|hanru-xu|
