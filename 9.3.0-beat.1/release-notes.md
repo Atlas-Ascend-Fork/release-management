@@ -1,5 +1,5 @@
 # CANN 9.3.0-beta.1版本说明
-
+<!-- npu="950,A3,910b,910,310p,310b" id1 -->
 ## 版本下载地址
 
 <https://www.hiascend.com/cann/download>
@@ -238,22 +238,24 @@ CANN 9.3.0-beta.1包含Toolkit包、算子包（ops）、加速库（NNAL）3个
 | [cann-hixl 9.3.0-beta.1](https://ascend.devcloud.huaweicloud.com/cann/run/software/9.3.0-beta.1/) | [v9.3.0-beta.1](https://gitcode.com/cann/hixl/tags/v9.3.0-beta.1) | CANN 9.3.0-beta.1 |
 
 子包独立升级的具体操作请参考[子包独立升级](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/910/softwareinst/instg/instg_0030.html)。
-
+<!-- end id1 -->
+<!-- npu="950" id3 -->
 ## 关键特性
 
 - **面向Ascend 950PR&950DT系列产品新增CANNBot-DSL，具有Agent-Friendly属性，基于Agent可以完成高性能复杂算子的开发。CANNBot-DSL由框架完成同步插入/NBuffer等复杂操作，同时可显式控制内存管理、流水排布等高性能优化方案。（CANNBot-DSL是尝鲜版本，接口为实验性接口，后续存在变更可能）**
+<!-- end id3 -->
 
+<!-- npu="A3,910b" id2 -->
 ## 新增特性
-
 
 ### ops-transformer库
 
-<!-- npu="A3,910b" id2 -->
 - <term>Atlas A2系列产品</term>和<term>Atlas A3系列产品</term>适配与场景支持：
   - MsaIndexScore前置融合算子decode场景性能优化（[!13514](https://gitcode.com/cann/ops-transformer/pull/13514)）（[!14316](https://gitcode.com/cann/ops-transformer/pull/14316)）。
   - GenericBlockSparseAttention算子规格扩展（[!14513](https://gitcode.com/cann/ops-transformer/pull/14513)）。
 <!-- end id2 -->
 
+<!-- npu="950,A3,910b,910,310p,310b" id4 -->
 ## 删除和废弃特性
 
 ### 说明
@@ -308,7 +310,7 @@ CANN 9.3.0-beta.1包含Toolkit包、算子包（ops）、加速库（NNAL）3个
 | ${install_path}/ascend-toolkit/latest/runtime/include/graph  | ${install_path}/cann/include/graph                         |
 | ${install_path}/ascend-toolkit/latest/compiler/python/func2graph | ${install_path}/cann/x86_64-linux/python目录下的func2graph |
 
-自Ascend 950 系列产品开始，aclblas和aclop接口不推荐使用，后续版本将逐步废弃，建议迁移至对应的aclnn算子接口。
+自Ascend 950PR&950DT系列产品开始，aclblas和aclop接口不推荐使用，后续版本将逐步废弃，建议迁移至对应的aclnn算子接口。
 
 ### 算子库
 
@@ -329,7 +331,6 @@ CANN 9.3.0-beta.1包含Toolkit包、算子包（ops）、加速库（NNAL）3个
 | aclnnInplaceMatmulAllReduceAddRmsNorm接口                    | aclnnMatmulAllReduce和aclnnAddRmsNorm            |
 | aclnnInplaceWeightQuantMatmulAllReduceAddRmsNorm接口         | aclnnWeightQuantMatmulAllReduce和aclnnAddRmsNorm |
 
-
 **以下目录、文件和接口等在CANN 8.5.0中被标记为废弃，计划在2026.12.30之后的版本删除。**
 
 其中算子被拆分成了组件包，不同的算子独立组件包均包含多个对应的库和头文件，下表中${ops_project}表示实际的cv、math、nn、transformer和legacy。
@@ -345,7 +346,6 @@ CANN 9.3.0-beta.1包含Toolkit包、算子包（ops）、加速库（NNAL）3个
 | aclnnIncreFlashAttentionV2和aclnnIncreFlashAttentionV3接口   | aclnnIncreFlashAttentionV4接口                               |
 | aclnnPromptFlashAttentionV2接口                              | aclnnPromptFlashAttentionV3接口                              |
 | aclnnFusedInferAttentionScoreV2和aclnnFusedInferAttentionScoreV3接口 | aclnnFusedInferAttentionScoreV4接口                          |
-
 
 ### 加速库
 
@@ -388,8 +388,9 @@ CANN 9.3.0-beta.1包含Toolkit包、算子包（ops）、加速库（NNAL）3个
 | 日志头文件${install_path}/ascend-toolkit/latest/include/base/alog_pub.h | 日志头文件${install_path}/cann/pkg_inc/base/dlog_pub.h       |
 | ${install_path}/ascend-toolkit/latest/include/base/alog_pub.h中的AlogCheckDebugLevel接口 | ${install_path}/cann/pkg_inc/base/dlog_pub.h中的CheckLogLevel接口 |
 | ${install_path}/ascend-toolkit/latest/include/base/alog_pub.h中的AlogRecord接口 | ${install_path}/cann/pkg_inc/base/dlog_pub.h中的DlogRecord接口或封装的dlog_error、dlog_warn等宏 |
-
-
+<!-- end id4 -->
+<!-- npu="950,A3,910b,910,310p,310b" id5 -->
 ## 漏洞修补列表
 
 版本开源及第三方软件漏洞修复情况详见[漏洞修补列表](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/910/maintenref/refdoc/refer002.html)。
+<!-- end id5 -->
