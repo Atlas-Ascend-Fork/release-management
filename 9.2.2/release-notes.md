@@ -488,6 +488,20 @@ CANN ops包已与Toolkit解耦，支持独立升级，用户可根据使用需�
 - 修复Ascend 950DT/PR系列产品LI/LI v2/QLI v2算子分页偏移计算乘法结果溢出的问题([!15304](https://gitcode.com/cann/ops-transformer/pull/15304))。	
 - 修复Ascend 950DT/PR系列产品FIA/QFA算子FP8量化场景偶现精度失败问题([!15028](https://gitcode.com/cann/ops-transformer/pull/15028))。	
 - 修复Ascend 950DT/PR系列产品MoeFusedTopK算子aclnn场景部分用例失败的问题([!15019](https://gitcode.com/cann/ops-transformer/pull/15019))。	
+
+以下问题在9.2.1版本修复：
+- 修复Atlas A2系列产品、Atlas A3系列产品NPU 在输出tensor shape维度不合法时缺少校验问题([!13774](https://gitcode.com/cann/ops-transformer/pull/13774))。
+- 修复Ascend 950PR&950DT系列产品在推理场景下使用EPLB+mooncake，导致建链超时的问题([!6139](https://gitcode.com/cann/comm/pull/6139/discuss))。
+- 补充Ascend 950PR&950DT系列产品在1825交换机MTU配置不一致对推理训练功能影响的说明([!1425](https://gitcode.com/cann/hixl/pull/1425))。
+- 修复Atlas A2系列产品、Atlas A3系列产品NPU CdistGrad算子边界场景中inf值运算的逻辑错误导致精度失败的问题([!6518](https://gitcode.com/cann/ops-math/pull/6518))。
+- 修复Ascend 950PR&950DT系列产品基于OOM包执行chunk_gated_delta_rule单算子，部分场景存在空拷贝导致的AICORE ERROR问题([!13612](https://gitcode.com/cann/ops-transformer/pull/13612))。
+- 修复Ascend 950PR&950DT系列产品的allgatherv算子在图模式场景下，recv_displacements参数size为0时判断错误导致算子中断执行的问题([!3624](https://gitcode.com/cann/hccl/pull/3624/discuss))。
+- 修复Atlas A2系列产品、Atlas A3系列产品NPU conv3d_backprop_input_v2算子在大shape场景下通过Vector方案计算fp32数据类型双标杆L2的精度问题([!12180](https://gitcode.com/cann/ops-nn/pull/12180))。
+- 修复Ascend 950PR&950DT系列产品下线ShapeRange推导，部分算子走框架自动推导报错的问题([!1041](https://gitcode.com/cann/opbase/pull/1041)、[!5482](https://gitcode.com/cann/ge/pull/5482))。
+- 修复Atlas A2系列产品ReduceScatter算子在开启确定性和pipeline算法时，缺少前同步导致概率卡死问题([!6056](https://gitcode.com/cann/hcomm/pull/6056))。
+- 修复Ascend 950PR&950DT系列产品SparseFlashMla/QuantSparseFlashMla/MixedQuantSparseFlashMla/KvQuantSparseFlashAttention算子物理地址预处理使用非法事件 ID 8的问题([!13775](https://gitcode.com/cann/ops-transformer/pull/13775)、[!14183](https://gitcode.com/cann/ops-transformer/pull/14183))。
+- 修复Ascend 950PR&950DT系列产品bitwise_or在融合kernel内外存在差异导致的精度问题([!2536](https://gitcode.com/cann/graph-autofusion/pull/2536))。
+
 ## 开源软件声明
 
 开源软件声明请查看[开源软件声明](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/920/maintenref/refdoc/refer003.html)。
