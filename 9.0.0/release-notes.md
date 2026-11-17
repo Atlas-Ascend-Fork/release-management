@@ -1,12 +1,14 @@
 # CANN 9.0.0版本说明
 
 ## 版本下载地址
+
 <a href="https://www.hiascend.com/cann/download?versionId=734&ids=d806%2Ch0501%2Ch0601%2Ch0702&currentTab=0">快速安装地址</a>
+
 ## 版本配套
 
 **1、CANN与Ascend HDK版本配套关系**
 
-|CANN版本  |  配套Ascend HDK版本| 
+|CANN版本  |  配套Ascend HDK版本|
 |--|--|
 | [CANN 9.0.0](https://www.hiascend.com/developer/download/community/result?module=cann&cann=9.0.0) | [Ascend HDK 26.0.RC1 ](https://www.hiascend.com/hardware/firmware-drivers/community?product=4&model=32&cann=All&driver=Ascend+HDK+26.0.RC1)<br> [Ascend HDK 25.5.2 ](https://www.hiascend.com/hardware/firmware-drivers/community?product=4&model=32&cann=All&driver=Ascend+HDK+25.5.2)  <br> [Ascend HDK 25.5.1](https://www.hiascend.com/hardware/firmware-drivers/community?product=4&model=32&cann=All&driver=Ascend+HDK+25.5.1) |
 | [CANN 8.5.2](https://www.hiascend.com/developer/download/community/result?module=cann&cann=8.5.2) | [Ascend HDK 26.0.RC1 ](https://www.hiascend.com/hardware/firmware-drivers/community?product=4&model=32&cann=All&driver=Ascend+HDK+26.0.RC1) <br> [Ascend HDK 25.5.2 ](https://www.hiascend.com/hardware/firmware-drivers/community?product=4&model=32&cann=All&driver=Ascend+HDK+25.5.2) <br> [Ascend HDK 25.5.1 ](https://www.hiascend.com/hardware/firmware-drivers/community?product=4&model=32&cann=All&driver=Ascend+HDK+25.5.1)|
@@ -14,7 +16,7 @@
 
 **2、 CANN组合包版本配套关系**
 
-|ops版本  |配套toolkit版本  |  
+|ops版本  |配套toolkit版本  |
 |--|--|
 | [ascend-cann-ops 9.0.0](https://www.hiascend.com/developer/download/community/result?module=cann&cann=9.0.0) | [ascend-cann-toolkit 9.0.0](https://www.hiascend.com/developer/download/community/result?module=cann&cann=9.0.0)<br>[ascend-cann-toolkit 8.5.2](https://www.hiascend.com/developer/download/community/result?module=cann&cann=8.5.2) |
 | [ascend-cann-ops 8.5.2](https://www.hiascend.com/developer/download/community/result?module=cann&cann=8.5.2)  |  [ascend-cann-toolkit 9.0.0](https://www.hiascend.com/developer/download/community/result?module=cann&cann=9.0.0) <br> [ascend-cann-toolkit 8.5.2](https://www.hiascend.com/developer/download/community/result?module=cann&cann=8.5.2) |
@@ -28,7 +30,7 @@
 | [cann-ops-cv 9.0.0](https://ascend.devcloud.huaweicloud.com/cann/run/software/9.0.0/) | [v9.0.0](https://gitcode.com/cann/ops-cv/tags/v9.0.0)        | CANN 9.0.0<br>CANN 8.5.2 |
 | [cann-ops-transformer 9.0.0](https://ascend.devcloud.huaweicloud.com/cann/run/software/9.0.0/) | [v9.0.0](https://gitcode.com/cann/ops-transformer/tags/v9.0.0) | CANN 9.0.0<br>CANN 8.5.2 |
 | [cann-hccl 9.0.0](https://ascend.devcloud.huaweicloud.com/cann/run/software/9.0.0/) | [v9.0.0](https://gitcode.com/cann/hccl/tags/v9.0.0)          | CANN 9.0.0<br>CANN 8.5.2 |
-| [cann-hixl 9.0.0](https://ascend.devcloud.huaweicloud.com/cann/run/software/9.0.0/) | [v9.0.0](https://gitcode.com/cann/hixl/tags/v9.0.0)          | CANN 9.0.0<br>CANN 8.5.2 | 
+| [cann-hixl 9.0.0](https://ascend.devcloud.huaweicloud.com/cann/run/software/9.0.0/) | [v9.0.0](https://gitcode.com/cann/hixl/tags/v9.0.0)          | CANN 9.0.0<br>CANN 8.5.2 |
 
 **4、CANN开源子包版本配套关系**
 
@@ -110,7 +112,7 @@ CANN新增适配Ascend 950PR（Atlas 350加速卡）开源并新增相关重点�
 - Ascend 950PR支持Parallel Welford和超长轴二分累加算法，提高Norm类算子的数值稳定性与计算精度，该特性主要涉及算子：
   - [LayerNormV4](https://gitcode.com/cann/ops-nn/tree/master/norm/layer_norm_v4)
   - [BatchNormV3](https://gitcode.com/cann/ops-nn/tree/master/norm/batch_norm_v3)
-- Ascend 950PR新增MM融合算子： 
+- Ascend 950PR新增MM融合算子：
   - [QuantBatchMatmulInplaceAdd]（[!1130](https://gitcode.com/cann/ops-nn/pull/1130)）。
   - [TransposeQuantBatchMatmul]（[!1136](https://gitcode.com/cann/ops-nn/pull/1136)）。
   - [DualLevelQuantBatchMatmul]（[!1141](https://gitcode.com/cann/ops-nn/pull/1141)）。
@@ -124,7 +126,7 @@ CANN新增适配Ascend 950PR（Atlas 350加速卡）开源并新增相关重点�
 - 新增<<<>>>的算子开发样例（[!620](https://gitcode.com/cann/ops-nn/pull/620)）。
 - 支持编译生成静态库，发布的nn独立组件包携带静态库（[!391](https://gitcode.com/cann/ops-nn/pull/391)）。
 - 新增支持按模板编译特定算子kernel能力（[#1097](https://gitcode.com/cann/ops-nn/issues/1097)）。
-- 提供matmul、卷积、norm和hash类算子编程的优秀实践： 
+- 提供matmul、卷积、norm和hash类算子编程的优秀实践：
   - [MatMul算子VCV性能优化实践与效果分析](https://gitcode.com/cann/ops-nn/wiki/MatMul%E7%AE%97%E5%AD%90VCV%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%AE%9E%E8%B7%B5%E4%B8%8E%E6%95%88%E6%9E%9C%E5%88%86%E6%9E%90.md)。
   - [MatMul算子性能优化实践与效果分析](https://gitcode.com/cann/ops-nn/wiki/MatMul%E7%AE%97%E5%AD%90%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%AE%9E%E8%B7%B5%E4%B8%8E%E6%95%88%E6%9E%9C%E5%88%86%E6%9E%90.md)。
 - 新增支持LSTM/LSTMCell通过aclnn接口调用，能显著缩短使用LSTM算子的语音处理等模型通过torch api调用时，host侧的编译耗时。
@@ -261,26 +263,26 @@ CANN新增适配Ascend 950PR（Atlas 350加速卡）开源并新增相关重点�
 - 易用性增强：
   - 支持AclGraph场景stream规格扩充至64k，解决大模型资源不足等问题（[\#461](https://gitcode.com/cann/runtime/pull/461)）。
   - 支持Aclgraph场景Event规格扩充，扩充后的Event规格仅取决于Device内存（[\#482](https://gitcode.com/cann/runtime/pull/482)）。
-  - 提供包版本号查询接口，根据包名查询返回数值版本号和字符串版本号，接口如下： 
-    - [aclError aclsysGetVersionStr(char *pkgName, char * versionStr)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclsysGetVersionStr.md) 
-    - [aclError aclsysGetVersionNum(char *pkgName，int32_t * versionNum)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclsysGetVersionNum.md) 
+  - 提供包版本号查询接口，根据包名查询返回数值版本号和字符串版本号，接口如下：
+    - [aclError aclsysGetVersionStr(char *pkgName, char * versionStr)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclsysGetVersionStr.md)
+    - [aclError aclsysGetVersionNum(char *pkgName，int32_t * versionNum)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclsysGetVersionNum.md)
 
-  - 支持查询指定流（Stream）的优先级，接口如下： 
-    - [aclError aclrtStreamGetPriority(aclrtStream stream, uint32_t *priority)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtStreamGetPriority.md) 
+  - 支持查询指定流（Stream）的优先级，接口如下：
+    - [aclError aclrtStreamGetPriority(aclrtStream stream, uint32_t *priority)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtStreamGetPriority.md)
 
-  - 支持查询创建Stream时设置的flag标志，接口如下： 
-    - [aclError aclrtStreamGetFlags(aclrtStream stream, uint32_t *flags)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtStreamGetFlags.md)   
+  - 支持查询创建Stream时设置的flag标志，接口如下：
+    - [aclError aclrtStreamGetFlags(aclrtStream stream, uint32_t *flags)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtStreamGetFlags.md)
 
-  - 支持获取Device的唯一标识UUID（Universally Unique Identifier），接口如下： 
-    - [aclError aclrtDeviceGetUuid (int32_t deviceId, aclrtUuid *uuid)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtDeviceGetUuid.md) 
- 
-  - 支持获取待查询地址所属内存块的起始地址以及内存块大小，接口如下： 
-    - [aclError aclrtMemGetAddressRange(void *ptr, void **pbase, size_t *psize)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtMemGetAddressRange.md) 
- 
+  - 支持获取Device的唯一标识UUID（Universally Unique Identifier），接口如下：
+    - [aclError aclrtDeviceGetUuid (int32_t deviceId, aclrtUuid *uuid)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtDeviceGetUuid.md)
+
+  - 支持获取待查询地址所属内存块的起始地址以及内存块大小，接口如下：
+    - [aclError aclrtMemGetAddressRange(void *ptr, void **pbase, size_t *psize)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtMemGetAddressRange.md)
+
   - 支持设置和查询强一致性计算的参数，相关接口如下：
-    - [aclError aclrtSetSysParamOpt(aclSysParamOpt opt, int64_t value)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtSetSysParamOpt.md) 
-    - [aclError aclrtGetSysParamOpt(aclSysParamOpt opt, int64_t *value)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtGetSysParamOpt.md) 
-    - [aclError aclrtCtxSetSysParamOpt(aclSysParamOpt opt, int64_t value)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtCtxSetSysParamOpt.md) 
+    - [aclError aclrtSetSysParamOpt(aclSysParamOpt opt, int64_t value)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtSetSysParamOpt.md)
+    - [aclError aclrtGetSysParamOpt(aclSysParamOpt opt, int64_t *value)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtGetSysParamOpt.md)
+    - [aclError aclrtCtxSetSysParamOpt(aclSysParamOpt opt, int64_t value)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtCtxSetSysParamOpt.md)
     - [aclError aclrtCtxGetSysParamOpt(aclSysParamOpt opt, int64_t *value)](https://gitcode.com/cann/runtime/blob/9.0.0/docs/api_docs/aclrtCtxGetSysParamOpt.md)
 - 发布Runtime编程指南（[\#1030](https://gitcode.com/cann/runtime/pull/1030)）。
 - 发布Runtime Ascend 950PR配套资料（[\#1255](https://gitcode.com/cann/runtime/pull/1255)）。
@@ -328,7 +330,7 @@ CANN新增适配Ascend 950PR（Atlas 350加速卡）开源并新增相关重点�
 
 问题一：在通信域使用int64算子的模型中，发生断链时，快恢耗时有分钟级增加到十几分钟级，影响MTTR
 【引入版本】CANN 9.0.0
-【缺陷影响】int64算子不支持重执行流程，无法走STEP快恢，影响断联场景下任务重执行 
+【缺陷影响】int64算子不支持重执行流程，无法走STEP快恢，影响断联场景下任务重执行
 【规避方案】不使用int64类型的集合通信算子，使用其他类型的算子临时替代
 
 问题二：训练任务恢复时sendrecv算子卡住，导致进程级恢复失败，影响MTTR
@@ -429,7 +431,7 @@ CANN新增适配Ascend 950PR（Atlas 350加速卡）开源并新增相关重点�
 **组合包**Ascend-cann-toolkit和Ascend-cann-ops**安装在默认路径下**（即安装时未使用“--install-path”参数）
 
 ```bash
-chmod +x cann-hixl_x.y.z_linux-aarch64.run 
+chmod +x cann-hixl_x.y.z_linux-aarch64.run
 ./cann-hixl_x.y.z_linux-aarch64.run --upgrade
 ```
 

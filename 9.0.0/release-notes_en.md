@@ -2,7 +2,7 @@
 
 ## Version Download Address
 
-<https://www.hiascend.com/en/cann/download>
+<a href="https://www.hiascend.com/en-sg/cann/download?versionId=731&ids=d806%2Ch0502%2Ch0601%2Ch0702">Quick Installation</a>
 
 ## Version Mapping
 
