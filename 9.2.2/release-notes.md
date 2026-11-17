@@ -1,9 +1,7 @@
 # CANN 9.2.2版本说明书（开发中）
 <!-- npu="950,A3,910b,910,310p,310b" id1 -->
 ## 版本下载地址
-
 <https://www.hiascend.com/cann/download>
-
 ## 版本配套说明
 
 CANN软件版本配套表

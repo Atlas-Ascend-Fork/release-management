@@ -1,8 +1,7 @@
 # CANN 9.1.0-beta.3版本说明
 
 ## 版本下载地址
-
-<https://www.hiascend.com/cann/download>
+<a href="https://www.hiascend.com/cann/download?versionId=751&ids=d806%2Ch0501%2Ch0601%2Ch0702&currentTab=0">快速安装地址</a>
 
 ## 版本配套
 

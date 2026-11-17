@@ -1,7 +1,6 @@
 # CANN 8.5.0
 ## 版本下载地址
-https://www.hiascend.com/cann/download
-
+<a href="https://www.hiascend.com/cann/download?versionId=748&ids=d803%2Ch0501%2Ch0601%2Ch0702&currentTab=0">快速安装地址</a>
 ## 版本配套
 
 - HDK：Ascend HDK 25.5.1 [A2](https://www.hiascend.com/hardware/firmware-drivers/community?product=4&model=32&cann=All&driver=Ascend+HDK+25.5.0)  [A3](https://www.hiascend.com/hardware/firmware-drivers/community?product=4&model=32&cann=All&driver=Ascend+HDK+25.5.0)

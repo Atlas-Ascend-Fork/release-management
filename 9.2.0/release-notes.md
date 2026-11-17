@@ -1,9 +1,7 @@
 # CANN 9.2.0版本说明书
 <!-- npu="950,A3,910b,910,310p,310b" id21 -->
 ## 版本下载地址
-
-<https://www.hiascend.com/cann/download>
-
+<a href="https://www.hiascend.com/cann/download?versionId=810&ids=d806%2Ch0501%2Ch0601%2Ch0702&currentTab=0">快速安装地址</a>
 ## 版本配套说明
 
 CANN软件版本配套表
@@ -78,7 +76,7 @@ CANN与Ascend HDK版本兼容
       <td>Y</td>
     </tr>
      <tr>
-      <td>9.2.0</td>
+      <td>9.2.X</td>
       <td>N</td>
       <td>N</td>
       <td>Y</td>
