@@ -241,7 +241,7 @@ CANN 9.2.0-beta.2包含Toolkit包、算子包（ops）、加速库（NNAL）3个
     - SituGlu （[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
     - SituGluGrad（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
     - DequantSituQuant （[!8798](https://gitcode.com/cann/ops-nn/pull/8798)）。
-- Ascend 950PR/Ascend 950DT系列产品适配与场景支持：
+- Ascend 950PR&950DT系列产品适配与场景支持：
   - 新增适配以下算子
     - SituGlu （[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
     - SituGluGrad（[!8651](https://gitcode.com/cann/ops-nn/pull/8651)）。
@@ -262,7 +262,7 @@ CANN 9.2.0-beta.2包含Toolkit包、算子包（ops）、加速库（NNAL）3个
   - FusedInferAttentionScore算子splitfuse支持BNBD格式，性能更友好，对标vllm生态（[!10353](https://gitcode.com/cann/ops-transformer/pull/10353)）。
 <!-- end id2 -->
 <!-- npu="950" id1 -->
-- <term>Ascend 950PR&Ascend 950DT系列产品</term>适配与场景支持：
+- <term>Ascend 950PR&950DT系列产品</term>适配与场景支持：
   - FusedInferAttentionScore算子的MLA模板非量化decode场景支持headNum<=128任意值泛化（[!9773](https://gitcode.com/cann/ops-transformer/pull/9773)）。
   - 新增MinimaxSparseAttention算子decode q gather kv（[!10628](https://gitcode.com/cann/ops-transformer/pull/10628)）。
   - MinimaxSparseAttention算子decode q gather kv支持FP8量化（[!11183](https://gitcode.com/cann/ops-transformer/pull/11183)）。
@@ -326,7 +326,7 @@ CANN 9.2.0-beta.2包含Toolkit包、算子包（ops）、加速库（NNAL）3个
 | ${install_path}/ascend-toolkit/latest/runtime/include/graph  | ${install_path}/cann/include/graph                         |
 | ${install_path}/ascend-toolkit/latest/compiler/python/func2graph | ${install_path}/cann/x86_64-linux/python目录下的func2graph |
 
-自Ascend 950 系列产品开始，aclblas和aclop接口不推荐使用，后续版本将逐步废弃，建议迁移至对应的aclnn算子接口。
+自Ascend 950PR&950DT系列产品开始，aclblas和aclop接口不推荐使用，后续版本将逐步废弃，建议迁移至对应的aclnn算子接口。
 
 ### 算子库
 
